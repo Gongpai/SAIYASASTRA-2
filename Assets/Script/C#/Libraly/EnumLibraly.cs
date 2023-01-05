@@ -24,3 +24,20 @@ public enum Fluorescent_Tube_SFX_Play
 {
     SFX1, SFX2, SFX3, SFX4, SFX5
 }
+
+//Ai_Findding
+public enum AiFindingMode
+{
+    FindingRandomLocation,
+    FindingRandomTarget
+}
+
+public enum AiGhost
+{
+    Hungry_ghost, //สัมภเวสี
+    Home_ghost, //เจ้าที่
+    Guard_ghost, //ผียาม + พนักงาน 
+    Kid_ghost, //กุมารทอง
+    Woman_ghost, //ผีหญิงสาวปริศนา
+    Soi_Ju_ghost //กระสือ
+}

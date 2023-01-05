@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2566384928816821411}
   - component: {fileID: 7517488106323643547}
   - component: {fileID: 4052909584336869741}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832307901654636119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FocusPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1832307902380989623}
   - component: {fileID: 1832307902380989624}
   - component: {fileID: 1832307902380989622}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &1832307902380989600
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -321,7 +321,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &1832307902380989625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832307902980895177}
   - component: {fileID: 1832307902980895176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 6247803146418205932}
   - component: {fileID: 1441997104669279437}
   - component: {fileID: 8434548898317510545}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Image R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 8608134337283983994}
   - component: {fileID: 5917410308646311258}
   - component: {fileID: 4852476092760380209}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: BGText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 5231617914181665502}
   - component: {fileID: 1863283430684651628}
   - component: {fileID: 3707297573602000002}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ MonoBehaviour:
     m_Bits: 4294967295
 --- !u!95 &1863283430684651628
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -855,7 +855,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &3707297573602000002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 5373322999182145489}
   - component: {fileID: 3174874584529686734}
   - component: {fileID: 5520505684084817494}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +957,7 @@ GameObject:
   - component: {fileID: 3551821606791263251}
   - component: {fileID: 3076403086186861424}
   - component: {fileID: 6299746662353202660}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Image L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
