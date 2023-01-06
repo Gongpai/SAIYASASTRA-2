@@ -21,6 +21,8 @@ public class Player_Movement : MonoBehaviour
 
     private Vector3 velocity, Pos;
 
+    public GameObject ObjectHide;
+
     private enum MovementModes
     {
         MoveHorizontally,
@@ -73,6 +75,8 @@ public class Player_Movement : MonoBehaviour
         {
             Debug.LogWarning("No player");
         }
+
+        GameInstance.Player = gameObject;
     }
 
     // Update is called once per frame
@@ -88,7 +92,6 @@ public class Player_Movement : MonoBehaviour
         {
             Vector3 movementVector = new Vector3(inputManager.horizontalMoveAxis, 0, inputManager.verticalMoveAxis);
             transform.position = transform.position + (movementVector * Time.deltaTime * moveSpeed);
-            ;
         }
 
         //â¤é´¡ÃÐâ´´

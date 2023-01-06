@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,8 +10,10 @@ public class Cupboard_Hide : MonoBehaviour
     [SerializeField] private GameObject Door;
     [SerializeField] private string InteractMessage;
     [SerializeField] private string HideMessage;
+
     private Animator animator;
 
+    public bool CharacterInside = false;
     private bool CharacterEnter = false;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,16 @@ public class Cupboard_Hide : MonoBehaviour
         animator = Door.GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        if (CharacterInside && CharacterEnter && GameInstance.CharacterHide == false && animator.GetBool("IsDoorClose?") && !GameInstance.Ghost.GetComponent<Ai_Movement>().IsSeeCharacter)
+        {
+                GameInstance.CharacterHide = true;
+                GameInstance.Player.GetComponent<Player_Movement>().ObjectHide = gameObject;
+        }
+    }
+
+    //â¤é´à»Ô´»ÃÐµÙ
     public void DoorOpen(InputAction.CallbackContext context)
     {
         if (context.action.triggered && CharacterEnter == true)
@@ -25,7 +38,23 @@ public class Cupboard_Hide : MonoBehaviour
             animator.SetBool("CharacterEnter?", !animator.GetBool("CharacterEnter?"));
             animator.SetBool("IsDoorOpen?", !animator.GetBool("IsDoorOpen?"));
             animator.SetBool("IsDoorClose?", !animator.GetBool("IsDoorClose?"));
-            GameInstance.CharacterHide = !GameInstance.CharacterHide;
+
+            if (CharacterInside && animator.GetBool("IsDoorClose?") == true && CharacterInside && animator.GetBool("IsDoorOpen?") == false && !GameInstance.Ghost.GetComponent<Ai_Movement>().IsSeeCharacter)
+            {
+                GameInstance.CharacterHide = true;
+                GameInstance.Player.GetComponent<Player_Movement>().ObjectHide = gameObject;
+            }
+            else
+            {
+                GameInstance.CharacterHide = false;
+                GameInstance.Player.GetComponent<Player_Movement>().ObjectHide = null;
+            }
+
+            if (!CharacterInside)
+                GameInstance.CharacterHide = false;
+
+            print(CharacterEnter + "  " + GameInstance.CharacterHide + "  " + CharacterInside);
+
             switch (GameInstance.CharacterHide)
             {
                 case true:
@@ -33,8 +62,6 @@ public class Cupboard_Hide : MonoBehaviour
                     break;
                 case false:
                     ShowMessage.showMessageEvent?.Invoke(InteractMessage);
-                    break;
-                default:
                     break;
             }
         }
@@ -62,6 +89,7 @@ public class Cupboard_Hide : MonoBehaviour
             animator.SetBool("IsDoorClose?", true);
             CharacterEnter = false;
             ShowMessage.hideMessageEvent?.Invoke();
+            GameInstance.CharacterHide = false;
         }
     }
 }

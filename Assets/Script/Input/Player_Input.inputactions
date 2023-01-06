@@ -301,6 +301,39 @@
                     "action": "Dialog_Control_Next",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2b55df4-f905-42e3-b472-cdd4d2d03fe9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialog_Control_Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f310e2b-e4b5-462b-be0c-a421fc8213f8",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialog_Control_Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ffbb8f2-a3b1-4bce-a733-d83a7b06778a",
+                    "path": "<Keyboard>/numpadEnter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialog_Control_Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

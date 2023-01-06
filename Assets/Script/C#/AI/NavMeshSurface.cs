@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace UnityEngine.AI
@@ -361,6 +362,7 @@ namespace UnityEngine.AI
         }
 
 #if UNITY_EDITOR
+        [Obsolete("Obsolete")]
         bool UnshareNavMeshAsset()
         {
             // Nothing to unshare
@@ -389,6 +391,7 @@ namespace UnityEngine.AI
             return false;
         }
 
+        [Obsolete("Obsolete")]
         void OnValidate()
         {
             if (UnshareNavMeshAsset())

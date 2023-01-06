@@ -8,8 +8,11 @@ using UnityEngine.InputSystem;
 public class Ai_Movement : MonoBehaviour
 {
     private InputManager inputManager;
-    private bool IsSeeCharacter;
+    public bool IsSeeCharacter;
+
     private GameObject Player;
+    public List<GameObject> hideGameObject;
+
     private Vector3 velocity, Pos;
     private Vector3[] distanceVector3 = new Vector3[2];
 
@@ -27,10 +30,17 @@ public class Ai_Movement : MonoBehaviour
         GetComponent<Animator>().enabled = false;
     }
 
+    void OnDestroy()
+    {
+        if(GameInstance.Ghost == gameObject)
+            GameInstance.Ghost = null;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         distanceVector3[0] = gameObject.transform.position;
+        GameInstance.Ghost = gameObject;
     }
 
     // Update is called once per frame
@@ -39,23 +49,9 @@ public class Ai_Movement : MonoBehaviour
         Ai_movement();
         
         distanceVector3[0] = gameObject.transform.position;
-    }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            IsSeeCharacter = true;
-            Player = other.gameObject;
-        }
-
-
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-            IsSeeCharacter = false;
+        DetectCharacter();
+        print("See    : " + IsSeeCharacter + " Location : " + (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 0) + (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= Screen.width));
     }
 
     void Ai_movement()
@@ -102,5 +98,18 @@ public class Ai_Movement : MonoBehaviour
         }
         //print("Dis X" + (distanceVector3[1].x - distanceVector3[0].x));
         //print("Dis Z" + (distanceVector3[1].z - distanceVector3[0].z));
+    }
+
+    void DetectCharacter()
+    {
+        if (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 0 && Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= Screen.width && !GameInstance.CharacterHide)
+        {
+            IsSeeCharacter = true;
+            Player = GameInstance.Player;
+        }
+        else
+        {
+            IsSeeCharacter = false;
+        }
     }
 }

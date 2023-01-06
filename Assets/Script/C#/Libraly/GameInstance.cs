@@ -14,6 +14,10 @@ public class GameInstance : MonoBehaviour
     {
         CharacterHide = false;
     }
-
+    
     public static bool CharacterHide = false;
+
+    public static GameObject Ghost;
+
+    public static GameObject Player;
 }
