@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mono.CompilerServices.SymbolWriter;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,6 +21,7 @@ public class Ai_Movement : MonoBehaviour
     void Awake()
     {
         Pos = transform.position;
+        Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
     }
     void OnEnable()
     {
@@ -28,12 +31,27 @@ public class Ai_Movement : MonoBehaviour
     void OnDisable()
     {
         GetComponent<Animator>().enabled = false;
+        
     }
 
     void OnDestroy()
     {
+        Game_State_Manager.Instance.OnGameStateChange -= OnGamestateChanged;
+
         if(GameInstance.Ghost == gameObject)
             GameInstance.Ghost = null;
+    }
+
+    private void OnGamestateChanged(GameState gameState)
+    {
+        Debug.LogWarning(gameState + "----------------------------------------------------");
+
+        gameObject.GetComponent<StateMachine>().enabled = gameState == GameState.Play;
+
+        if(gameState == GameState.Pause && gameObject.GetComponent<Variables>().declarations["IsRunFirstState"].Equals(true))
+            gameObject.GetComponent<Variables>().declarations.Set("IsSkipFirstState", true);
+
+        enabled = gameState == GameState.Play;
     }
 
     // Start is called before the first frame update
