@@ -1201,7 +1201,8 @@ GameObject:
   - component: {fileID: 1553722520638581130}
   - component: {fileID: 3630079188874812655}
   - component: {fileID: 7313282544532404518}
-  m_Layer: 0
+  - component: {fileID: 5579679375859245505}
+  m_Layer: 3
   m_Name: Quad L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1287,6 +1288,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &5579679375859245505
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395667745228460791}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7411960392095479988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,7 +1316,8 @@ GameObject:
   - component: {fileID: 9188639472884204982}
   - component: {fileID: 3428315928057096669}
   - component: {fileID: 8512002617017374415}
-  m_Layer: 0
+  - component: {fileID: 1280734534840302858}
+  m_Layer: 3
   m_Name: Quad L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,6 +1403,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1280734534840302858
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7411960392095479988}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7534500287179440963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,7 +1526,7 @@ GameObject:
   - component: {fileID: 3970164132590473655}
   m_Layer: 0
   m_Name: Character_Detact
-  m_TagString: Untagged
+  m_TagString: Character_Hide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1548,6 +1582,7 @@ MonoBehaviour:
   Door: {fileID: 4854583451988068174}
   InteractMessage: "[E] \u0E40\u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E39"
   HideMessage: "[E] \u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E39"
+  animator: {fileID: 0}
   CharacterInside: 0
 --- !u!114 &3970164132590473655
 MonoBehaviour:
@@ -1598,7 +1633,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1243590886309928481}
         m_TargetAssemblyTypeName: Cupboard_Hide, Assembly-CSharp
-        m_MethodName: DoorOpen
+        m_MethodName: TriggerOpenDoor
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67b84f9aa35eba4894614f15b13d6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathXML: Assets\Resources\Dialog\DialogText.xml
+  pathXML: Dialog/MainDialogText
   textName: {fileID: 2143378311478414357}
   textDialog: {fileID: 7984933946489564085}
   NextText: {fileID: 4772784021763555973}
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!95 &7964098048242132554
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -963,7 +963,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5142721560738618905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,7 +1407,7 @@ CanvasGroup:
   m_IgnoreParentGroups: 0
 --- !u!95 &8165817126859828566
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1424,7 +1424,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &3331420371890375569
 MonoBehaviour:
   m_ObjectHideFlags: 0

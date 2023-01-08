@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,7 +13,11 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private MovementModes movementMode = MovementModes.FreeRoam;
 
-    [SerializeField]private  GameObject Playerinput;
+    [SerializeField] private  GameObject Playerinput;
+
+    [SerializeField] public ShowMessage showMessage;
+
+    [SerializeField] public TextMeshProUGUI TextDebug;
 
     float moveSpeed = 0;
     private PlayerInput playerInput;

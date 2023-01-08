@@ -23,7 +23,7 @@ public class ShowMessage : MonoBehaviour
         hideMessageEvent = Hide_Message;
     }
 
-    private void Show_Message(string text)
+    public void Show_Message(string text)
     {
         print(text + " Test");
         this.GetComponent<Animator>().SetBool("IsShow?", true);

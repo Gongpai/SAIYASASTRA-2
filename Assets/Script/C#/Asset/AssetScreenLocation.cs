@@ -22,21 +22,26 @@ public class AssetScreenLocation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameInstance.CharacterHide)
+        if (GameInstance.Ghost != null)
         {
-            MaxSizeObj = objectSize.GetComponent<Renderer>().bounds.max;
-            ObjectPos = Camera.main.WorldToScreenPoint(transform.position);
-
-            if ((ObjectPos.x > -MaxSizeObj.x && ObjectPos.x < (Screen.width + MaxSizeObj.x)) && (GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject.FindIndex(i => i.gameObject == gameObject) < 0))
+            if (GameInstance.CharacterHide)
             {
-                GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject.Add(gameObject);
-                print(gameObject.name + " Pos in Screen is : " + ObjectPos + " hideGameObject : " + GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject.Count);
+                MaxSizeObj = objectSize.GetComponent<Renderer>().bounds.max;
+                ObjectPos = Camera.main.WorldToScreenPoint(transform.position);
+
+                if ((ObjectPos.x > -MaxSizeObj.x && ObjectPos.x < (Screen.width + MaxSizeObj.x)) && (GameInstance.Ghost
+                        .GetComponent<Ai_Movement>().hideGameObject.FindIndex(i => i.gameObject == gameObject) < 0))
+                {
+                    GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject.Add(gameObject);
+                    print(gameObject.name + " Pos in Screen is : " + ObjectPos + " hideGameObject : " +
+                          GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject.Count);
+                }
             }
-        }
-        else
-        {
-            if(GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject != null)
-                GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject.Clear();
+            else
+            {
+                if (GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject != null)
+                    GameInstance.Ghost.GetComponent<Ai_Movement>().hideGameObject.Clear();
+            }
         }
     }
 }

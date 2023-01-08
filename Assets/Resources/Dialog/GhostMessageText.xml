@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialog>
+  <Scene1>
+    <Line1>
+      <name>Ghost</name>
+      <text>ข้าได้ยินเสียงประตูมาจากตู้นี้</text>
+    </Line1>
+    <Line2>
+      <name>Ghost</name>
+      <text>ออกมาเถอะเดียวข้าจะช่วยเจ้าออกไปจากที่นี้เอง</text>
+    </Line2>
+    <Line3>
+      <name>Ghost</name>
+      <text>เจ้าอยู่ในตู้นี้ใช้ไหม...</text>
+    </Line3>
+    <Line4>
+      <name>Ghost</name>
+      <text>ข้าได้กลิ่นมนุษย์แถวนี้...</text>
+    </Line4>
+    <Line5>
+      <name>Ghost</name>
+      <text>เป็นถึง หมอย. อย่าเอาแต่หลบซ่อนจากข้า</text>
+    </Line5>
+  </Scene1>
+  <Scene2>
+    <Line1>
+      <name>Ghost</name>
+      <text>เจ้าหนีข้าไม่พ้นหรอก...</text>
+    </Line1>
+    <Line2>
+      <name>Ghost</name>
+      <text>อย่าแต่หนีสิ.. หมอย.</text>
+    </Line2>
+    <Line3>
+      <name>Ghost</name>
+      <text>ข้ากระหายเลือดเจ้ามากๆ</text>
+    </Line3>
+    <Line4>
+      <name>Ghost</name>
+      <text>อย่าให้ข้าได้เจอเจ้าอีก ไม่งั้นชีวิตเจ้าจะหาไม่แน่นอน</text>
+    </Line4>
+  </Scene2>
+</Dialog>

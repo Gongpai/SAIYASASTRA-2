@@ -12,7 +12,8 @@ public class Dialog_Manager : MonoBehaviour
 {
     public static string Dialog_Text(int SceneNum ,int LineNum, SelectDialog selectDialog, string pathxml)
     {
-        TextAsset textAsset = Resources.Load<TextAsset>("Dialog/DialogText");
+        print(pathxml);
+        TextAsset textAsset = Resources.Load<TextAsset>(pathxml);
         var Xdoc = XDocument.Parse(textAsset.text);
         var DialogOutput = Xdoc.Element("Dialog");
 
@@ -35,7 +36,7 @@ public class Dialog_Manager : MonoBehaviour
 
     public static int NumAllDialog(int SceneNum, string pathxml)
     {
-        TextAsset textAsset = Resources.Load<TextAsset>("Dialog/DialogText");
+        TextAsset textAsset = Resources.Load<TextAsset>(pathxml);
         var Xdoc = XDocument.Parse(textAsset.text);
         var AllDialog = Xdoc.Element("Dialog").Elements("Scene" + SceneNum);
         string[] arrayDialog = AllDialog.ElementAt(0).ToString().Split("<name>");

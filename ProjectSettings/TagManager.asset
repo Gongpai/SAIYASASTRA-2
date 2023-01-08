@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ghost
+  - Character_Hide
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Door
   - Water
   - UI
   - 

@@ -15,11 +15,13 @@ public class Character_Hide : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        cupboardHide.CharacterInside = true;
+        if(other.gameObject.tag == "Player")
+            cupboardHide.CharacterInside = true;
     }
 
     void OnTriggerExit(Collider other)
     {
-        cupboardHide.CharacterInside = false;
+        if(other.gameObject.tag == "Player")
+            cupboardHide.CharacterInside = false;
     }
 }
