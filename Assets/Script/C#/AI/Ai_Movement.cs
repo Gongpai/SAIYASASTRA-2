@@ -47,8 +47,9 @@ public class Ai_Movement : MonoBehaviour
         Debug.LogWarning(gameState + "----------------------------------------------------");
 
         gameObject.GetComponent<StateMachine>().enabled = gameState == GameState.Play;
+        gameObject.GetComponent<NavMeshAgent>().isStopped = gameState == GameState.Pause;
 
-        if(gameState == GameState.Pause && gameObject.GetComponent<Variables>().declarations["IsRunFirstState"].Equals(true))
+        if (gameState == GameState.Pause && gameObject.GetComponent<Variables>().declarations["IsRunFirstState"].Equals(true))
             gameObject.GetComponent<Variables>().declarations.Set("IsSkipFirstState", true);
 
         enabled = gameState == GameState.Play;
@@ -69,7 +70,7 @@ public class Ai_Movement : MonoBehaviour
         distanceVector3[0] = gameObject.transform.position;
 
         DetectCharacter();
-        print("See    : " + IsSeeCharacter + " Location : " + (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 0) + (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= Screen.width));
+        //print("See    : " + IsSeeCharacter + " Location : " + (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 0) + (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= Screen.width));
     }
 
     void Ai_movement()

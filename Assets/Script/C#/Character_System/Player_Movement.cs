@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Player_Movement : MonoBehaviour
 {
+    [Header("Setting")]
     [SerializeField] private float WalkSpeed = 1;
 
     [SerializeField] private float RunSpeed = 3;
@@ -19,8 +20,9 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] public TextMeshProUGUI TextDebug;
 
+    [Header("NotSet")]
     float moveSpeed = 0;
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
     private InputAction JumpAction, RunAction;
     private InputManager inputManager;
 

@@ -150,4 +150,12 @@ public class InputManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         pausePressed = false;
     }
+
+    [Header("Scroll Select")] 
+    [SerializeField] private float Invert_Scroll_Axis = 1.0f;
+    public float AxisScroll;
+    public void Scroll_Select(InputAction.CallbackContext context)
+    {
+        AxisScroll = Invert_Scroll_Axis * context.ReadValue<float>();
+    }
 }

@@ -18,6 +18,6 @@ public class FocusCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _postProcessVolume.profile.GetSetting<DepthOfField>().focusDistance.value = Vector3.Distance(FocusPoint.transform.position, gameObject.transform.position) + 2.5f;
+        _postProcessVolume.profile.GetSetting<DepthOfField>().focusDistance.value = Vector3.Distance(FocusPoint.transform.position, gameObject.transform.position) + 1.5f;
     }
 }
