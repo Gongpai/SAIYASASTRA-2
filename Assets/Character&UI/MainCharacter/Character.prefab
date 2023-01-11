@@ -357,6 +357,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   List_Item: {fileID: 2186220824539567460}
+  Element: []
+  gameInstance: {fileID: 0}
+  List_Grid: {fileID: 179582213672318303}
+  List_Grid_Element: {fileID: 4067077364150870872, guid: 0454b3e792d3d754cbb4c6d5c0acb498, type: 3}
 --- !u!136 &1832307902380989623
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1357,6 +1361,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afefacff96f16064ca0bca0a2b879d61, type: 3}
+--- !u!1 &179582213672318303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3632596297017092883, guid: afefacff96f16064ca0bca0a2b879d61, type: 3}
+  m_PrefabInstance: {fileID: 3465398999697120844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &795888763459057855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4259282210437424883, guid: afefacff96f16064ca0bca0a2b879d61, type: 3}

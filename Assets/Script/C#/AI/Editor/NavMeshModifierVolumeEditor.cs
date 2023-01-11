@@ -2,7 +2,7 @@ using UnityEditor.IMGUI.Controls;
 using UnityEditorInternal;
 using UnityEngine.AI;
 using UnityEngine;
-
+/**
 namespace UnityEditor.AI
 {
     [CanEditMultipleObjects]
@@ -144,3 +144,4 @@ namespace UnityEditor.AI
         }
     }
 }
+**/

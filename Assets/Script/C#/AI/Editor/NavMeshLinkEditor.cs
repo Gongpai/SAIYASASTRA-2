@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-
+/**
 namespace UnityEditor.AI
 {
     [CanEditMultipleObjects]
@@ -277,3 +277,4 @@ namespace UnityEditor.AI
         }
     }
 }
+**/
