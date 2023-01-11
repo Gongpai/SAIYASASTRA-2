@@ -47,6 +47,21 @@ public class Use_Item_System : MonoBehaviour
         Select_Item();
     }
 
+    void Awake()
+    {
+        Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
+    }
+
+    void OnDestroy()
+    {
+        Game_State_Manager.Instance.OnGameStateChange -= OnGamestateChanged;
+    }
+
+    private void OnGamestateChanged(GameState gameState)
+    {
+        enabled = gameState == GameState.Play;
+    }
+
     public void Select_Item()
     {
         if (inputManager.AxisScroll > 0)
