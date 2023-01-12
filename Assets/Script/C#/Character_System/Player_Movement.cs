@@ -20,10 +20,12 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] public TextMeshProUGUI TextDebug;
 
+    [SerializeField] private GameObject Essential_Menu;
+
     [Header("NotSet")]
     float moveSpeed = 0;
     public PlayerInput playerInput;
-    private InputAction JumpAction, RunAction;
+    private InputAction JumpAction, RunAction, InventoryAction;
     private InputManager inputManager;
 
     private Vector3 velocity, Pos;
@@ -43,6 +45,7 @@ public class Player_Movement : MonoBehaviour
         playerInput = Playerinput.GetComponent<PlayerInput>();
         JumpAction = playerInput.actions["Jump"];
         RunAction = playerInput.actions["Run"];
+        InventoryAction = playerInput.actions["Inventory"];
         Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
     }
 
@@ -55,6 +58,7 @@ public class Player_Movement : MonoBehaviour
     {
         JumpAction.Enable();
         RunAction.Enable();
+        InventoryAction.Enable();
         GetComponent<Animator>().enabled = true;
     }
 
@@ -62,6 +66,7 @@ public class Player_Movement : MonoBehaviour
     {
         JumpAction.Disable();
         RunAction.Disable();
+        InventoryAction.Disable();
         GetComponent<Animator>().enabled = false;
     }
 
@@ -90,6 +95,8 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
         Character_movement();
+
+        Ui_Control();
     }
 
     void Character_movement()
@@ -139,5 +146,13 @@ public class Player_Movement : MonoBehaviour
             this.GetComponent<Animator>().SetBool("IsWalkForward", false);
         else if (inputManager.verticalMoveAxis > 0)
             this.GetComponent<Animator>().SetBool("IsWalkForward", true);
+    }
+
+    void Ui_Control()
+    {
+        if (InventoryAction.IsPressed() == true)
+        {
+            Essential_Menu.active = true;
+        }
     }
 }

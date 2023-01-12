@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ghost
   - Character_Hide
+  - GameInstance
+  - Button_Essential
   layers:
   - Default
   - TransparentFX

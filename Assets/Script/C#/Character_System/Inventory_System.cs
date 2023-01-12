@@ -7,18 +7,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Inventoly_System : MonoBehaviour
+public class Inventory_System : MonoBehaviour
 {
     [SerializeField] private GameObject List_Item;
     [SerializeField] private List<GameObject> Element;
-    [SerializeField] private GameObject gameInstance;
     [SerializeField] private GameObject List_Grid;
     [SerializeField] private GameObject List_Grid_Element;
 
+    private GameObject gameInstance;
     private InputManager inputManager;
     private int SelectNum  = 0, maxSelect, Old_Select = 0;
-    private List<Structs_Libraly.Item_Data> inventoryData = new List<Structs_Libraly.Item_Data>();
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +31,12 @@ public class Inventoly_System : MonoBehaviour
             Debug.LogWarning("No player");
         }
 
-        inventoryData.Add(gameInstance.GetComponent<Item_List_Data>().itemDatas[0]);
-        inventoryData.Add(gameInstance.GetComponent<Item_List_Data>().itemDatas[1]);
-        inventoryData.Add(gameInstance.GetComponent<Item_List_Data>().itemDatas[2]);
-        inventoryData.Add(gameInstance.GetComponent<Item_List_Data>().itemDatas[2]);
+        gameInstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
+
+        GameInstance.ShowItemElementData.Add(gameInstance.GetComponent<Item_List_Data>().itemDatas[2]);
+        GameInstance.ShowItemElementData.Add(gameInstance.GetComponent<Item_List_Data>().itemDatas[2]);
+        GameInstance.ShowItemElementData.Add(gameInstance.GetComponent<Item_List_Data>().itemDatas[2]);
+        GameInstance.ShowItemElementData.Add(gameInstance.GetComponent<Item_List_Data>().itemDatas[2]);
 
         Set_Item_Element();
 
@@ -77,16 +78,34 @@ public class Inventoly_System : MonoBehaviour
         }
     }
 
-    //√–∫∫‡´µ‰Õ‡∑¡
+    //√–∫∫‡´µ‰Õ‡∑¡ Õ—ππ’È‡∑»√–∫∫‡©¬Ê
     private void Set_Item_Element()
     {
-        foreach (Structs_Libraly.Item_Data Item in inventoryData)
+        foreach (Structs_Libraly.Item_Data Item in GameInstance.ShowItemElementData)
         {
             GameObject element_Item = List_Grid_Element;
             element_Item.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(Item.Name);
             element_Item.transform.GetChild(4).GetComponent<Image>().sprite = Item.itemSprite;
             element_Item.transform.GetChild(4).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(Item.Number.ToString());
             Instantiate(element_Item, List_Grid.transform);
+        }
+    }
+
+    public void Add_Item_Element(Structs_Libraly.Item_Data Item)
+    {
+        int i = 0;
+        foreach (Structs_Libraly.Item_Data itemData in GameInstance.inventoryData)
+        {
+            if (itemData.Name == Item.Name)
+            {
+                GameInstance.inventoryData[i] = new Structs_Libraly.Item_Data(GameInstance.inventoryData[i].Name, GameInstance.inventoryData[i].Number + Item.Number, GameInstance.inventoryData[i].itemSprite);
+            }
+            else
+            {
+                GameInstance.inventoryData.Add(Item);
+            }
+
+            i++;
         }
     }
 

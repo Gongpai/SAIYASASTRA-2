@@ -726,6 +726,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0e359183-f4c4-4503-b74b-7463acb5a2c4
     m_ActionName: Interact/Use1[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b7b4a16d-a37e-4a8d-8d08-b479a490e35d
+    m_ActionName: Player/Select_Item[/Mouse/scroll/up,/Mouse/scroll/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 93af7ad8-077c-4ecc-8a5f-f175175653a4
+    m_ActionName: Player/Use_Item[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a90a4e57-80b7-42e0-b400-c2e61be42193
+    m_ActionName: Player/Aim[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Dialog
@@ -1281,7 +1293,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7932802812205239551}
   m_HandleRect: {fileID: 5216070256693128070}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

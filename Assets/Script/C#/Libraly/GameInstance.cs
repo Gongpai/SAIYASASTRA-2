@@ -20,4 +20,6 @@ public class GameInstance : MonoBehaviour
     public static GameObject Ghost;
 
     public static GameObject Player;
+    public static List<Structs_Libraly.Item_Data> inventoryData = new List<Structs_Libraly.Item_Data>();
+    public static List<Structs_Libraly.Item_Data> ShowItemElementData = new List<Structs_Libraly.Item_Data>();
 }

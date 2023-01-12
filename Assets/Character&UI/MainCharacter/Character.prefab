@@ -218,10 +218,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832307902380989630}
+  - component: {fileID: 7886004344616388791}
+  - component: {fileID: 1832307902380989625}
   - component: {fileID: 1832307902380989631}
   - component: {fileID: 1832307902380989600}
-  - component: {fileID: 1832307902380989625}
-  - component: {fileID: 7886004344616388791}
   - component: {fileID: 1832307902380989623}
   - component: {fileID: 1832307902380989624}
   - component: {fileID: 1832307902380989622}
@@ -252,6 +252,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7886004344616388791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832307902380989601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145d3adffcc96f74788de919995178c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  List_Item: {fileID: 2186220824539567460}
+  Element: []
+  List_Grid: {fileID: 179582213672318303}
+  List_Grid_Element: {fileID: 4067077364150870872, guid: 0454b3e792d3d754cbb4c6d5c0acb498, type: 3}
+--- !u!114 &1832307902380989625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832307902380989601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1623d1f08640e05478b57f2d32dab0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkSpeed: 1
+  RunSpeed: 3
+  movementMode: 2
+  Playerinput: {fileID: 0}
+  showMessage: {fileID: 3707297573602000002}
+  TextDebug: {fileID: 2069285132922071167}
+  playerInput: {fileID: 0}
+  ObjectHide: {fileID: 0}
 --- !u!212 &1832307902380989631
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -324,43 +360,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1832307902380989625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832307902380989601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1623d1f08640e05478b57f2d32dab0e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WalkSpeed: 1
-  RunSpeed: 3
-  movementMode: 2
-  Playerinput: {fileID: 0}
-  showMessage: {fileID: 3707297573602000002}
-  TextDebug: {fileID: 2069285132922071167}
-  playerInput: {fileID: 0}
-  ObjectHide: {fileID: 0}
---- !u!114 &7886004344616388791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832307902380989601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 145d3adffcc96f74788de919995178c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  List_Item: {fileID: 2186220824539567460}
-  Element: []
-  gameInstance: {fileID: 0}
-  List_Grid: {fileID: 179582213672318303}
-  List_Grid_Element: {fileID: 4067077364150870872, guid: 0454b3e792d3d754cbb4c6d5c0acb498, type: 3}
 --- !u!136 &1832307902380989623
 CapsuleCollider:
   m_ObjectHideFlags: 0
