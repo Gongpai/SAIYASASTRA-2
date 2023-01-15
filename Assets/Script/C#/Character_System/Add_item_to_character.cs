@@ -22,6 +22,7 @@ public class Add_item_to_character : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Inventory_System>().Add_Item_Element(itemData);
+            Destroy(this.gameObject);
         }
     }
 }

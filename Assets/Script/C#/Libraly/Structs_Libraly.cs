@@ -10,12 +10,18 @@ public class Structs_Libraly : MonoBehaviour
         public string Name;
         public int Number;
         public Sprite itemSprite;
+        public bool IsEquip;
+        public int Index;
+        public GameObject Owner;
 
-        public Item_Data(string name, int number, Sprite sprite)
+        public Item_Data(string name, int number, Sprite sprite, bool isequip, int index, GameObject owner)
         {
             this.Name = name;
             this.Number = number;
             this.itemSprite = sprite;
+            this.IsEquip = isequip;
+            this.Index = index;
+            this.Owner = owner;
         }
     }
 }

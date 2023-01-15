@@ -152,6 +152,8 @@ public class Player_Movement : MonoBehaviour
     {
         if (InventoryAction.IsPressed() == true)
         {
+            gameObject.GetComponent<Inventory_System>().Set_Inventory_Element();
+            gameObject.GetComponent<Inventory_System>().Set_Item_Element();
             Essential_Menu.active = true;
         }
     }

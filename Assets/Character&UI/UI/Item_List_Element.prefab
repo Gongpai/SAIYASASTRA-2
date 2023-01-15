@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -5}
+  m_AnchoredPosition: {x: -10, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &2528156430936679088
@@ -70,8 +70,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 37f419fbb65e37c4a8a1ce1fefacb51a, type: 2}
-  m_sharedMaterial: {fileID: 3070774174269147213, guid: 37f419fbb65e37c4a8a1ce1fefacb51a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0974229c6c0d4d4099362ae7c75bf22, type: 2}
+  m_sharedMaterial: {fileID: 2581616897516388593, guid: c0974229c6c0d4d4099362ae7c75bf22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -95,13 +95,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -174,7 +174,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 65}
+  m_SizeDelta: {x: 250, y: 40}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3415093083633696810
 CanvasRenderer:
@@ -206,8 +206,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: null
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 37f419fbb65e37c4a8a1ce1fefacb51a, type: 2}
-  m_sharedMaterial: {fileID: 3070774174269147213, guid: 37f419fbb65e37c4a8a1ce1fefacb51a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0974229c6c0d4d4099362ae7c75bf22, type: 2}
+  m_sharedMaterial: {fileID: 2581616897516388593, guid: c0974229c6c0d4d4099362ae7c75bf22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -231,15 +231,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -408,7 +408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8078343588712260514}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5403538051050657186}
+        m_TargetAssemblyTypeName: Eqip_Item_System, Assembly-CSharp
+        m_MethodName: Eqip_Item
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4067077364150870872
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1954177926229671675}
+  - component: {fileID: 5403538051050657186}
   - component: {fileID: 2361794046123494800}
   - component: {fileID: 3733469262010895296}
   m_Layer: 5
@@ -449,6 +462,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5403538051050657186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067077364150870872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 986b4b19cd24c114b96891adac16ec1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    Name: 
+    Number: 0
+    itemSprite: {fileID: 0}
+    IsEquip: 0
+    Index: 0
+    Owner: {fileID: 0}
+  IndexInventory: 0
 --- !u!95 &2361794046123494800
 Animator:
   serializedVersion: 5

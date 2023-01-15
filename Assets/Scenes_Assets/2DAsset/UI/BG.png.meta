@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 736461b80ba24474e9adc09b317fb4df
+guid: c97ae313a8ffeb640b29795b3dd92586
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,29 +101,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SliderBar_0
+      name: BG_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
-        height: 80
+        width: 2748
+        height: 2112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 124c6a8c505d6e640aa03d0d6e4b6064
-      internalID: -1938806162
+      spriteID: 9b8c99852d2d2f74292362b40f474e4b
+      internalID: -1713190027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SliderBar_1
+      name: BG_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 2748
         y: 0
-        width: 20
-        height: 20
+        width: 2745
+        height: 2112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,134 +140,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb3228f3b21bbcc41ae1cf2cfb80b61c
-      internalID: 1928452894
+      spriteID: 7c430f7e2a1709249838573ce011a88a
+      internalID: 1981453042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SliderBar_2
+      name: BG_2
       rect:
         serializedVersion: 2
-        x: 20
-        y: 20
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44a5750365e9eab40863bb97d3da8b76
-      internalID: -470037041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SliderBar_3
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 5493
         y: 0
-        width: 3
-        height: 80
+        width: 2751
+        height: 2112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 755939cb7ac838a4d90c7baf9b141c65
-      internalID: 929606004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SliderBar_4
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 60
-        width: 78
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 861e5523086a83e43a0b680264135a3e
-      internalID: -1260831543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SliderBar_5
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 40
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ac9fc07e1b3a3f4fa7f5e794c17de61
-      internalID: 236073851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SliderBar_6
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 40
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6a31db704110814e898b646c67cef29
-      internalID: 1721078396
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SliderBar_7
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 60
-        width: 80
-        height: 3
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 805ef510b35d24249871eb0d056eb738
-      internalID: -1270004362
+      spriteID: cf32271e883c6b54cba604b594d32758
+      internalID: 1645320801
       vertices: []
       indices: 
       edges: []
@@ -287,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3a73f68e82d7d2a4f97139226563bca3
+    spriteID: 7204430861696644a8258b4f02b16a2f
     internalID: 0
     vertices: []
     indices: 
@@ -295,14 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SliderBar_3: 929606004
-      SliderBar_4: -1260831543
-      SliderBar_6: 1721078396
-      SliderBar_1: 1928452894
-      SliderBar_0: -1938806162
-      SliderBar_5: 236073851
-      SliderBar_7: -1270004362
-      SliderBar_2: -470037041
+      BG_2: 1645320801
+      BG_1: 1981453042
+      BG_0: -1713190027
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

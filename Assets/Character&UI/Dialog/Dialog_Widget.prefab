@@ -290,8 +290,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 428706ae7ea677d4ab09aa9567246b4e, type: 2}
-  m_sharedMaterial: {fileID: 3070774174269147213, guid: 428706ae7ea677d4ab09aa9567246b4e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3258b96723774c9419e897b64b218b0a, type: 2}
+  m_sharedMaterial: {fileID: -1342789362866444344, guid: 3258b96723774c9419e897b64b218b0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -315,13 +315,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -427,8 +427,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dialog System
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 428706ae7ea677d4ab09aa9567246b4e, type: 2}
-  m_sharedMaterial: {fileID: 3070774174269147213, guid: 428706ae7ea677d4ab09aa9567246b4e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0974229c6c0d4d4099362ae7c75bf22, type: 2}
+  m_sharedMaterial: {fileID: 2581616897516388593, guid: c0974229c6c0d4d4099362ae7c75bf22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -452,8 +452,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 10
@@ -738,6 +738,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a90a4e57-80b7-42e0-b400-c2e61be42193
     m_ActionName: Player/Aim[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 82697c36-c6fc-403f-a4dd-766a55101b38
+    m_ActionName: Player/Inventory[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e5273aed-55ee-4d28-9454-3651e0c58021
+    m_ActionName: Player/Note[/Keyboard/n]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 806928a0-fcfd-49be-a2d0-ec362db0a5d9
+    m_ActionName: Player/Setting[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Dialog
@@ -1293,7 +1305,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7932802812205239551}
   m_HandleRect: {fileID: 5216070256693128070}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

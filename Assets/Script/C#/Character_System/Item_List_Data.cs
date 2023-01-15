@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -12,5 +13,10 @@ public class Item_List_Data : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Update()
+    {
+        
     }
 }
