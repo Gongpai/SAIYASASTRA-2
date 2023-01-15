@@ -1,5 +1,6 @@
 # SAIYASASTRA_2
-# Horror Game
+**Horror Game**
 
+--------------------------
 **Control**
 - Button [ i ] : Open Inventory Menu
