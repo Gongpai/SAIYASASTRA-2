@@ -7,22 +7,25 @@ using UnityEngine.UI;
 
 public class Button_Animation_Control : MonoBehaviour
 {
-    [SerializeField] private bool IsActive = false;
+    [SerializeField] public bool IsActive;
     [SerializeField] private Button button;
+    [SerializeField] private GameObject Page;
 
     private bool IsButActive;
     private Animator _animator;
     // Start is called before the first frame update
     void Start()
     {
-        _animator = gameObject.GetComponent<Animator>();
-
         if (IsActive)
         {
             _animator.SetBool("Is_Play?", true);
             button.Select();
         }
+    }
 
+    void Awake()
+    {
+        _animator = gameObject.GetComponent<Animator>();
         IsButActive = IsActive;
     }
 
@@ -50,12 +53,15 @@ public class Button_Animation_Control : MonoBehaviour
 
     public void ButtonClick()
     {
+        Page.SetActive(true);
+
         foreach (GameObject button_select in GameObject.FindGameObjectsWithTag("Button_Essential"))
         {
             Button_Animation_Control _buttonAnimationControl = button_select.GetComponent<Button_Animation_Control>();
             if (_buttonAnimationControl.IsButActive && (_buttonAnimationControl != this))
             {
                 button_select.GetComponent<Button_Animation_Control>().De_Select();
+                button_select.GetComponent<Button_Animation_Control>().Page.SetActive(false);
             }
         }
 

@@ -32,6 +32,7 @@ public enum AiFindingMode
     FindingRandomTarget
 }
 
+//ชนิดผีต่างๆ
 public enum AiGhost
 {
     Hungry_ghost, //สัมภเวสี
@@ -40,4 +41,12 @@ public enum AiGhost
     Kid_ghost, //กุมารทอง
     Woman_ghost, //ผีหญิงสาวปริศนา
     Soi_Ju_ghost //กระสือ
+}
+
+//ระบบไอเทม
+public enum Use_Item_System
+{
+    Use_Self,
+    Use_Other,
+    Shoot_Projectile
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Add_item_to_character : MonoBehaviour
 {
     [SerializeField] private int ItemIndex = 0;
+    [SerializeField] public bool IsSpawn = false;
 
     private Structs_Libraly.Item_Data itemData;
 
@@ -19,7 +20,7 @@ public class Add_item_to_character : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !IsSpawn)
         {
             other.gameObject.GetComponent<Inventory_System>().Add_Item_Element(itemData);
             Destroy(this.gameObject);

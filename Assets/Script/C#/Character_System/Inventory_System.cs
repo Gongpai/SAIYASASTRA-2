@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Security.Claims;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,10 +19,14 @@ public class Inventory_System : MonoBehaviour
     [SerializeField] private GameObject List_Grid_Element;
     [SerializeField] private GameObject Inventory;
     [SerializeField] private GameObject Inventory_Element;
+    [SerializeField] public GameObject Arrow_Aim;
 
     private GameObject gameInstance;
     private InputManager inputManager;
+    public bool IsAim = false;
     private int SelectNum  = 0, maxSelect, Old_Select = 0;
+    private Camera cameraMian;
+    private Quaternion lookat;
     private List<GameObject> inventory_Element_list = new List<GameObject>();
     private List<GameObject> Equip_Element_list = new List<GameObject>();
     private List<GameObject> Equip_System = new List<GameObject>();
@@ -49,10 +55,13 @@ public class Inventory_System : MonoBehaviour
     void Update()
     {
         Select_Item();
+
+        ArrowAim();
     }
 
     void Awake()
     {
+        cameraMian = Camera.main;
         Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
     }
 
@@ -80,10 +89,27 @@ public class Inventory_System : MonoBehaviour
         }
     }
 
+    public void ResetIndex(int index, int re_index)
+    {
+        GameInstance.ShowItemElementData[index] = new Structs_Libraly.Item_Data
+        (
+            GameInstance.ShowItemElementData[index].Name,
+            GameInstance.ShowItemElementData[index].Number,
+            GameInstance.ShowItemElementData[index].itemSprite,
+            GameInstance.ShowItemElementData[index].IsEquip,
+            re_index,
+            GameInstance.ShowItemElementData[index].ItemPrefeb,
+            GameInstance.ShowItemElementData[index].useItemMode
+        );
+
+        Equip_Element_list[index].GetComponent<Equip_Item_List_System>().IndexEquip = re_index;
+    }
+
     //ÃÐººà«µäÍà·Á
     public void Set_Item_Element()
     {
         int i = 0;
+        IsAim = false;
 
         GameObject List_Grid_Item;
         List_Grid_Item = Inventory.transform.GetChild(0).GetChild(0).gameObject;
@@ -108,7 +134,7 @@ public class Inventory_System : MonoBehaviour
             element_Item.transform.GetChild(3).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(Item.Name);
             element_Item.transform.GetChild(4).GetComponent<Image>().sprite = Item.itemSprite;
             element_Item.transform.GetChild(4).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(Item.Number.ToString());
-
+            
             GameInstance.inventoryData[Item.Index] = new Structs_Libraly.Item_Data
             (
                 GameInstance.inventoryData[Item.Index].Name,
@@ -116,14 +142,12 @@ public class Inventory_System : MonoBehaviour
                 GameInstance.inventoryData[Item.Index].itemSprite,
                 GameInstance.inventoryData[Item.Index].IsEquip,
                 i,
-                GameInstance.inventoryData[Item.Index].Owner
+                GameInstance.inventoryData[Item.Index].ItemPrefeb,
+                GameInstance.inventoryData[Item.Index].useItemMode
             );
 
             item_Inventory_list = Instantiate(element_Item, List_Grid.transform);
-            Instantiate(item_Inventory_list);
 
-            print("Item Name : " + Item.Name);
-            
             Equip_Element_list.Add(item_Inventory_list);
 
             i++;
@@ -147,6 +171,8 @@ public class Inventory_System : MonoBehaviour
             }
         }
         
+        inventory_Element_list.Clear();
+
         foreach (Structs_Libraly.Item_Data item in GameInstance.inventoryData)
         {
             GameObject item_Inventory = Inventory_Element;
@@ -155,31 +181,36 @@ public class Inventory_System : MonoBehaviour
             item_Inventory.GetComponent<Eqip_Item_System>().itemData = item;
             item_Inventory.GetComponent<Eqip_Item_System>().IndexInventory = i;
             item_Inventory.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().SetText(item.Name);
-            item_Inventory.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().SetText(item.Number.ToString());
+            item_Inventory.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>()
+                .SetText(item.Number.ToString());
             item_Inventory.transform.GetChild(1).GetChild(2).GetComponent<Image>().sprite = item.itemSprite;
 
-
-
             item_Inventory_list = Instantiate(item_Inventory, List_Grid_Item.transform);
-            Instantiate(item_Inventory_list);
 
             inventory_Element_list.Add(item_Inventory_list);
             Equip_System.Add(item_Inventory_list);
             //print("Workkkkkkkkkkkkkkkkkk-------------------------------------------");
 
+
+
             i++;
         }
-        
     }
 
-    public void Add_Item_Equip(Structs_Libraly.Item_Data Item, GameObject Owner = null)
+    public void Add_Item_Equip(Structs_Libraly.Item_Data Item = default, GameObject Owner = null)
     {
-        GameInstance.ShowItemElementData.Add(Item);
+        if (GameInstance.ShowItemElementData.Count < 4)
+        {
+            GameInstance.ShowItemElementData.Add(Item);
 
-        if(Owner != null)
-            Equip_System.Add(Owner);
+            if (Owner != null)
+                Equip_System.Add(Owner);
 
-        Set_Item_Element();
+            Set_Item_Element();
+
+            SelectNum = 0;
+            Old_Select = 0;
+        }
     }
 
     public void Add_Item_Element(Structs_Libraly.Item_Data Item)
@@ -211,7 +242,8 @@ public class Inventory_System : MonoBehaviour
                     GameInstance.inventoryData[i].itemSprite, 
                     GameInstance.inventoryData[i].IsEquip, 
                     GameInstance.inventoryData[i].Index,
-                    GameInstance.inventoryData[i].Owner
+                    GameInstance.inventoryData[i].ItemPrefeb,
+                    GameInstance.inventoryData[i].useItemMode
                 );
         }
         else
@@ -233,7 +265,7 @@ public class Inventory_System : MonoBehaviour
     private void Get_Item_Element()
     {
         maxSelect = Equip_Element_list.Count - 1;
-        //print("Max Select : " + maxSelect);
+        print("Max Select : " + maxSelect);
 
         if(GameInstance.ShowItemElementData.Count > 0)
             Equip_Element_list[0].GetComponent<Animator>().SetBool("Is_Play?", true);
@@ -254,6 +286,7 @@ public class Inventory_System : MonoBehaviour
                 SelectNum = maxSelect;
             }
 
+            IsAim = false;
             //print("Select is : " + SelectNum);
             Equip_Element_list[SelectNum].GetComponent<Animator>().SetBool("Is_Play?", true);
 
@@ -269,6 +302,108 @@ public class Inventory_System : MonoBehaviour
         {
             SelectNum = 0;
             Old_Select = 0;
+        }
+    }
+
+    private void ArrowAim()
+    {
+        if (IsAim)
+        {
+            Quaternion ArrowRot = Quaternion.Euler(0, 0, FuntionLibraly.Get2DLookAt(Arrow_Aim.transform.position, new Vector2(inputManager.horizontalLookAxis, inputManager.verticalLookAxis)) - 90);
+
+            if (ArrowRot.w > 0.45f || ArrowRot.w < -0.45f)
+            {
+                lookat = ArrowRot;
+                Arrow_Aim.transform.rotation = lookat;
+                
+            }
+            //print("Rotation : " + ArrowRot + " --------------------");
+        }
+
+
+        Arrow_Aim.SetActive(IsAim);
+    }
+
+    public void Aim(bool is_Aim)
+    {
+        if (GameInstance.ShowItemElementData.Count > 0)
+        {
+            Structs_Libraly.Item_Data itemData = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData;
+            if (itemData.useItemMode == Use_Item_System.Shoot_Projectile)
+            {
+                IsAim = is_Aim;
+            }
+
+        }
+    }
+
+    public void Use_Item_Equip()
+    {
+        if (GameInstance.ShowItemElementData.Count > 0)
+        {
+            Structs_Libraly.Item_Data itemData =
+                Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData;
+            if (itemData.useItemMode != Use_Item_System.Shoot_Projectile)
+                gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim);
+        }
+    }
+
+    public void Shoot_Item()
+    {
+        if (GameInstance.ShowItemElementData.Count > 0)
+        {
+            Structs_Libraly.Item_Data itemData = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData;
+            if (itemData.useItemMode == Use_Item_System.Shoot_Projectile && IsAim)
+            {
+                Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObject.transform.position.z);
+                float force = Vector3.Distance(gameObject.transform.position, mousePos);
+                gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim, lookat);
+
+                if (GameInstance.inventoryData[itemData.Index].Number > 0)
+                {
+                    GameInstance.inventoryData[itemData.Index] = new Item_Data
+                    (
+                        GameInstance.inventoryData[itemData.Index].Name,
+                        GameInstance.inventoryData[itemData.Index].Number - 1,
+                        GameInstance.inventoryData[itemData.Index].itemSprite,
+                        GameInstance.inventoryData[itemData.Index].IsEquip,
+                        GameInstance.inventoryData[itemData.Index].Index,
+                        GameInstance.inventoryData[itemData.Index].ItemPrefeb,
+                        GameInstance.inventoryData[itemData.Index].useItemMode
+                    );
+
+                    GameInstance.ShowItemElementData[SelectNum] = GameInstance.inventoryData[itemData.Index];
+                }
+                
+                if(GameInstance.inventoryData[itemData.Index].Number == 0)
+                {
+                    IsAim = false;
+
+                    Equip_Element_list[Old_Select].GetComponent<Animator>().SetBool("Is_Play?", false);
+                    Destroy(Equip_Element_list[SelectNum]);
+                    Equip_Element_list.RemoveAt(SelectNum);
+
+                    
+                    GameInstance.ShowItemElementData.Clear();
+                    GameInstance.inventoryData.RemoveAt(itemData.Index);
+                    Equip_Element_list[0].GetComponent<Animator>().SetBool("Is_Play?", true);
+                    maxSelect = Equip_Element_list.Count - 1;
+                    SelectNum = 0;
+                    Old_Select = 0;
+
+                    
+                    Set_Inventory_Element();
+                    foreach (GameObject VARIABLE in inventory_Element_list)
+                    {
+                        if(VARIABLE.GetComponent<Eqip_Item_System>().itemData.IsEquip)
+                            VARIABLE.GetComponent<Eqip_Item_System>().ReEquip_Item();
+                    }
+
+                    
+                    Set_Item_Element();
+                    
+                }
+            }
         }
     }
 }

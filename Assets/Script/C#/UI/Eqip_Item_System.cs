@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Eqip_Item_System : MonoBehaviour
 {
     public Structs_Libraly.Item_Data itemData;
-    
+
     public int IndexInventory = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,8 @@ public class Eqip_Item_System : MonoBehaviour
                     GameInstance.inventoryData[IndexInventory].itemSprite, 
                     true, 
                     GameInstance.inventoryData[IndexInventory].Index,
-                    GameInstance.inventoryData[IndexInventory].Owner
+                    GameInstance.inventoryData[IndexInventory].ItemPrefeb,
+                    GameInstance.inventoryData[IndexInventory].useItemMode
                 );
         }
         else
@@ -47,11 +50,30 @@ public class Eqip_Item_System : MonoBehaviour
                     GameInstance.inventoryData[IndexInventory].itemSprite, 
                     false, 
                     GameInstance.inventoryData[IndexInventory].Index,
-                    GameInstance.inventoryData[IndexInventory].Owner
+                    GameInstance.inventoryData[IndexInventory].ItemPrefeb,
+                    GameInstance.inventoryData[IndexInventory].useItemMode
                 );
            
         }
         
         print("ISSSSS ---- : " + GameInstance.inventoryData[IndexInventory].Index + " Name : " + itemData.Name);
+    }
+
+    public void ReEquip_Item()
+    {
+        itemData.Index = IndexInventory;
+        print(itemData + " : " + itemData.Name);
+
+        GameInstance.Player.gameObject.GetComponent<Inventory_System>().Add_Item_Equip(itemData, this.gameObject);
+        GameInstance.inventoryData[IndexInventory] = new Structs_Libraly.Item_Data
+        (
+            GameInstance.inventoryData[IndexInventory].Name,
+            GameInstance.inventoryData[IndexInventory].Number,
+            GameInstance.inventoryData[IndexInventory].itemSprite,
+            true,
+            GameInstance.inventoryData[IndexInventory].Index,
+            GameInstance.inventoryData[IndexInventory].ItemPrefeb,
+            GameInstance.inventoryData[IndexInventory].useItemMode
+        );
     }
 }

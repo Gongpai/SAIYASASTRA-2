@@ -20,12 +20,12 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] public TextMeshProUGUI TextDebug;
 
-    [SerializeField] private GameObject Essential_Menu;
+    [SerializeField] public GameObject Essential_Menu;
 
     [Header("NotSet")]
     float moveSpeed = 0;
     public PlayerInput playerInput;
-    private InputAction JumpAction, RunAction, InventoryAction;
+    private InputAction JumpAction, RunAction, InventoryAction, NoteAction, CraftAction, aimAction, useitemAction, shootAction;
     private InputManager inputManager;
 
     private Vector3 velocity, Pos;
@@ -46,6 +46,11 @@ public class Player_Movement : MonoBehaviour
         JumpAction = playerInput.actions["Jump"];
         RunAction = playerInput.actions["Run"];
         InventoryAction = playerInput.actions["Inventory"];
+        NoteAction = playerInput.actions["Note"];
+        CraftAction = playerInput.actions["Craft"];
+        aimAction = playerInput.actions["Aim"];
+        useitemAction = playerInput.actions["Use_Item"];
+        shootAction = playerInput.actions["Shoot"]; 
         Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
     }
 
@@ -59,6 +64,11 @@ public class Player_Movement : MonoBehaviour
         JumpAction.Enable();
         RunAction.Enable();
         InventoryAction.Enable();
+        NoteAction.Enable();
+        CraftAction.Enable();
+        aimAction.Enable();
+        useitemAction.Enable();
+        shootAction.Enable();
         GetComponent<Animator>().enabled = true;
     }
 
@@ -67,6 +77,11 @@ public class Player_Movement : MonoBehaviour
         JumpAction.Disable();
         RunAction.Disable();
         InventoryAction.Disable();
+        NoteAction.Disable();
+        CraftAction.Disable();
+        aimAction.Disable();
+        useitemAction.Disable();
+        shootAction.Disable();
         GetComponent<Animator>().enabled = false;
     }
 
@@ -150,11 +165,50 @@ public class Player_Movement : MonoBehaviour
 
     void Ui_Control()
     {
-        if (InventoryAction.IsPressed() == true)
+        //เปิดหน้าช่องเก็บของ
+        if (InventoryAction.WasPressedThisFrame() == true)
         {
             gameObject.GetComponent<Inventory_System>().Set_Inventory_Element();
             gameObject.GetComponent<Inventory_System>().Set_Item_Element();
-            Essential_Menu.active = true;
+            Essential_Menu.SetActive(true);
+            Essential_Menu.GetComponent<Navigate_Menu>().OpenPage(0);
+            Game_State_Manager.Instance.Setstate(GameState.Pause);
+        }
+
+        //เปิดหน้าบันทึก
+        if (NoteAction.WasPressedThisFrame() == true)
+        {
+            gameObject.GetComponent<Inventory_System>().Set_Inventory_Element();
+            Essential_Menu.SetActive(true);
+            Essential_Menu.GetComponent<Navigate_Menu>().OpenPage(2);
+            Game_State_Manager.Instance.Setstate(GameState.Pause);
+        }
+
+        //เปิดหน้า craft
+        if (CraftAction.WasPressedThisFrame() == true)
+        {
+            gameObject.GetComponent<Inventory_System>().Set_Inventory_Element();
+            Essential_Menu.SetActive(true);
+            Essential_Menu.GetComponent<Navigate_Menu>().OpenPage(1);
+            Game_State_Manager.Instance.Setstate(GameState.Pause);
+        }
+
+        //ปุ่มเล็งยิง
+        if (aimAction.WasPressedThisFrame() == true)
+        {
+            gameObject.GetComponent<Inventory_System>().Aim(!gameObject.GetComponent<Inventory_System>().IsAim);
+        }
+
+        //ใช้งานไอเทม
+        if (useitemAction.WasPressedThisFrame() == true)
+        {
+            gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
+        }
+
+        //ปุ่มยิง/ปา
+        if (shootAction.WasPressedThisFrame() == true)
+        {
+            gameObject.GetComponent<Inventory_System>().Shoot_Item();
         }
     }
 }
