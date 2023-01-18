@@ -50,3 +50,11 @@ public enum Use_Item_System
     Use_Other,
     Shoot_Projectile
 }
+
+//เลือกหน้าเมนู
+public enum Essential_Menu
+{
+    Inventory,
+    Craft,
+    Note
+}

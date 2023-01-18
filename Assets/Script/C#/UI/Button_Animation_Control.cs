@@ -10,6 +10,7 @@ public class Button_Animation_Control : MonoBehaviour
     [SerializeField] public bool IsActive;
     [SerializeField] private Button button;
     [SerializeField] private GameObject Page;
+    [SerializeField] private Essential_Menu PageSelect;
 
     private bool IsButActive;
     private Animator _animator;
@@ -63,6 +64,19 @@ public class Button_Animation_Control : MonoBehaviour
                 button_select.GetComponent<Button_Animation_Control>().De_Select();
                 button_select.GetComponent<Button_Animation_Control>().Page.SetActive(false);
             }
+        }
+
+        switch (PageSelect)
+        {
+            case Essential_Menu.Inventory:
+                GameInstance.Player.GetComponent<Inventory_System>().Set_Inventory_Element(global::Essential_Menu.Inventory);
+                GameInstance.Player.GetComponent<Inventory_System>().Set_Item_Element();
+                break;
+            case Essential_Menu.Craft:
+                GameInstance.Player.GetComponent<Inventory_System>().Set_Inventory_Element(global::Essential_Menu.Craft);
+                break;
+            case Essential_Menu.Note:
+                break;
         }
 
         On_Select();

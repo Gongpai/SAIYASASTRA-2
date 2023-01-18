@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class Eqip_Item_System : MonoBehaviour
 {
+    [SerializeField] private GameObject FG;
+
     public Structs_Libraly.Item_Data itemData;
 
     public int IndexInventory = 0;
@@ -20,7 +22,7 @@ public class Eqip_Item_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        FG.SetActive(GameInstance.inventoryData[IndexInventory].IsEquip);
     }
 
     public void Eqip_Item()

@@ -19,6 +19,8 @@ public class Inventory_System : MonoBehaviour
     [SerializeField] private GameObject List_Grid_Element;
     [SerializeField] private GameObject Inventory;
     [SerializeField] private GameObject Inventory_Element;
+    [SerializeField] private GameObject Craft;
+    [SerializeField] private GameObject Note;
     [SerializeField] public GameObject Arrow_Aim;
 
     private GameObject gameInstance;
@@ -156,11 +158,22 @@ public class Inventory_System : MonoBehaviour
         Get_Item_Element();
     }
 
-    public void Set_Inventory_Element()
+    //ระบบเชตช่องเก็บของ
+    public void Set_Inventory_Element(Essential_Menu Page)
     {
         int i = 0;
-        GameObject List_Grid_Item;
-        List_Grid_Item = Inventory.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+        GameObject List_Grid_Item = null;
+
+        switch (Page)
+        {
+            case Essential_Menu.Inventory:
+                List_Grid_Item = Inventory.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+                break;
+            case Essential_Menu.Craft:
+                List_Grid_Item = Craft.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+                break;
+        }
+        
         Equip_System.Clear();
 
         if (inventory_Element_list.Count > 0)
@@ -392,7 +405,7 @@ public class Inventory_System : MonoBehaviour
                     Old_Select = 0;
 
                     
-                    Set_Inventory_Element();
+                    Set_Inventory_Element(Essential_Menu.Inventory);
                     foreach (GameObject VARIABLE in inventory_Element_list)
                     {
                         if(VARIABLE.GetComponent<Eqip_Item_System>().itemData.IsEquip)
