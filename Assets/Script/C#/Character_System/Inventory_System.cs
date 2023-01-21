@@ -399,7 +399,10 @@ public class Inventory_System : MonoBehaviour
                     
                     GameInstance.ShowItemElementData.Clear();
                     GameInstance.inventoryData.RemoveAt(itemData.Index);
-                    Equip_Element_list[0].GetComponent<Animator>().SetBool("Is_Play?", true);
+
+                    if (Equip_Element_list.Count > 0)
+                        Equip_Element_list[0].GetComponent<Animator>().SetBool("Is_Play?", true);
+
                     maxSelect = Equip_Element_list.Count - 1;
                     SelectNum = 0;
                     Old_Select = 0;

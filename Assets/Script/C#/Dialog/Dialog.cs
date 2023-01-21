@@ -28,22 +28,22 @@ public class Dialog : MonoBehaviour
             if (dialogCoroutine != null)
                 StopCoroutine(dialogCoroutine);
 
-            if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML))
+            if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")))
             {
                 Typing_Text(false, "><");
 
-                if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML) + 1)
+                if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")) + 1)
                 {
                     dialog = "กดอีกรอบเพื่อออกจากบทสนทนานี้";
                 }
                 else
                 {
-                    dialog = Dialog_Manager.Dialog_Text(SceneNum, DialogPage, SelectDialog.dialog, pathXML);
+                    dialog = Dialog_Manager.Dialog_Text(SceneNum, DialogPage, SelectDialog.dialog, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text"));
                 }   
             }  
             else
             {
-                dialog = Dialog_Manager.Dialog_Text(SceneNum, DialogPage, SelectDialog.dialog, pathXML);
+                dialog = Dialog_Manager.Dialog_Text(SceneNum, DialogPage, SelectDialog.dialog, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text"));
                 Typing_Text(false, ">");
                     
             }
@@ -55,13 +55,13 @@ public class Dialog : MonoBehaviour
         {
             if (context.action.triggered && withEffect == false)
             {
-                if (DialogPage < Dialog_Manager.NumAllDialog(SceneNum, pathXML) + 2)
+                if (DialogPage < Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")) + 2)
                     DialogPage++;
                 
-                if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML) + 1)
+                if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")) + 1)
                 {
                     textName.SetText("ต้องการออกจากบทสนทนานี้หรือไม่ ?");
-                    if (DialogPage == Dialog_Manager.NumAllDialog(SceneNum, pathXML) + 1)
+                    if (DialogPage == Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")) + 1)
                         TypingEffect("กดอีกรอบเพื่อออกจากบทสนทนานี้");
                 }
                 else
@@ -72,19 +72,19 @@ public class Dialog : MonoBehaviour
                     print(DialogPage);
                 }
 
-                if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML) && DialogPage < Dialog_Manager.NumAllDialog(SceneNum, pathXML) + 2)
+                if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")) && DialogPage < Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")) + 2)
                 {
                     Typing_Text(true, ">");
                 }
             }
         }
 
-        if (DialogPage == Dialog_Manager.NumAllDialog(SceneNum, pathXML))
+        if (DialogPage == Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")))
         {
             NextText.GetComponent<Animator>().SetBool("IsStop?", true);
         }
 
-        if (DialogPage == Dialog_Manager.NumAllDialog(SceneNum, pathXML) + 2)
+        if (DialogPage == Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")) + 2)
         {
             Game_State_Manager.Instance.Setstate(GameState.Play);
             FuntionLibraly.DestroyWidget(this.gameObject, CanvasObject, TimeUiFadeOut);
@@ -103,7 +103,7 @@ public class Dialog : MonoBehaviour
 
             Typing_Text(true, ">");
 
-            if (DialogPage != Dialog_Manager.NumAllDialog(SceneNum, pathXML))
+            if (DialogPage != Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")))
             {
                 NextText.GetComponent<Animator>().SetBool("IsStop?", false);
             }
@@ -123,8 +123,8 @@ public class Dialog : MonoBehaviour
 
     void GetDialog(int SceneNum, int LineNum)
     {
-        textName.SetText(Dialog_Manager.Dialog_Text(SceneNum, LineNum, SelectDialog.name, pathXML));
-        TypingEffect(Dialog_Manager.Dialog_Text(SceneNum, LineNum, SelectDialog.dialog, pathXML));
+        textName.SetText(Dialog_Manager.Dialog_Text(SceneNum, LineNum, SelectDialog.name, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")));
+        TypingEffect(Dialog_Manager.Dialog_Text(SceneNum, LineNum, SelectDialog.dialog, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")));
     }
     private void TypingEffect(string dialog)
     {
@@ -144,7 +144,7 @@ public class Dialog : MonoBehaviour
         }
         withEffect = false;
 
-        if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML))
+        if (DialogPage >= Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")))
         {
             Typing_Text(false, "><");
         }

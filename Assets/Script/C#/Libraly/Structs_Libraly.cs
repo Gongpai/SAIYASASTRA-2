@@ -26,4 +26,36 @@ public class Structs_Libraly : MonoBehaviour
             this.useItemMode = useItemMode; 
         }
     }
+
+    [System.Serializable]
+    public struct Note_Data
+    {
+        public XML_Data Title;
+        public XML_Data Text;
+
+        public Note_Data(XML_Data title, XML_Data text)
+        {
+            this.Title = title;
+            this.Text = text;
+        }
+    }
+
+    [System.Serializable]
+    public struct XML_Data
+    {
+        public string Element_First;
+        public string Element_Second;
+        public string Element_Third;
+        public string Sup_Element_First;
+        public string Sup_Element_Second;
+
+        public XML_Data(string elementFirst = "Dialog", string elementSecond = "Scene", string elementThird = "Line", string supElementFirst = "name", string supElementSecond = "text")
+        {
+            this.Element_First = elementFirst;
+            this.Element_Second = elementSecond;
+            this.Element_Third = elementThird;
+            this.Sup_Element_First = supElementFirst;
+            this.Sup_Element_Second = supElementSecond;
+        }
+    }
 }

@@ -178,6 +178,7 @@ public class Player_Movement : MonoBehaviour
         //เปิดหน้าบันทึก
         if (NoteAction.WasPressedThisFrame() == true)
         {
+            gameObject.GetComponent<Note_System>().Set_Note_Element();
             Essential_Menu.SetActive(true);
             Essential_Menu.GetComponent<Navigate_Menu>().OpenPage(2);
             Game_State_Manager.Instance.Setstate(GameState.Pause);

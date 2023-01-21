@@ -9,7 +9,9 @@ public enum GameState
 public enum SelectDialog
 {
     name,
-    dialog
+    dialog,
+    note_title,
+    note_text
 }
 
 //Set Active

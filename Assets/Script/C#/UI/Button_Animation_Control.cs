@@ -76,6 +76,7 @@ public class Button_Animation_Control : MonoBehaviour
                 GameInstance.Player.GetComponent<Inventory_System>().Set_Inventory_Element(global::Essential_Menu.Craft);
                 break;
             case Essential_Menu.Note:
+                GameInstance.Player.GetComponent<Note_System>().Set_Note_Element();
                 break;
         }
 
