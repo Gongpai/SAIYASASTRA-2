@@ -19,6 +19,7 @@ public class Inventory_System : MonoBehaviour
     [SerializeField] private GameObject List_Grid_Element;
     [SerializeField] private GameObject Inventory;
     [SerializeField] private GameObject Inventory_Element;
+    [SerializeField] private GameObject Inventory_Info;
     [SerializeField] private GameObject Craft;
     [SerializeField] private GameObject Note;
     [SerializeField] public GameObject Arrow_Aim;
@@ -48,9 +49,11 @@ public class Inventory_System : MonoBehaviour
 
         gameInstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
 
+        /**
         Add_Item_Element(gameInstance.gameObject.GetComponent<Item_List_Data>().itemDatas[0]);
         Add_Item_Element(gameInstance.gameObject.GetComponent<Item_List_Data>().itemDatas[0]);
         Add_Item_Element(gameInstance.gameObject.GetComponent<Item_List_Data>().itemDatas[1]);
+        **/
     }
 
     // Update is called once per frame
@@ -95,6 +98,7 @@ public class Inventory_System : MonoBehaviour
     {
         GameInstance.ShowItemElementData[index] = new Structs_Libraly.Item_Data
         (
+            GameInstance.ShowItemElementData[index].Item_Index,
             GameInstance.ShowItemElementData[index].Name,
             GameInstance.ShowItemElementData[index].Number,
             GameInstance.ShowItemElementData[index].itemSprite,
@@ -139,6 +143,7 @@ public class Inventory_System : MonoBehaviour
             
             GameInstance.inventoryData[Item.Index] = new Structs_Libraly.Item_Data
             (
+                GameInstance.inventoryData[Item.Index].Item_Index,
                 GameInstance.inventoryData[Item.Index].Name,
                 GameInstance.inventoryData[Item.Index].Number,
                 GameInstance.inventoryData[Item.Index].itemSprite,
@@ -226,13 +231,14 @@ public class Inventory_System : MonoBehaviour
         }
     }
 
-    public void Add_Item_Element(Structs_Libraly.Item_Data Item)
+    public void Add_Item_Element(Structs_Libraly.Item_Data Item_data)
     {
+        print("Adddddddddddddd------------------------------");
         int i = 0;
         bool IsFoundItem = false;
         foreach (Structs_Libraly.Item_Data itemData in GameInstance.inventoryData)
         {
-            if (itemData.Name == Item.Name)
+            if (itemData.Name == Item_data.Name)
             {
                 IsFoundItem = true;
                 //print("Founddddd---------------------------------------");
@@ -250,8 +256,9 @@ public class Inventory_System : MonoBehaviour
         {
             GameInstance.inventoryData[i] = new Structs_Libraly.Item_Data
                 (
+                    GameInstance.inventoryData[i].Item_Index,
                     GameInstance.inventoryData[i].Name, 
-                    GameInstance.inventoryData[i].Number + Item.Number, 
+                    GameInstance.inventoryData[i].Number + Item_data.Number, 
                     GameInstance.inventoryData[i].itemSprite, 
                     GameInstance.inventoryData[i].IsEquip, 
                     GameInstance.inventoryData[i].Index,
@@ -261,7 +268,7 @@ public class Inventory_System : MonoBehaviour
         }
         else
         {
-            GameInstance.inventoryData.Add(Item);
+            GameInstance.inventoryData.Add(Item_data);
         }
 
         //print("Addd Item-------------------------------------------");
@@ -278,10 +285,22 @@ public class Inventory_System : MonoBehaviour
     private void Get_Item_Element()
     {
         maxSelect = Equip_Element_list.Count - 1;
-        print("Max Select : " + maxSelect);
+        //print("Max Select : " + maxSelect);
 
         if(GameInstance.ShowItemElementData.Count > 0)
             Equip_Element_list[0].GetComponent<Animator>().SetBool("Is_Play?", true);
+    }
+
+    public void Set_Inventory_Info(Structs_Libraly.Item_Data itemData)
+    {
+        Inventory_Info.SetActive(true);
+        Image image = Inventory_Info.transform.GetChild(0).GetComponent<Image>();
+        TextMeshProUGUI text = Inventory_Info.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        image.sprite = itemData.itemSprite;
+        print("Item" + itemData.Item_Index);
+        text.text = Dialog_Manager.Dialog_Text(0, 0, SelectDialog.note_title, "Item/ItemText", new XML_Data("Text", "Item", "Item" + itemData.Item_Index, "text", "text"));
+        
     }
 
     //ระบบเลือกไอเทม
@@ -376,6 +395,7 @@ public class Inventory_System : MonoBehaviour
                 {
                     GameInstance.inventoryData[itemData.Index] = new Item_Data
                     (
+                        GameInstance.ShowItemElementData[itemData.Index].Item_Index,
                         GameInstance.inventoryData[itemData.Index].Name,
                         GameInstance.inventoryData[itemData.Index].Number - 1,
                         GameInstance.inventoryData[itemData.Index].itemSprite,

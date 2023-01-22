@@ -15,7 +15,17 @@ public class Add_item_to_character : MonoBehaviour
     void Start()
     {
         Gameinstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
-        itemData = Gameinstance.GetComponent<Item_List_Data>().itemDatas[ItemIndex];
+        itemData = new Structs_Libraly.Item_Data
+            (
+                ItemIndex,
+                Gameinstance.GetComponent<Item_List_Data>().itemDatas[ItemIndex].Name,
+                Gameinstance.GetComponent<Item_List_Data>().itemDatas[ItemIndex].Number,
+                Gameinstance.GetComponent<Item_List_Data>().itemDatas[ItemIndex].itemSprite,
+                Gameinstance.GetComponent<Item_List_Data>().itemDatas[ItemIndex].IsEquip,
+                Gameinstance.GetComponent<Item_List_Data>().itemDatas[ItemIndex].Index,
+                Gameinstance.GetComponent<Item_List_Data>().itemDatas[ItemIndex].ItemPrefeb,
+                Gameinstance.GetComponent<Item_List_Data>().itemDatas[ItemIndex].useItemMode
+            );
     }
 
     void OnTriggerEnter(Collider other)
@@ -24,6 +34,7 @@ public class Add_item_to_character : MonoBehaviour
         {
             other.gameObject.GetComponent<Inventory_System>().Add_Item_Element(itemData);
             Destroy(this.gameObject);
+            print("Adddddd-----------------------");
         }
     }
 }

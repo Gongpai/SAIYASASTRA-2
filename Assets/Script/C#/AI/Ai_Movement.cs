@@ -44,7 +44,7 @@ public class Ai_Movement : MonoBehaviour
 
     private void OnGamestateChanged(GameState gameState)
     {
-        Debug.LogWarning(gameState + "----------------------------------------------------");
+        //Debug.LogWarning(gameState + "----------------------------------------------------");
 
         gameObject.GetComponent<StateMachine>().enabled = gameState == GameState.Play;
         gameObject.GetComponent<NavMeshAgent>().isStopped = gameState == GameState.Pause;

@@ -12,7 +12,7 @@ public class Dialog_Manager : MonoBehaviour
 {
     public static string Dialog_Text(int SceneNum = 1 ,int LineNum = 1, SelectDialog selectDialog = default, string pathxml = default, Structs_Libraly.XML_Data xmlData = default)
     {
-        print(xmlData.Element_First);
+        //print(xmlData.Element_First);
         TextAsset textAsset = Resources.Load<TextAsset>(pathxml);
         var Xdoc = XDocument.Parse(textAsset.text);
         var DialogOutput = Xdoc.Element(xmlData.Element_First);

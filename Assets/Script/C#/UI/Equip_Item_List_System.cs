@@ -14,7 +14,6 @@ public class Equip_Item_List_System : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         //print("------ 11 ----- Name : " + gameObject);
         TextNumber = gameObject.transform.GetChild(4).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
     }

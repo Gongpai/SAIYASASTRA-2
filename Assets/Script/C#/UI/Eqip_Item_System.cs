@@ -33,6 +33,7 @@ public class Eqip_Item_System : MonoBehaviour
             GameInstance.Player.gameObject.GetComponent<Inventory_System>().Add_Item_Equip(itemData, this.gameObject);
             GameInstance.inventoryData[IndexInventory] = new Structs_Libraly.Item_Data
                 (
+                    GameInstance.inventoryData[IndexInventory].Item_Index,
                     GameInstance.inventoryData[IndexInventory].Name, 
                     GameInstance.inventoryData[IndexInventory].Number, 
                     GameInstance.inventoryData[IndexInventory].itemSprite, 
@@ -47,6 +48,7 @@ public class Eqip_Item_System : MonoBehaviour
             GameInstance.Player.gameObject.GetComponent<Inventory_System>().Remove_Equip_Item(GameInstance.inventoryData[IndexInventory].Index);
             GameInstance.inventoryData[IndexInventory] = new Structs_Libraly.Item_Data
                 (
+                    GameInstance.inventoryData[IndexInventory].Item_Index,
                     GameInstance.inventoryData[IndexInventory].Name, 
                     GameInstance.inventoryData[IndexInventory].Number, 
                     GameInstance.inventoryData[IndexInventory].itemSprite, 
@@ -69,6 +71,7 @@ public class Eqip_Item_System : MonoBehaviour
         GameInstance.Player.gameObject.GetComponent<Inventory_System>().Add_Item_Equip(itemData, this.gameObject);
         GameInstance.inventoryData[IndexInventory] = new Structs_Libraly.Item_Data
         (
+            GameInstance.inventoryData[IndexInventory].Item_Index,
             GameInstance.inventoryData[IndexInventory].Name,
             GameInstance.inventoryData[IndexInventory].Number,
             GameInstance.inventoryData[IndexInventory].itemSprite,
@@ -77,5 +80,10 @@ public class Eqip_Item_System : MonoBehaviour
             GameInstance.inventoryData[IndexInventory].ItemPrefeb,
             GameInstance.inventoryData[IndexInventory].useItemMode
         );
+    }
+
+    public void Show_Info()
+    {
+        GameInstance.Player.GetComponent<Inventory_System>().Set_Inventory_Info(itemData);
     }
 }

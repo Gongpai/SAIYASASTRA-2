@@ -7,6 +7,7 @@ public class Structs_Libraly : MonoBehaviour
     [System.Serializable]
     public struct Item_Data
     {
+        public int Item_Index;
         public string Name;
         public int Number;
         public Sprite itemSprite;
@@ -15,15 +16,16 @@ public class Structs_Libraly : MonoBehaviour
         public GameObject ItemPrefeb;
         public Use_Item_System useItemMode;
 
-        public Item_Data(string name, int number, Sprite sprite, bool isequip, int m_index, GameObject ItemPrefeb = default, Use_Item_System useItemMode = default)
+        public Item_Data(int i_index, string name, int number, Sprite sprite, bool isequip, int m_index, GameObject ItemPrefeb = default, Use_Item_System useItemMode = default)
         {
+            this.Item_Index = i_index;
             this.Name = name;
             this.Number = number;
             this.itemSprite = sprite;
             this.IsEquip = isequip;
             this.Index = m_index;
             this.ItemPrefeb = ItemPrefeb;
-            this.useItemMode = useItemMode; 
+            this.useItemMode = useItemMode;
         }
     }
 

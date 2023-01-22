@@ -7,7 +7,7 @@ public class GameInstance : MonoBehaviour
 {
     public void Start()
     {
-        DontDestroyOnLoad(this);
+        
     }
 
     public static void Reset_Gameinstance()

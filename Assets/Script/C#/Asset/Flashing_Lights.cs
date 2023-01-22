@@ -58,7 +58,7 @@ public class Flashing_Lights : MonoBehaviour
                 break;
         }
 
-        print("PlaySound");
+        //print("PlaySound");
     }
 
     void OnTriggerEnter(Collider collider)

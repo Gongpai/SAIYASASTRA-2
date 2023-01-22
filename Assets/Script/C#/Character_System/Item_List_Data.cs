@@ -13,7 +13,7 @@ public class Item_List_Data : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+
     }
 
     void Update()
