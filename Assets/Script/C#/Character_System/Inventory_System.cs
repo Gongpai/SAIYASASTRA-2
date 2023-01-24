@@ -20,7 +20,6 @@ public class Inventory_System : MonoBehaviour
     [SerializeField] private GameObject Inventory;
     [SerializeField] private GameObject Inventory_Element;
     [SerializeField] private GameObject Inventory_Info;
-    [SerializeField] private GameObject Craft;
     [SerializeField] private GameObject Note;
     [SerializeField] public GameObject Arrow_Aim;
 
@@ -164,20 +163,10 @@ public class Inventory_System : MonoBehaviour
     }
 
     //ระบบเชตช่องเก็บของ
-    public void Set_Inventory_Element(Essential_Menu Page)
+    public void Set_Inventory_Element()
     {
         int i = 0;
-        GameObject List_Grid_Item = null;
-
-        switch (Page)
-        {
-            case Essential_Menu.Inventory:
-                List_Grid_Item = Inventory.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
-                break;
-            case Essential_Menu.Craft:
-                List_Grid_Item = Craft.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
-                break;
-        }
+        GameObject List_Grid_Item = List_Grid_Item = Inventory.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
         
         Equip_System.Clear();
 
@@ -407,39 +396,45 @@ public class Inventory_System : MonoBehaviour
 
                     GameInstance.ShowItemElementData[SelectNum] = GameInstance.inventoryData[itemData.Index];
                 }
-                
-                if(GameInstance.inventoryData[itemData.Index].Number == 0)
-                {
-                    IsAim = false;
 
-                    Equip_Element_list[Old_Select].GetComponent<Animator>().SetBool("Is_Play?", false);
-                    Destroy(Equip_Element_list[SelectNum]);
-                    Equip_Element_list.RemoveAt(SelectNum);
-
-                    
-                    GameInstance.ShowItemElementData.Clear();
-                    GameInstance.inventoryData.RemoveAt(itemData.Index);
-
-                    if (Equip_Element_list.Count > 0)
-                        Equip_Element_list[0].GetComponent<Animator>().SetBool("Is_Play?", true);
-
-                    maxSelect = Equip_Element_list.Count - 1;
-                    SelectNum = 0;
-                    Old_Select = 0;
-
-                    
-                    Set_Inventory_Element(Essential_Menu.Inventory);
-                    foreach (GameObject VARIABLE in inventory_Element_list)
-                    {
-                        if(VARIABLE.GetComponent<Eqip_Item_System>().itemData.IsEquip)
-                            VARIABLE.GetComponent<Eqip_Item_System>().ReEquip_Item();
-                    }
-
-                    
-                    Set_Item_Element();
-                    
-                }
+                RemoveItemFromInventory(itemData);
             }
+        }
+    }
+
+    public void RemoveItemFromInventory(Structs_Libraly.Item_Data itemData)
+    {
+        if (GameInstance.inventoryData[itemData.Index].Number == 0)
+        {
+            IsAim = false;
+
+            if (Equip_Element_list.Count > 0)
+            {
+                Equip_Element_list[Old_Select].GetComponent<Animator>().SetBool("Is_Play?", false);
+                Destroy(Equip_Element_list[SelectNum]);
+                Equip_Element_list.RemoveAt(SelectNum);
+            }
+
+            GameInstance.ShowItemElementData.Clear();
+            GameInstance.inventoryData.RemoveAt(itemData.Index);
+
+            if (Equip_Element_list.Count > 0)
+                Equip_Element_list[0].GetComponent<Animator>().SetBool("Is_Play?", true);
+
+            maxSelect = Equip_Element_list.Count - 1;
+            SelectNum = 0;
+            Old_Select = 0;
+
+
+            Set_Inventory_Element();
+            foreach (GameObject inventory_Element in inventory_Element_list)
+            {
+                if (inventory_Element.GetComponent<Eqip_Item_System>().itemData.IsEquip)
+                    inventory_Element.GetComponent<Eqip_Item_System>().ReEquip_Item();
+            }
+
+            //print(GameInstance.inventoryData[itemData.Index].Name + " Total_Number : " + GameInstance.inventoryData[itemData.Index].Number);
+            Set_Item_Element();
         }
     }
 }

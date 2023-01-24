@@ -168,7 +168,7 @@ public class Player_Movement : MonoBehaviour
         //เปิดหน้าช่องเก็บของ
         if (InventoryAction.WasPressedThisFrame() == true)
         {
-            gameObject.GetComponent<Inventory_System>().Set_Inventory_Element(global::Essential_Menu.Inventory);
+            gameObject.GetComponent<Inventory_System>().Set_Inventory_Element();
             gameObject.GetComponent<Inventory_System>().Set_Item_Element();
             Essential_Menu.SetActive(true);
             Essential_Menu.GetComponent<Navigate_Menu>().OpenPage(0);
@@ -187,7 +187,7 @@ public class Player_Movement : MonoBehaviour
         //เปิดหน้า craft
         if (CraftAction.WasPressedThisFrame() == true)
         {
-            gameObject.GetComponent<Inventory_System>().Set_Inventory_Element(global::Essential_Menu.Craft);
+            gameObject.GetComponent<Craft_System>().Set_Craft_Inventory_Element();
             Essential_Menu.SetActive(true);
             Essential_Menu.GetComponent<Navigate_Menu>().OpenPage(1);
             Game_State_Manager.Instance.Setstate(GameState.Pause);

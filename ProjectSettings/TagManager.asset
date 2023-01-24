@@ -8,6 +8,9 @@ TagManager:
   - Character_Hide
   - GameInstance
   - Button_Essential
+  - Essential_Menu
+  - Character_Essential_UI
+  - Craft_Slot
   layers:
   - Default
   - TransparentFX

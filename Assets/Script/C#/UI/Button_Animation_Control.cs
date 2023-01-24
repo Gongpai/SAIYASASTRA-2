@@ -69,11 +69,11 @@ public class Button_Animation_Control : MonoBehaviour
         switch (PageSelect)
         {
             case Essential_Menu.Inventory:
-                GameInstance.Player.GetComponent<Inventory_System>().Set_Inventory_Element(global::Essential_Menu.Inventory);
+                GameInstance.Player.GetComponent<Inventory_System>().Set_Inventory_Element();
                 GameInstance.Player.GetComponent<Inventory_System>().Set_Item_Element();
                 break;
             case Essential_Menu.Craft:
-                GameInstance.Player.GetComponent<Inventory_System>().Set_Inventory_Element(global::Essential_Menu.Craft);
+                GameInstance.Player.GetComponent<Craft_System>().Set_Craft_Inventory_Element();
                 break;
             case Essential_Menu.Note:
                 GameInstance.Player.GetComponent<Note_System>().Set_Note_Element();
