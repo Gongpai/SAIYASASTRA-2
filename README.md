@@ -1,5 +1,5 @@
 # SAIYASASTRA_2
-**Horror Game**
+**Horror Platformer 2.5D**
 
 --------------------------
 **Control**
