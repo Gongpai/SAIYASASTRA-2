@@ -11,6 +11,8 @@ TagManager:
   - Essential_Menu
   - Character_Essential_UI
   - Craft_Slot
+  - Attack_Item
+  - Ghost_Attack
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,9 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -16,11 +19,15 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private  GameObject Playerinput;
 
+    [SerializeField] public GameObject HeadPoint;
+
     [SerializeField] public ShowMessage showMessage;
 
     [SerializeField] public TextMeshProUGUI TextDebug;
 
     [SerializeField] public GameObject Essential_Menu;
+
+    [SerializeField] private Image HP_ProgressBar;
 
     [Header("NotSet")]
     float moveSpeed = 0;
@@ -29,6 +36,8 @@ public class Player_Movement : MonoBehaviour
     private InputManager inputManager;
 
     private Vector3 velocity, Pos;
+
+    private float HP = 100;
 
     public GameObject ObjectHide;
 
@@ -104,14 +113,48 @@ public class Player_Movement : MonoBehaviour
         }
 
         GameInstance.Player = gameObject;
+        UpdateHPWidget();
     }
 
     // Update is called once per frame
     void Update()
     {
         Character_movement();
-
         Ui_Control();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.isTrigger && other.tag == "Ghost_Attack")
+        {
+            HP_System(other, -1);
+        }
+
+        if (other.isTrigger && other.tag == "Attack_Item" && other.GetComponent<Add_item_to_character>() != null && other.GetComponent<Add_item_to_character>().IsSpawn && other.GetComponent<Rigidbody>().velocity.y <= 0)
+        {
+            HP_System(other, 1);
+        }
+    }
+
+    private void HP_System(Collider other, float hp)
+    {
+        float Damage = other.GetComponent<Variables>().declarations.Get<float>("Damage");
+
+        if (HP > 0)
+        {
+            HP += hp * Damage;
+
+            if (HP <= 0)
+                HP = 0;
+        }
+        print("Hp------- : " + HP);
+        UpdateHPWidget();
+        other.GetComponent<Item_Script>().Destroy_Item();
+    }
+
+    void UpdateHPWidget()
+    {
+        FuntionLibraly.ProgressBar_Fill(HP_ProgressBar, HP, 100);
     }
 
     void Character_movement()

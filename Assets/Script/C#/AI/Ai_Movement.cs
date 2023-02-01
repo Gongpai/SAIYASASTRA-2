@@ -5,18 +5,30 @@ using Mono.CompilerServices.SymbolWriter;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Ai_Movement : MonoBehaviour
 {
     private InputManager inputManager;
     public bool IsSeeCharacter;
+    public bool IsAttackCharacter;
+    public bool IsGhostStun = false;
 
     private GameObject Player;
     public List<GameObject> hideGameObject;
 
     private Vector3 velocity, Pos;
     private Vector3[] distanceVector3 = new Vector3[2];
+
+    [SerializeField] private Image ProgressBar;
+    [SerializeField] private int MaxHP = 100;
+    [SerializeField] public float HP_Ghost;
+
+    //TIME
+    private float timeattack = 1;
+    private float oldtimeattack;
 
     void Awake()
     {
@@ -47,7 +59,9 @@ public class Ai_Movement : MonoBehaviour
         //Debug.LogWarning(gameState + "----------------------------------------------------");
 
         gameObject.GetComponent<StateMachine>().enabled = gameState == GameState.Play;
-        gameObject.GetComponent<NavMeshAgent>().isStopped = gameState == GameState.Pause;
+
+        if(gameState == GameState.Pause)
+            gameObject.GetComponent<NavMeshAgent>().isStopped = true;
 
         if (gameState == GameState.Pause && gameObject.GetComponent<Variables>().declarations["IsRunFirstState"].Equals(true))
             gameObject.GetComponent<Variables>().declarations.Set("IsSkipFirstState", true);
@@ -60,17 +74,69 @@ public class Ai_Movement : MonoBehaviour
     {
         distanceVector3[0] = gameObject.transform.position;
         GameInstance.Ghost = gameObject;
+        HP_Ghost = MaxHP;
+        FuntionLibraly.ProgressBar_Fill(ProgressBar, HP_Ghost, MaxHP);
+        oldtimeattack = DateTime.Now.Second;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (IsAttackCharacter && !IsGhostStun)
+        {
+            timeattack = DateTime.Now.Second;
+            if ((timeattack - oldtimeattack) == 1)
+            {
+                print(timeattack + " : Old " + oldtimeattack);
+                GetComponent<Ai_Attack>().Attack(AiGhost.Guard_ghost);
+            }
+
+            oldtimeattack = DateTime.Now.Second;
+        }
+        else
+        {
+            oldtimeattack = DateTime.Now.Second;
+        }
+
         Ai_movement();
         
         distanceVector3[0] = gameObject.transform.position;
 
         DetectCharacter();
+
+        AttackCharacter();
+
         //print("See    : " + IsSeeCharacter + " Location : " + (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 0) + (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= Screen.width));
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        print(other.tag);
+        if (other.isTrigger && other.tag == "Attack_Item")
+        {
+            HP_System(other);
+        }
+    }
+
+    private void HP_System(Collider other)
+    {
+        if (other.GetComponent<Add_item_to_character>() != null && other.GetComponent<Add_item_to_character>().IsSpawn)
+        {
+            float Damage = other.GetComponent<Variables>().declarations.Get<float>("Damage");
+            print("Hp------- : " + Damage);
+
+            if (HP_Ghost > 0)
+            {
+                HP_Ghost -= Damage;
+
+                if(HP_Ghost <= 0)
+                    HP_Ghost = 0;
+            }
+            
+            FuntionLibraly.ProgressBar_Fill(ProgressBar, HP_Ghost, MaxHP);
+            other.GetComponent<Item_Script>().Destroy_Item();
+        }
+
     }
 
     void Ai_movement()
@@ -129,6 +195,18 @@ public class Ai_Movement : MonoBehaviour
         else
         {
             IsSeeCharacter = false;
+        }
+    }
+
+    void AttackCharacter()
+    {
+        if (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 150 && Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= (Screen.width - 150) && !GameInstance.CharacterHide)
+        {
+            IsAttackCharacter = true;
+        }
+        else
+        {
+            IsAttackCharacter = false;
         }
     }
 }

@@ -7,9 +7,16 @@ using UnityEngine.SceneManagement;
 public class Item_System : MonoBehaviour
 {
     private GameObject Player;
+    private GameObject TTT;
     private void Start()
     {
         Player = gameObject;
+    }
+
+    private void Update()
+    {
+        if(TTT != null) 
+            print("Holy T : " + TTT.GetComponent<Rigidbody>().velocity.y);
     }
 
     public void Use_Item(Use_Item_System useItem_Mode, GameObject Item, bool IsAim = false, Quaternion rotation = default)
@@ -53,7 +60,7 @@ public class Item_System : MonoBehaviour
             print("Rota : " + rotation);
 
             GameObject spawn = Instantiate(spawnItem);
-
+            TTT = spawn;
             rigidbody = spawn.GetComponent<Rigidbody>();
             rigidbody.isKinematic = false;
             rigidbody.AddForce(spawn.transform.up * 7, ForceMode.Impulse);

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2344752303572057830}
   m_Layer: 0
   m_Name: Pot
-  m_TagString: Untagged
+  m_TagString: Attack_Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemIndex: 1
+  IsSpawn: 0
 --- !u!212 &1467799967715643439
 SpriteRenderer:
   m_ObjectHideFlags: 0

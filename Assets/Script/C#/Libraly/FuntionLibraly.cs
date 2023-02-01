@@ -21,4 +21,9 @@ public class FuntionLibraly : MonoBehaviour
 
         return AngleDeg;
     }
+
+    public static void ProgressBar_Fill(Image Pro_gressBar, float Point, float MaxPoint)
+    {
+        Pro_gressBar.fillAmount = Point / MaxPoint;
+    }
 }

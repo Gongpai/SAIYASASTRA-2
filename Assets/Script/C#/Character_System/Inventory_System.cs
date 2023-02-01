@@ -382,17 +382,19 @@ public class Inventory_System : MonoBehaviour
 
                 if (GameInstance.inventoryData[itemData.Index].Number > 0)
                 {
-                    GameInstance.inventoryData[itemData.Index] = new Item_Data
-                    (
-                        GameInstance.ShowItemElementData[itemData.Index].Item_Index,
-                        GameInstance.inventoryData[itemData.Index].Name,
-                        GameInstance.inventoryData[itemData.Index].Number - 1,
-                        GameInstance.inventoryData[itemData.Index].itemSprite,
-                        GameInstance.inventoryData[itemData.Index].IsEquip,
-                        GameInstance.inventoryData[itemData.Index].Index,
-                        GameInstance.inventoryData[itemData.Index].ItemPrefeb,
-                        GameInstance.inventoryData[itemData.Index].useItemMode
-                    );
+                    //print("Count Data : " + Equip_Element_list.Count + " | Index Count" + GameInstance.inventoryData.Count + " | Last Index : " + GameInstance.inventoryData.LastIndexOf(GameInstance.inventoryData.Last()));
+
+                    GameInstance.inventoryData[itemData.Index] = Make_Structs.makeItemData
+                        (
+                            GameInstance.inventoryData[itemData.Index].Item_Index,
+                            GameInstance.inventoryData[itemData.Index].Name,
+                            GameInstance.inventoryData[itemData.Index].Number - 1,
+                            GameInstance.inventoryData[itemData.Index].itemSprite,
+                            GameInstance.inventoryData[itemData.Index].IsEquip,
+                            GameInstance.inventoryData[itemData.Index].Index,
+                            GameInstance.inventoryData[itemData.Index].ItemPrefeb,
+                            GameInstance.inventoryData[itemData.Index].useItemMode
+                        );
 
                     GameInstance.ShowItemElementData[SelectNum] = GameInstance.inventoryData[itemData.Index];
                 }
@@ -413,6 +415,17 @@ public class Inventory_System : MonoBehaviour
                 Equip_Element_list[Old_Select].GetComponent<Animator>().SetBool("Is_Play?", false);
                 Destroy(Equip_Element_list[SelectNum]);
                 Equip_Element_list.RemoveAt(SelectNum);
+            }
+
+            if (GameInstance.inventoryData[itemData.Index].Number <= 0)
+            {
+                foreach (var Elementlist in Equip_Element_list)
+                {
+
+                    Destroy(Elementlist);
+                }
+;
+                Equip_Element_list.Clear();
             }
 
             GameInstance.ShowItemElementData.Clear();
