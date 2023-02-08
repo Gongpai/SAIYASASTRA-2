@@ -60,3 +60,9 @@ public enum Essential_Menu
     Craft,
     Note
 }
+
+public enum Object_interact
+{
+    Cupboard_Hide,
+    Lawson_Door
+}

@@ -35,11 +35,14 @@ public class Player_Movement : MonoBehaviour
     private InputAction JumpAction, RunAction, InventoryAction, NoteAction, CraftAction, aimAction, useitemAction, shootAction;
     private InputManager inputManager;
 
+    private Object_interact Ob_interact = Object_interact.Cupboard_Hide;
+
     private Vector3 velocity, Pos;
 
     private float HP = 100;
 
     public GameObject ObjectHide;
+    private GameObject Object_Intaeract;
 
     private enum MovementModes
     {
@@ -133,6 +136,37 @@ public class Player_Movement : MonoBehaviour
         if (other.isTrigger && other.tag == "Attack_Item" && other.GetComponent<Add_item_to_character>() != null && other.GetComponent<Add_item_to_character>().IsSpawn && other.GetComponent<Rigidbody>().velocity.y <= 0)
         {
             HP_System(other, 1);
+        }
+
+        switch (other.tag)
+        {
+            case "Character_Hide":
+                Ob_interact = Object_interact.Cupboard_Hide;
+                Object_Intaeract = other.gameObject;
+                break;
+            case "Door_Lawson":
+                Ob_interact = Object_interact.Lawson_Door;
+                Object_Intaeract = other.gameObject;
+                break;
+            default:
+                break;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "Character_Hide":
+                Ob_interact = Object_interact.Cupboard_Hide;
+                Object_Intaeract = null;
+                break;
+            case "Door_Lawson":
+                Ob_interact = Object_interact.Lawson_Door;
+                Object_Intaeract = null;
+                break;
+            default:
+                break;
         }
     }
 
@@ -252,6 +286,24 @@ public class Player_Movement : MonoBehaviour
         if (shootAction.WasPressedThisFrame() == true)
         {
             gameObject.GetComponent<Inventory_System>().Shoot_Item();
+        }
+
+        //เปิดประตู้และอื่นๆ
+        if (useitemAction.WasPressedThisFrame() == true)
+        {
+            if (Object_Intaeract != null)
+            {
+                switch (Ob_interact)
+                {
+                    case Object_interact.Cupboard_Hide:
+                        break;
+                    case Object_interact.Lawson_Door:
+                        Object_Intaeract.transform.parent.GetComponent<Door_Lawson_System>().OpenOrClose();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

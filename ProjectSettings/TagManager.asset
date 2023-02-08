@@ -13,6 +13,8 @@ TagManager:
   - Craft_Slot
   - Attack_Item
   - Ghost_Attack
+  - Vcam
+  - Door_Lawson
   layers:
   - Default
   - TransparentFX
