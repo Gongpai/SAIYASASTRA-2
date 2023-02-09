@@ -6,6 +6,7 @@ using UnityEngine;
 public class Walk_Exit : MonoBehaviour
 {
     [SerializeField] private GameObject DoorCollider;
+    [SerializeField] private bool IsWalkOut = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,14 @@ public class Walk_Exit : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            DoorCollider.GetComponent<MoveCameraToNewScene>().Walk_Out(false, false);
+            if (IsWalkOut)
+            {
+                DoorCollider.GetComponent<MoveCameraToNewScene>().Walk_Out(false, false);
+            }
+            else
+            {
+                DoorCollider.GetComponent<MoveCameraToNewScene>().Walk_In(false, true);
+            }
         }
     }
 
@@ -30,7 +38,22 @@ public class Walk_Exit : MonoBehaviour
     {
         if (other.tag == "Player" && (GameInstance.Player.transform.position.x - transform.position.x) > 0)
         {
-            DoorCollider.GetComponent<MoveCameraToNewScene>().Walk_Out(true, false);
+            if (IsWalkOut)
+            {
+                DoorCollider.GetComponent<MoveCameraToNewScene>().Walk_Out(true, false);
+            }
+            else
+            {
+
+            }
+        }
+
+        if (other.tag == "Player")
+        {
+            if (!IsWalkOut)
+            {
+                DoorCollider.GetComponent<MoveCameraToNewScene>().Walk_In(true, true);
+            }
         }
     }
 }

@@ -10,8 +10,8 @@ public class Ai_Attack : MonoBehaviour
 
     void Update()
     {
-        if (testtt != null)
-            print("Speed : " + Vector3.Magnitude(testtt.velocity));
+        //if (testtt != null)
+            //print("Speed : " + Vector3.Magnitude(testtt.velocity));
     }
 
     public void Attack(AiGhost selectAiGhost)
