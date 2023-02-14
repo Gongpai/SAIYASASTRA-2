@@ -111,7 +111,6 @@ public class Ai_Movement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print(other.tag);
         if (other.isTrigger && other.tag == "Attack_Item")
         {
             HP_System(other);

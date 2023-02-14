@@ -757,6 +757,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -332.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4933365002765909857, guid: 363a0f6ec1977f94d952d3abdf9ed4a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933365002765909857, guid: 363a0f6ec1977f94d952d3abdf9ed4a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6007238352128209446}
+    - target: {fileID: 4933365002765909857, guid: 363a0f6ec1977f94d952d3abdf9ed4a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3170077652446617394}
+    - target: {fileID: 4933365002765909857, guid: 363a0f6ec1977f94d952d3abdf9ed4a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetGamePause
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933365002765909857, guid: 363a0f6ec1977f94d952d3abdf9ed4a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Navigate_Menu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5275082850119072730, guid: 363a0f6ec1977f94d952d3abdf9ed4a5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1246,6 +1266,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1486440169367432752}
     m_Modifications:
+    - target: {fileID: 137129390483442780, guid: b2114de3e85193e43bd2317994c3f423, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6007238352128209446}
+    - target: {fileID: 137129390483442780, guid: b2114de3e85193e43bd2317994c3f423, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3170077652446617394}
+    - target: {fileID: 137129390483442780, guid: b2114de3e85193e43bd2317994c3f423, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetGamePause
+      objectReference: {fileID: 0}
+    - target: {fileID: 137129390483442780, guid: b2114de3e85193e43bd2317994c3f423, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 1052924024077336074, guid: b2114de3e85193e43bd2317994c3f423, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2343,6 +2379,34 @@ PrefabInstance:
     - target: {fileID: 7150863574571425099, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -273
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160505179830222862, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160505179830222862, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160505179830222862, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6007238352128209446}
+    - target: {fileID: 7160505179830222862, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3170077652446617394}
+    - target: {fileID: 7160505179830222862, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetGamePause
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160505179830222862, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160505179830222862, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Navigate_Menu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7163565209276912855, guid: bba4694ca3bb32c4f874c2683c31a43b, type: 3}
       propertyPath: m_AnchorMax.y

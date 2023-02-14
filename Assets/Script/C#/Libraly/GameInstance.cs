@@ -39,11 +39,11 @@ public class GameInstance : MonoBehaviour
 
         if (!Iszero)
         {
-            cameraPoint.position = new Vector3(ScreenCenter.x - 1.5f, transform.position.y, ScreenCenter.z);
+            cameraPoint.position = new Vector3(ScreenCenter.x - 1f, Player.transform.position.y, Player.transform.position.z);
         }
         else
         {
-            cameraPoint.position = new Vector3(ScreenCenter.x + 1.5f, transform.position.y, ScreenCenter.z);
+            cameraPoint.position = new Vector3(ScreenCenter.x + 1f, Player.transform.position.y, Player.transform.position.z);
         }
 
         return Vector3.Distance(cameraPoint.position, Player.transform.position);

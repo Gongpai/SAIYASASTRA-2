@@ -22,6 +22,7 @@ public class MoveCameraToNewScene : MonoBehaviour
     private float Duration = 0;
     private float offSet = 1;
     private float speed = 1;
+    private float timeupCam = 0;
     private bool IsMoveCamera = false;
     private bool IsMovetoCharacter = false;
     private bool IsSet_CamCanMove = false;
@@ -256,9 +257,8 @@ public class MoveCameraToNewScene : MonoBehaviour
     private void MoveSmoothCamera()
     {
         Duration += (offSet * Time.deltaTime) * speed;
-        print("1 " + offSet + " : " + Duration);
         offSet -= (1 - Duration) * Time.deltaTime;
-        print("2" + offSet + " : " + Duration);
+
         if (Duration > 1)
         {
             Duration = 1;
@@ -289,13 +289,16 @@ public class MoveCameraToNewScene : MonoBehaviour
         {
             SetMoveStartEnd(new Vector3(), GameInstance.Player.transform.position, GameInstance.Player.transform, true, true);
             print(MovePoint.transform.position.x + " : " + GameInstance.Player.transform.position.x);
-            speed = speed + (Time.deltaTime * 4);
-            if (MovePoint.transform.position.x - 0.01 <= GameInstance.Player.transform.position.x && GameInstance.Player.transform.position.x <= MovePoint.transform.position.x + 0.01)
+            speed = speed + (Time.deltaTime * 8);
+
+            timeupCam += Time.deltaTime;
+            if ((MovePoint.transform.position.x - 0.01 <= GameInstance.Player.transform.position.x && GameInstance.Player.transform.position.x <= MovePoint.transform.position.x + 0.01) || timeupCam >= 3)
             {
                 IsMovetoCharacter = false;
                 print("EEEEEEEEEEEEEEE---------------");
                 Duration = 1;
                 speed = 1;
+                timeupCam = 0;
             }
                 
         }

@@ -15,6 +15,14 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private float RunSpeed = 3;
 
+    [SerializeField] private float JumpForce = 1;
+
+    [SerializeField] private Vector3 BoxSize;
+
+    [SerializeField] private float MaxDistance;
+
+    [SerializeField] private LayerMask layerMask;
+
     [SerializeField] private MovementModes movementMode = MovementModes.FreeRoam;
 
     [SerializeField] private  GameObject Playerinput;
@@ -43,6 +51,7 @@ public class Player_Movement : MonoBehaviour
 
     public GameObject ObjectHide;
     private GameObject Object_Intaeract;
+    private Rigidbody rb;
 
     private enum MovementModes
     {
@@ -117,6 +126,8 @@ public class Player_Movement : MonoBehaviour
 
         GameInstance.Player = gameObject;
         UpdateHPWidget();
+
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -197,19 +208,27 @@ public class Player_Movement : MonoBehaviour
         if (movementMode == MovementModes.FreeRoam)
         {
             Vector3 movementVector = new Vector3(inputManager.horizontalMoveAxis, 0, inputManager.verticalMoveAxis);
-            transform.position = transform.position + (movementVector * Time.deltaTime * moveSpeed);
+            rb.transform.position = rb.transform.position + (movementVector * Time.deltaTime * moveSpeed);
         }
 
         //‚§È¥°√–‚¥¥
-        if (JumpAction.IsPressed() == true)
+        if (GroundCheck())
         {
-            this.GetComponent<Animator>().SetBool("IsJump", true);
-            //print("Jump");
+            this.GetComponent<Animator>().SetBool("IsJump", false);
+            //print("StopJump");
         }
         else
         {
-            this.GetComponent<Animator>().SetBool("IsJump", false);
+            this.GetComponent<Animator>().SetBool("IsJump", true);
         }
+
+        if (JumpAction.WasPressedThisFrame() && GroundCheck())
+        {
+            rb.AddForce(transform.up * JumpForce, ForceMode.Impulse);
+            //print("Jump");
+        }
+
+        
 
         //‚§È¥«‘Ëß
         if (RunAction.IsPressed() == true)
@@ -238,6 +257,26 @@ public class Player_Movement : MonoBehaviour
             this.GetComponent<Animator>().SetBool("IsWalkForward", false);
         else if (inputManager.verticalMoveAxis > 0)
             this.GetComponent<Animator>().SetBool("IsWalkForward", true);
+    }
+
+    /**
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(transform.position - transform.up * MaxDistance, BoxSize);
+    }
+    **/
+
+    private bool GroundCheck()
+    {
+        if (Physics.BoxCast(transform.position, BoxSize, -transform.up, transform.rotation, MaxDistance, layerMask))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     void Ui_Control()
