@@ -19,6 +19,8 @@ public class MoveCameraToNewScene : MonoBehaviour
     private Vector3 ScreenCenter;
     private Vector3 ScreenLeft;
     private bool IsWalkLeft;
+
+    //MoveSmooth
     private float Duration = 0;
     private float offSet = 1;
     private float speed = 1;
@@ -319,4 +321,6 @@ public class MoveCameraToNewScene : MonoBehaviour
             offSet = 1;
         }
     }
+
+    
 }

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -25,15 +26,19 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private MovementModes movementMode = MovementModes.FreeRoam;
 
-    [SerializeField] private  GameObject Playerinput;
+    [SerializeField] private GameObject Playerinput;
 
     [SerializeField] public GameObject HeadPoint;
+
+    [SerializeField] public GameObject EquipPoint;
 
     [SerializeField] public ShowMessage showMessage;
 
     [SerializeField] public TextMeshProUGUI TextDebug;
 
     [SerializeField] public GameObject Essential_Menu;
+
+    [SerializeField] public GameObject Death_Ui;
 
     [SerializeField] private Image HP_ProgressBar;
 
@@ -47,7 +52,7 @@ public class Player_Movement : MonoBehaviour
 
     private Vector3 velocity, Pos;
 
-    private float HP = 100;
+    public float HP = 100;
 
     public GameObject ObjectHide;
     private GameObject Object_Intaeract;
@@ -135,6 +140,31 @@ public class Player_Movement : MonoBehaviour
     {
         Character_movement();
         Ui_Control();
+        EquipPoint_Turn();
+        OnCharacterDeath();
+        UpdateHPWidget();
+    }
+
+    void OnCharacterDeath()
+    {
+        if(HP <= 0)
+        {
+            GameObject.FindGameObjectWithTag("Camera_Setting").GetComponent<ZoomSmoothCameraSystem>().IsZoomCamera = true;
+            Death_Ui.SetActive(true);
+            Death_Ui.GetComponent<Animator>().SetBool("Is_Death", true);
+        }
+    }
+    void EquipPoint_Turn()
+    {
+        if (GetComponent<SpriteRenderer>().flipX)
+        {
+            EquipPoint.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            EquipPoint.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -193,7 +223,6 @@ public class Player_Movement : MonoBehaviour
                 HP = 0;
         }
         print("Hp------- : " + HP);
-        UpdateHPWidget();
         other.GetComponent<Item_Script>().Destroy_Item();
     }
 
@@ -313,12 +342,14 @@ public class Player_Movement : MonoBehaviour
         if (aimAction.WasPressedThisFrame() == true)
         {
             gameObject.GetComponent<Inventory_System>().Aim(!gameObject.GetComponent<Inventory_System>().IsAim);
+            Flashing_Lights.event_Light_On_Off?.Invoke(Flashing_Lights.Light_Mode.Flashing);
         }
 
         //ใช้งานไอเทม
         if (useitemAction.WasPressedThisFrame() == true)
         {
             gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
+            Flashing_Lights.event_Light_On_Off?.Invoke(Flashing_Lights.Light_Mode.Turn_Off);
         }
 
         //ปุ่มยิง/ปา

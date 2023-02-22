@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ai_Attack : MonoBehaviour
@@ -21,9 +22,18 @@ public class Ai_Attack : MonoBehaviour
             case AiGhost.Guard_ghost:
                 Shoot();
                 break;
+                case AiGhost.Mannequin_ghost: 
+                Character_Dead();
+                break;
             default:
                 break;
         }
+    }
+
+    private void Character_Dead()
+    {
+        GameObject CVCam = GameObject.FindGameObjectWithTag("Camera_Setting");
+        CVCam.GetComponent<ZoomSmoothCameraSystem>().IsZoomCamera = true;
     }
 
     private void Shoot()

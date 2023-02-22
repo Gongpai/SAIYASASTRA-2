@@ -26,4 +26,11 @@ public class FuntionLibraly : MonoBehaviour
     {
         Pro_gressBar.fillAmount = Point / MaxPoint;
     }
+
+    public static Vector2 Get_Screen_Point_Object(GameObject gameobject)
+    {
+        Camera maincam = Camera.main;
+        Vector2 screen_point = maincam.WorldToScreenPoint(gameobject.transform.position);
+        return screen_point;
+    }
 }

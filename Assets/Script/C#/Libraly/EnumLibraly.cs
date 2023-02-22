@@ -41,7 +41,7 @@ public enum AiGhost
     Home_ghost, //เจ้าที่
     Guard_ghost, //ผียาม + พนักงาน 
     Kid_ghost, //กุมารทอง
-    Woman_ghost, //ผีหญิงสาวปริศนา
+    Mannequin_ghost, //ผีหญิงสาวปริศนา
     Soi_Ju_ghost //กระสือ
 }
 

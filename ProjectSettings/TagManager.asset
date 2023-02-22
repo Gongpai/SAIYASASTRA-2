@@ -15,6 +15,9 @@ TagManager:
   - Ghost_Attack
   - Vcam
   - Door_Lawson
+  - Ghost_interact
+  - Light
+  - Camera_Setting
   layers:
   - Default
   - TransparentFX

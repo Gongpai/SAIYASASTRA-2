@@ -199,6 +199,26 @@ public class Ai_Movement : MonoBehaviour
 
     void AttackCharacter()
     {
+        switch (GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost"))
+        {
+            case AiGhost.Hungry_ghost:
+                CanAttackCHaracter();
+                break;
+            case AiGhost.Home_ghost:
+                break;
+            case AiGhost.Guard_ghost:
+                break;
+            case AiGhost.Kid_ghost:
+                break;
+            case AiGhost.Mannequin_ghost:
+                break;
+            case AiGhost.Soi_Ju_ghost:
+                break;
+        }
+    }
+
+    void CanAttackCHaracter()
+    {
         if (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 150 && Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= (Screen.width - 150) && !GameInstance.CharacterHide)
         {
             IsAttackCharacter = true;
