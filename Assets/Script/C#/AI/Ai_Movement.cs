@@ -25,6 +25,7 @@ public class Ai_Movement : MonoBehaviour
     [SerializeField] private Image ProgressBar;
     [SerializeField] private int MaxHP = 100;
     [SerializeField] public float HP_Ghost;
+    [SerializeField] public float Damage = 50;
 
     //TIME
     private float timeattack = 1;
@@ -150,34 +151,34 @@ public class Ai_Movement : MonoBehaviour
 
         if (!IsSeeCharacter)
         {
-            if ((distanceVector3[1].x - distanceVector3[0].x) < 0)
+            if ((distanceVector3[1].x - distanceVector3[0].x) * 100 <= -1f)
                 this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            else if ((distanceVector3[1].x - distanceVector3[0].x) > 0)
+            else if ((distanceVector3[1].x - distanceVector3[0].x) * 100 >= 1f)
                 this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
         }
         else
         {
-            if((gameObject.transform.position.x - Player.transform.position.x) < 0)
+            if((gameObject.transform.position.x - Player.transform.position.x) * 100 <= -1f)
                 this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            else if ((gameObject.transform.position.x - Player.transform.position.x) > 0)
+            else if ((gameObject.transform.position.x - Player.transform.position.x) * 100 >= 1f)
                 this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         //ตัวละครเดินขึ้นหน้าลงหลัง
         if (!IsSeeCharacter)
         {
-            if ((distanceVector3[1].z - distanceVector3[0].z) < 0)
+            if ((distanceVector3[1].z - distanceVector3[0].z) * 100 <= -1f)
                 this.GetComponent<Animator>().SetBool("IsWalkForward", false);
-            else if ((distanceVector3[1].z - distanceVector3[0].z) > 0)
+            else if ((distanceVector3[1].z - distanceVector3[0].z) * 100 >= 1f)
                 this.GetComponent<Animator>().SetBool("IsWalkForward", true);
             
         }
         else
         {
-            if ((gameObject.transform.position.z - Player.transform.position.z) < 0)
+            if ((gameObject.transform.position.z - Player.transform.position.z) * 10 <= -1f)
                 this.GetComponent<Animator>().SetBool("IsWalkForward", true);
-            else if ((gameObject.transform.position.z - Player.transform.position.z) > 0)
+            else if ((gameObject.transform.position.z - Player.transform.position.z) * 10 >= 1f)
                 this.GetComponent<Animator>().SetBool("IsWalkForward", false);
         }
         //print("Dis X" + (distanceVector3[1].x - distanceVector3[0].x));

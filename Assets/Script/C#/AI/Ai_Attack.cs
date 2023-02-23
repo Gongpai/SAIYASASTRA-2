@@ -22,18 +22,22 @@ public class Ai_Attack : MonoBehaviour
             case AiGhost.Guard_ghost:
                 Shoot();
                 break;
-                case AiGhost.Mannequin_ghost: 
-                Character_Dead();
+                case AiGhost.Mannequin_ghost:
+                PlayAnimCombat(true);
                 break;
             default:
                 break;
         }
     }
 
-    private void Character_Dead()
+    public void PlayAnimCombat(bool IsPlay)
     {
-        GameObject CVCam = GameObject.FindGameObjectWithTag("Camera_Setting");
-        CVCam.GetComponent<ZoomSmoothCameraSystem>().IsZoomCamera = true;
+        GetComponent<Animator>().SetBool("IsAttack", IsPlay);
+    }
+
+    public void Attack_Combat()
+    {
+        GameInstance.Player.GetComponent<Player_Movement>().HP -= GetComponent<Ai_Movement>().Damage;
     }
 
     private void Shoot()

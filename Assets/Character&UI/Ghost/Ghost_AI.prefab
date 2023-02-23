@@ -497,6 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsSeeCharacter: 0
+  IsAttackCharacter: 0
   IsGhostStun: 0
   hideGameObject: []
   ProgressBar: {fileID: 5148359126136848586}
@@ -577,7 +578,7 @@ Animator:
   m_GameObject: {fileID: 1384491867758489778}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0aec253e2c2bcd247908e64a4150a99c, type: 2}
+  m_Controller: {fileID: 9100000, guid: a5b95265944a11b4caabeeeba02a09c5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
