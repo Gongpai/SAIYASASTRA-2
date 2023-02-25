@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using Cinemachine;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-using Unity.Mathematics;
 using UnityEngine.SceneManagement;
 using Vector3 = UnityEngine.Vector3;
 
@@ -72,7 +72,7 @@ public class MoveCameraToNewScene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             IsCharacterEnter = true;
             if (is_Walk_in)
@@ -88,12 +88,14 @@ public class MoveCameraToNewScene : MonoBehaviour
                     Walk_Out(true, true);
                 }
             }
+
+            other.GetComponent<Player_Movement>().Set_Block_Use_item(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             IsCharacterEnter = false;
             if (is_Walk_in)
@@ -110,6 +112,7 @@ public class MoveCameraToNewScene : MonoBehaviour
                 }
             }
 
+            other.GetComponent<Player_Movement>().Set_Block_Use_item(false);
             transform.parent.GetComponent<Door_Lawson_System>().OpenOrClose(false, true, true);
         }
     }

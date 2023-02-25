@@ -58,6 +58,8 @@ public class Player_Movement : MonoBehaviour
     private GameObject Object_Intaeract;
     private Rigidbody rb;
 
+    private List<bool> Can_Press_Use_item = new List<bool>();
+
     private enum MovementModes
     {
         MoveHorizontally,
@@ -167,18 +169,21 @@ public class Player_Movement : MonoBehaviour
         
     }
 
+    public void Set_Block_Use_item(bool Is_Block)
+    {
+        if (Is_Block)
+        {
+            Can_Press_Use_item.Add(true);
+        }
+        else
+        {
+            if (Can_Press_Use_item.Count > 0)
+                Can_Press_Use_item.RemoveAt(0);
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.isTrigger && other.tag == "Ghost_Attack")
-        {
-            HP_System(other, -1);
-        }
-
-        if (other.isTrigger && other.tag == "Attack_Item" && other.GetComponent<Add_item_to_character>() != null && other.GetComponent<Add_item_to_character>().IsSpawn && other.GetComponent<Rigidbody>().velocity.y <= 0)
-        {
-            HP_System(other, 1);
-        }
-
         switch (other.tag)
         {
             case "Character_Hide":
@@ -211,7 +216,7 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    private void HP_System(Collider other, float hp)
+    public void HP_System(Collider other, float hp)
     {
         float Damage = other.GetComponent<Variables>().declarations.Get<float>("Damage");
 
@@ -342,13 +347,18 @@ public class Player_Movement : MonoBehaviour
         if (aimAction.WasPressedThisFrame() == true)
         {
             gameObject.GetComponent<Inventory_System>().Aim(!gameObject.GetComponent<Inventory_System>().IsAim);
+            gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
             Flashing_Lights.event_Light_On_Off?.Invoke(Flashing_Lights.Light_Mode.Flashing);
         }
 
         //ใช้งานไอเทม
         if (useitemAction.WasPressedThisFrame() == true)
         {
-            gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
+            if (Can_Press_Use_item.Count <= 0)
+            {
+                gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
+            }
+            
             Flashing_Lights.event_Light_On_Off?.Invoke(Flashing_Lights.Light_Mode.Turn_Off);
         }
 

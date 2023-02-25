@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Linq;
+using Unity.VisualScripting;
 
 public class Item_System : MonoBehaviour
 {
+    [SerializeField]public GameObject EquipSlot;
     private GameObject Player;
     private GameObject TTT;
+    public GameObject ItemEquip;
     private void Start()
     {
         Player = gameObject;
@@ -19,31 +22,44 @@ public class Item_System : MonoBehaviour
             print("Holy T : " + TTT.GetComponent<Rigidbody>().velocity.y);
     }
 
+
     public void Use_Item(Use_Item_System useItem_Mode, GameObject Item, bool IsAim = false, Quaternion rotation = default)
     {
         switch (useItem_Mode)
         {
             case Use_Item_System.Use_Self:
-                UseSelf();
                 break;
             case Use_Item_System.Use_Other:
-                UseOther();
+                Equip_To_Character(Item);
                 break;
             case Use_Item_System.Shoot_Projectile:
                 if(IsAim == true)
                     ShootProjectile(Item, rotation);
                 break;
+            case Use_Item_System.Use_Light:
+                Equip_To_Character(Item);
+                break;
         }
     }
 
-    private void UseSelf()
+    [System.Obsolete]
+    private void Equip_To_Character(GameObject ObjectEquip)
     {
-
-    }
-
-    private void UseOther()
-    {
-
+        if (ObjectEquip.GetComponent<Variables>() != null)
+        {
+            if (EquipSlot.transform.GetChildCount() == 0)
+            {
+                ItemEquip = Instantiate(ObjectEquip, EquipSlot.transform);
+                ItemEquip.GetComponent<Variables>().declarations.Set("Prefab_Original", ObjectEquip);
+            }
+            else
+            {
+                if (ItemEquip.GetComponent<Variables>().declarations.Get<GameObject>("Prefab_Original") == ObjectEquip)
+                {
+                    Destroy(ItemEquip);
+                }
+            }
+        }
     }
 
     private void ShootProjectile(GameObject Item, Quaternion rotation)

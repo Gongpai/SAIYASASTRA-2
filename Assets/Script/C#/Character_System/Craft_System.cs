@@ -1,4 +1,3 @@
-using Mono.Cecil.Cil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -155,19 +154,15 @@ public class Craft_System : MonoBehaviour
             case "000010000":
                 print("§√“ø¢«¥πÈ”¡πµÏ---------------------------");
                 return Tuple.Create(Get_item(0), true);
-                break;
             case "000131000":
                 print("§√“øÀ¡ÈÕº’---------------------------");
                 return Tuple.Create(Get_item(1), true);
-                break;
             case "000212000":
                 print("§√“ø¬—πµÏ---------------------------");
                 return Tuple.Create(Get_item(2), true);
-                break;
             case "010101010":
                 print("§√“ø¢«¥πÈ”¡πµÏ2--------------------------");
                 return Tuple.Create(Get_item(0), true);
-                break;
         }
 
         return Tuple.Create(Get_item(0), false);

@@ -7,6 +7,7 @@ public class Add_item_to_character : MonoBehaviour
 {
     [SerializeField] private int ItemIndex = 0;
     [SerializeField] public bool IsSpawn = false;
+    [SerializeField] new Collider collider = new Collider();
 
     private Structs_Libraly.Item_Data itemData;
 
@@ -35,6 +36,20 @@ public class Add_item_to_character : MonoBehaviour
             other.gameObject.GetComponent<Inventory_System>().Add_Item_Element(itemData);
             Destroy(this.gameObject);
             print("Adddddd-----------------------");
+        }
+
+        if (IsSpawn)
+        {
+            if (other.isTrigger && other.tag == "Player" && gameObject.tag == "Ghost_Attack")
+            {
+                print("HP------------------------------------- " + other);
+                other.GetComponent<Player_Movement>().HP_System(collider, -1);
+            }
+
+            if (other.isTrigger && other.tag == "Player" && gameObject.tag == "Ghost_Attack" && other.GetComponent<Add_item_to_character>() != null && other.GetComponent<Add_item_to_character>().IsSpawn && other.GetComponent<Rigidbody>().velocity.y <= 0)
+            {
+                other.GetComponent<Player_Movement>().HP_System(collider, 1);
+            }
         }
     }
 }

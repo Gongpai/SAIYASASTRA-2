@@ -76,7 +76,7 @@ public class Flashing_Lights : MonoBehaviour
                 Light_Collider.SetActive(false);
                 TriggerGhostEvent();
 
-                print("Turn_Offffffffffffffffffffffffff");
+                //print("Turn_Offffffffffffffffffffffffff");
                 break;
             default:
                 m_light.intensity = 1;
@@ -91,10 +91,10 @@ public class Flashing_Lights : MonoBehaviour
         if(character_Stay_In_Light.Ghost != null)
         {
             CustomEvent.Trigger(character_Stay_In_Light.Ghost, "Chasing");
-            print("GHOST CHASING");
+            //print("GHOST CHASING");
         }
         
-        print("GHOST Trigger chasing");
+        //print("GHOST Trigger chasing");
     }
 
     public void PlayAnimation(bool Is_Character)

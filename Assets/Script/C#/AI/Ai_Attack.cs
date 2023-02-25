@@ -20,9 +20,12 @@ public class Ai_Attack : MonoBehaviour
         switch (selectAiGhost)
         {
             case AiGhost.Guard_ghost:
-                Shoot();
+                Shoot_projectile();
                 break;
-                case AiGhost.Mannequin_ghost:
+            case AiGhost.Home_ghost:
+                Shoot_horizontal();
+                break;
+            case AiGhost.Mannequin_ghost:
                 PlayAnimCombat(true);
                 break;
             default:
@@ -40,7 +43,7 @@ public class Ai_Attack : MonoBehaviour
         GameInstance.Player.GetComponent<Player_Movement>().HP -= GetComponent<Ai_Movement>().Damage;
     }
 
-    private void Shoot()
+    private void Shoot_projectile()
     {
         Rigidbody rigidbody;
         Quaternion Rot = Quaternion.Euler(0, 0, FuntionLibraly.Get2DLookAt(gameObject.transform.position, GameInstance.Player.GetComponent<Player_Movement>().HeadPoint.transform.position) - CulMath() + 55);
@@ -52,7 +55,7 @@ public class Ai_Attack : MonoBehaviour
             spawnItem = ObjectAttack;
             spawnItem.GetComponent<Add_item_to_character>().IsSpawn = true;
             spawnItem.transform.rotation = Rot;
-            spawnItem.transform.position = transform.position + (spawnItem.transform.up * 1.2f);
+            spawnItem.transform.position = transform.position + (spawnItem.transform.up * 1.1f);
             print("Rota : " + Rot);
 
             GameObject spawn = Instantiate(spawnItem);
@@ -61,6 +64,42 @@ public class Ai_Attack : MonoBehaviour
             rigidbody.isKinematic = false;
             rigidbody.AddForce(spawn.transform.up * (7 + Vector3.Magnitude(GetComponent<Rigidbody>().velocity)), ForceMode.Impulse);
             testtt = rigidbody;
+        }
+    }
+
+    private void Shoot_horizontal()
+    {
+        Rigidbody rigidbody;
+
+        if(ObjectAttack != null)
+        {
+            GameObject spawnItem;
+            spawnItem = ObjectAttack;
+            spawnItem.GetComponent<Add_item_to_character>().IsSpawn = true;
+            spawnItem.transform.rotation = Quaternion.Euler(0,0,0);
+            if (GetComponent<SpriteRenderer>().flipX)
+            {
+                spawnItem.transform.position = transform.position + (spawnItem.transform.right * -1.1f);
+            }
+            else
+            {
+                spawnItem.transform.position = transform.position + (spawnItem.transform.right * 1.1f);
+            }
+
+            GameObject spawn = Instantiate(spawnItem);
+
+            rigidbody = spawn.GetComponent<Rigidbody>();
+            rigidbody.useGravity = false;
+            rigidbody.isKinematic = false;
+
+            if(GetComponent<SpriteRenderer>().flipX)
+            {
+                rigidbody.AddForce(transform.right * -5, ForceMode.Impulse);
+            } 
+            else
+            {
+                rigidbody.AddForce(transform.right * 5, ForceMode.Impulse);
+            }
         }
     }
 

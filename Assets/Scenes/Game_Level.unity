@@ -1355,8 +1355,8 @@ MonoBehaviour:
     itemSprite: {fileID: 21300000, guid: 7d24987c2a3249848b9272ceffedf20c, type: 3}
     IsEquip: 0
     Index: 0
-    ItemPrefeb: {fileID: 0}
-    useItemMode: 0
+    ItemPrefeb: {fileID: 8906758629843560870, guid: d17c2f128b4490e4182a75e05690ec23, type: 3}
+    useItemMode: 3
   - Item_Index: 4
     Name: None
     Number: 0
@@ -1707,7 +1707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5557712288486802689, guid: 99fc2248d0027834ab35737adaa0901f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5833225
+      value: 18.45
       objectReference: {fileID: 0}
     - target: {fileID: 5557712288486802689, guid: 99fc2248d0027834ab35737adaa0901f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5841,7 +5841,7 @@ PrefabInstance:
       propertyPath: _data._json
       value: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Agent","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.AI.NavMeshAgent,
         UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Target","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
-        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Ai_Ghost","value":{"$content":"Mannequin_ghost","$type":"AiGhost"},"typeHandle":{"Identification":"AiGhost,
+        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Ai_Ghost","value":{"$content":"Home_ghost","$type":"AiGhost"},"typeHandle":{"Identification":"AiGhost,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"ShowMessage","value":{"$content":2,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
         UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"TimeOut_Finding","value":{"$content":30.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"TimeOut_Stun_Max","value":{"$content":3.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
@@ -5856,7 +5856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1384491867758489773, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.84
+      value: 14.63
       objectReference: {fileID: 0}
     - target: {fileID: 1384491867758489773, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_LocalPosition.y

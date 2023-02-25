@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemIndex: 1
   IsSpawn: 0
+  collider: {fileID: 0}
 --- !u!212 &1467799967715643439
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 48
@@ -141,7 +142,7 @@ SphereCollider:
   m_GameObject: {fileID: 1793019610661123709}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.16
   m_Center: {x: 0, y: 0, z: 0}

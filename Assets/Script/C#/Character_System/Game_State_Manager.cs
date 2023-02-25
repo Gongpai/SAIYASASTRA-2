@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game_State_Manager
+public class Game_State_Manager 
 {
 
     private static Game_State_Manager _instance;

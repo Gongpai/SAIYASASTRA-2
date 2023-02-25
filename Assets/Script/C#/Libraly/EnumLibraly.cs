@@ -50,7 +50,8 @@ public enum Use_Item_System
 {
     Use_Self,
     Use_Other,
-    Shoot_Projectile
+    Shoot_Projectile,
+    Use_Light
 }
 
 //เลือกหน้าเมนู

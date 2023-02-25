@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Mono.CompilerServices.SymbolWriter;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -89,7 +88,25 @@ public class Ai_Movement : MonoBehaviour
             if ((timeattack - oldtimeattack) == 1)
             {
                 print(timeattack + " : Old " + oldtimeattack);
-                GetComponent<Ai_Attack>().Attack(AiGhost.Guard_ghost);
+
+                switch (GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost"))
+                {
+                    case AiGhost.Hungry_ghost:
+                        GetComponent<Ai_Attack>().Attack(AiGhost.Guard_ghost);
+                        break;
+                    case AiGhost.Home_ghost:
+                        GetComponent<Ai_Attack>().Attack(AiGhost.Home_ghost);
+                        break;
+                    case AiGhost.Guard_ghost:
+                        break;
+                    case AiGhost.Kid_ghost:
+
+                        break;
+                    case AiGhost.Mannequin_ghost:
+                        break;
+                    case AiGhost.Soi_Ju_ghost:
+                        break;
+                }
             }
 
             oldtimeattack = DateTime.Now.Second;
@@ -187,7 +204,7 @@ public class Ai_Movement : MonoBehaviour
 
     void DetectCharacter()
     {
-        if (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 0 && Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= Screen.width && !GameInstance.CharacterHide)
+        if (Camera.main.WorldToScreenPoint(transform.position).x >= 0 && Camera.main.WorldToScreenPoint(transform.position).x <= Screen.width && !GameInstance.CharacterHide)
         {
             IsSeeCharacter = true;
             Player = GameInstance.Player;
@@ -206,8 +223,10 @@ public class Ai_Movement : MonoBehaviour
                 CanAttackCHaracter();
                 break;
             case AiGhost.Home_ghost:
+                CanAttackCHaracter();
                 break;
             case AiGhost.Guard_ghost:
+                CanAttackCHaracter();
                 break;
             case AiGhost.Kid_ghost:
                 break;
@@ -220,7 +239,7 @@ public class Ai_Movement : MonoBehaviour
 
     void CanAttackCHaracter()
     {
-        if (Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x >= 150 && Camera.main.WorldToScreenPoint(GameInstance.Ghost.transform.position).x <= (Screen.width - 150) && !GameInstance.CharacterHide)
+        if (Camera.main.WorldToScreenPoint(transform.position).x >= 150 && Camera.main.WorldToScreenPoint(transform.position).x <= (Screen.width - 150) && !GameInstance.CharacterHide)
         {
             IsAttackCharacter = true;
         }
