@@ -538,6 +538,17 @@
                     "action": "Dialog_Control_Next",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18bf1040-6653-4ee7-8286-0b5907a75bc5",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialog_Control_Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

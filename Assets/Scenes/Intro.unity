@@ -318,5 +318,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d280279a3d32c8140a1444c3b742e603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intro_Scene: Game_Level
+  Intro_Scene: MainMenu
   LoadingScreenWidget: {fileID: 1286809881}

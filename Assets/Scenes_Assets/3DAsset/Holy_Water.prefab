@@ -31,8 +31,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793019610661123709}
-  m_LocalRotation: {x: 0, y: 0, z: 0.5530178, w: 0.83316946}
-  m_LocalPosition: {x: 20.762114, y: 1.2265375, z: 0.48294276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 52.850956, y: 4.018526, z: -1.1577194}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53,7 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemIndex: 0
   IsSpawn: 1
-  collider: {fileID: 0}
+  collider: {fileID: 7834518358262473712}
+  ghost: {fileID: 0}
+  ai_ghost: 0
+  isFlip: 0
 --- !u!114 &2005682570844884272
 MonoBehaviour:
   m_ObjectHideFlags: 0
