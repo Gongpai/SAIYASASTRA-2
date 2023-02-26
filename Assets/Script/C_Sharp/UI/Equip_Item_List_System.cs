@@ -23,4 +23,10 @@ public class Equip_Item_List_System : MonoBehaviour
     {
         TextNumber.SetText(GameInstance.inventoryData[IndexEquip].Number.ToString());
     }
+
+    public void Touch_Select_Item()
+    {
+        if(Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
+            GameInstance.Player.GetComponent<Inventory_System>().Select_Number_List(0, true, GameInstance.inventoryData[IndexEquip].Index);
+    }
 }

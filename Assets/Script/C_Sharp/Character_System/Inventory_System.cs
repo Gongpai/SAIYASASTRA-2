@@ -300,21 +300,36 @@ public class Inventory_System : MonoBehaviour
     }
 
     //ระบบเลือกไอเทม
-    void Select_Number_List(int Number)
+    public void Select_Number_List(int Number, bool select_for_touch = false, int select_number = 0)
     {
         if (GameInstance.ShowItemElementData.Count > 0)
         {
-            SelectNum += Number;
-            if (SelectNum > maxSelect)
+            if (!select_for_touch)
             {
-                SelectNum = 0;
+                SelectNum += Number;
+                if (SelectNum > maxSelect)
+                {
+                    SelectNum = 0;
+                }
+                else if (SelectNum < 0)
+                {
+                    SelectNum = maxSelect;
+                }
+                IsAim = false;
             }
-            else if (SelectNum < 0)
+            else
             {
-                SelectNum = maxSelect;
+                if(SelectNum == select_number)
+                {
+                    Aim(!IsAim);
+                    print(SelectNum + " Num : Sel " + select_number + " ISaIM : " + IsAim);
+                } else
+                {
+                    IsAim = false;
+                }
+                SelectNum = select_number;
             }
 
-            IsAim = false;
             //print("Select is : " + SelectNum);
             Equip_Element_list[SelectNum].GetComponent<Animator>().SetBool("Is_Play?", true);
 
@@ -379,14 +394,14 @@ public class Inventory_System : MonoBehaviour
         }
     }
 
-    public void Use_Item_Equip()
+    public void Use_Item_Equip(bool is_remove = false)
     {
         if (GameInstance.ShowItemElementData.Count > 0)
         {
             Structs_Libraly.Item_Data itemData = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData;
 
             if (itemData.useItemMode != Use_Item_System.Shoot_Projectile)
-                gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim);
+                GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim);
         }
     }
 

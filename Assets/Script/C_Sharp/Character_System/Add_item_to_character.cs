@@ -86,7 +86,7 @@ public class Add_item_to_character : FuntionLibraly
         if (other.gameObject.tag == "Player" && !IsSpawn)
         {
             other.gameObject.GetComponent<Inventory_System>().Add_Item_Element(itemData);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             print("Adddddd-----------------------");
         }
 

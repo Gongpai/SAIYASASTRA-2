@@ -399,6 +399,7 @@ public class Player_Movement : FuntionLibraly
         }
     }
 
+    //ปุ่มสัมผัส - กดเปิดช่องเก็บของ
     public void Touch_OpenInventoryUi()
     {
         gameObject.GetComponent<Inventory_System>().Set_Inventory_Element();
