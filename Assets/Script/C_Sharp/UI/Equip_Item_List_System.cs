@@ -26,7 +26,7 @@ public class Equip_Item_List_System : MonoBehaviour
 
     public void Touch_Select_Item()
     {
-        if(Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
+        if(Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor || SlateModeDetect.currentMode == ConvertibleMode.SlateTabletMode)
             GameInstance.Player.GetComponent<Inventory_System>().Select_Number_List(0, true, GameInstance.inventoryData[IndexEquip].Index);
     }
 }

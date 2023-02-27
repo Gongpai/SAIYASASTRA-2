@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!245 &-8162912172728776595
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pause
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: cfb9cf91a943b3c448e6816c87f2e32e
+  m_FloatValues:
+    fecabfd1c20ce10419ce0cb256642d5c: 0
+  m_TransitionOverrides: {}
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -11,14 +23,20 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: -8162912172728776595}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
-  m_AudioMixerGroupViews: []
+  m_ExposedParameters:
+  - guid: fecabfd1c20ce10419ce0cb256642d5c
+    name: SFXVol
+  m_AudioMixerGroupViews:
+  - guids:
+    - 6d0f19d6cfbc5914f87289808da90dc0
+    name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 24500006}
+  m_TargetSnapshot: {fileID: -8162912172728776595}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -58,8 +76,9 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: Unpause
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: add5ecb79e38b814081ff1378e0abf3c
-  m_FloatValues: {}
+  m_FloatValues:
+    fecabfd1c20ce10419ce0cb256642d5c: 0
   m_TransitionOverrides: {}

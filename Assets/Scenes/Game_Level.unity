@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1488884380}
-  m_IndirectSpecularColor: {r: 0.5590147, g: 0.8095578, b: 0.99108803, a: 1}
+  m_IndirectSpecularColor: {r: 0.55916, g: 0.80883837, b: 0.98748887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1107,7 +1107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288835936}
-  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
   m_LocalPosition: {x: 34.53, y: 5.08, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3163,6 +3163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963406957}
   - component: {fileID: 963406956}
+  - component: {fileID: 963406958}
   m_Layer: 0
   m_Name: System_DontDestroyOnLoad
   m_TagString: Untagged
@@ -3198,6 +3199,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963406958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963406955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e5fcde876852a4598e9e88d42304d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &968655580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4421,6 +4434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScreenWidget
       objectReference: {fileID: 0}
+    - target: {fileID: 2472203227937192339, guid: 155ebc67955123848a90324c6a2d1293, type: 3}
+      propertyPath: m_SortingOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5414383576171559857, guid: 155ebc67955123848a90324c6a2d1293, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5216,7 +5233,7 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 2
   m_CursorLockBehavior: 0
 --- !u!1 &1804303229
 GameObject:
@@ -5441,7 +5458,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804303229}
-  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
   m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6412,6 +6429,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1659896854358918612, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659896854358918612, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659896854358918612, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1820479085802528108, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6588,6 +6617,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.84000397
       objectReference: {fileID: 0}
+    - target: {fileID: 3567401757539370123, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567401757539370123, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3705808282144104256, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6716,6 +6753,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4577409834528133205, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: LoadingScreenWidget
+      value: 
+      objectReference: {fileID: 2128991596}
     - target: {fileID: 4629580901601730453, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
       propertyPath: m_fontSizeBase
       value: 42
@@ -6768,6 +6809,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5001085900801773868, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: LoadingScreenWidget
+      value: 
+      objectReference: {fileID: 2128991596}
     - target: {fileID: 5074710963369444544, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7096,6 +7141,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6212255685821108377, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212255685821108377, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6247803146418205932, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 40
@@ -7324,6 +7377,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8124082760636928454, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124082760636928454, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124082760636928454, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8271532672573235223, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -7360,6 +7425,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8745569913462152794, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: LoadingScreenWidget
+      value: 
+      objectReference: {fileID: 2128991596}
     - target: {fileID: 8834980534268837506, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

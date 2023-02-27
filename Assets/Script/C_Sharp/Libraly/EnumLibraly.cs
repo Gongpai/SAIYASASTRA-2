@@ -67,3 +67,15 @@ public enum Object_interact
     Cupboard_Hide,
     Lawson_Door
 }
+
+public enum SystemMetric
+{
+    SM_CONVERTABLESLATEMODE = 0x2003,
+    SM_SYSTEMDOCKED = 0x2004,
+}
+
+public enum ConvertibleMode 
+{ 
+    LaptopDockedMode, 
+    SlateTabletMode 
+}

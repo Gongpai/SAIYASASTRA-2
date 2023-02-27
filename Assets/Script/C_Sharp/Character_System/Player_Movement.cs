@@ -36,6 +36,8 @@ public class Player_Movement : FuntionLibraly
 
     [SerializeField] public GameObject Essential_Menu;
 
+    [SerializeField] public GameObject PauseGame_Ui;
+
     [SerializeField] public GameObject Death_Ui;
 
     [SerializeField] public GameObject Touch_screen_UI;
@@ -45,7 +47,7 @@ public class Player_Movement : FuntionLibraly
     [Header("NotSet")]
     float moveSpeed = 0;
     public PlayerInput playerInput;
-    private InputAction JumpAction, RunAction, InventoryAction, NoteAction, CraftAction, aimAction, useitemAction, shootAction;
+    private InputAction JumpAction, RunAction, InventoryAction, NoteAction, CraftAction, aimAction, useitemAction, shootAction, PauseMenuAction;
     private InputManager inputManager;
 
     private Object_interact Ob_interact = Object_interact.Cupboard_Hide;
@@ -110,7 +112,8 @@ public class Player_Movement : FuntionLibraly
         CraftAction = playerInput.actions["Craft"];
         aimAction = playerInput.actions["Aim"];
         useitemAction = playerInput.actions["Use_Item"];
-        shootAction = playerInput.actions["Shoot"]; 
+        shootAction = playerInput.actions["Shoot"];
+        PauseMenuAction = playerInput.actions["PauseMenu"];
         Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
     }
 
@@ -130,6 +133,7 @@ public class Player_Movement : FuntionLibraly
         aimAction.Enable();
         useitemAction.Enable();
         shootAction.Enable();
+        PauseMenuAction.Enable();
         OnGamePause(false);
         Set_Platform();
     }
@@ -148,21 +152,36 @@ public class Player_Movement : FuntionLibraly
         Touch_screen_UI.SetActive(false);
     }
 
+    private void OnApplicationQuit()
+    {
+        PauseMenuAction.Disable();
+    }
+
     public void Set_Platform()
     {
-        switch (Application.platform)
+        switch (SlateModeDetect.currentMode)
         {
-            case RuntimePlatform.WindowsPlayer:
-                print("Windowssssssssssssssssss");
-                Touch_screen_UI.SetActive(false);
-                break;
-            case RuntimePlatform.WindowsEditor:
-                print("Windowssssssssssssssssss");
+            case ConvertibleMode.SlateTabletMode:
                 Touch_screen_UI.SetActive(true);
+                Debug.LogWarning("SlateTabletMode");
                 break;
-            case RuntimePlatform.Android:
-                print("Androiddddddddddddddddddddd");
-                Touch_screen_UI.SetActive(true);
+            case ConvertibleMode.LaptopDockedMode:
+                Debug.LogWarning("LaptopDockedMode");
+                switch (Application.platform)
+                {
+                    case RuntimePlatform.WindowsPlayer:
+                        print("Windowssssssssssssssssss");
+                        Touch_screen_UI.SetActive(false);
+                        break;
+                    case RuntimePlatform.WindowsEditor:
+                        print("Windowssssssssssssssssss");
+                        Touch_screen_UI.SetActive(true);
+                        break;
+                    case RuntimePlatform.Android:
+                        print("Androiddddddddddddddddddddd");
+                        Touch_screen_UI.SetActive(true);
+                        break;
+                }
                 break;
         }
     }
@@ -409,15 +428,31 @@ public class Player_Movement : FuntionLibraly
         Game_State_Manager.Instance.Setstate(GameState.Pause);
     }
 
-    /**
-    void OnDrawGizmos()
+    [System.Obsolete]
+    private bool Check_PauseMenu()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(transform.position - transform.up * MaxDistance, BoxSize);
+        bool check = !PauseGame_Ui.active && !Death_Ui.active;
+        return check;
     }
-    **/
 
-    private bool GroundCheck()
+    //ปุ่มสัมผัส - กดหยุดเกม
+    public void Touch_OpenPauseMenu()
+    {
+        if (Check_PauseMenu())
+        {
+            PauseGame_Ui.SetActive(true);
+            Game_State_Manager.Instance.Setstate(GameState.Pause);
+        }
+    }
+        /**
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawCube(transform.position - transform.up * MaxDistance, BoxSize);
+        }
+        **/
+
+        private bool GroundCheck()
     {
         if (Physics.BoxCast(transform.position, BoxSize, -transform.up, transform.rotation, MaxDistance, layerMask))
         {
@@ -432,6 +467,16 @@ public class Player_Movement : FuntionLibraly
     [System.Obsolete]
     void Ui_Control()
     {
+        //เปิดหน้า PauseMenu
+        if(PauseMenuAction.WasPerformedThisFrame())
+        {
+            if(!PauseGame_Ui.active && !Death_Ui.active)
+            {
+                PauseGame_Ui.SetActive(true);
+                Game_State_Manager.Instance.Setstate(GameState.Pause);
+            }
+        }
+
         //เปิดหน้าช่องเก็บของ
         if (InventoryAction.WasPressedThisFrame() == true)
         {

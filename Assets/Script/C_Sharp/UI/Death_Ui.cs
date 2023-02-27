@@ -24,6 +24,11 @@ public class Death_Ui : MonoBehaviour
         Game_State_Manager.Instance.Setstate(GameState.Pause);
     }
 
+    public void Back_To_MainMenu()
+    {
+        LoadingScreenWidget.GetComponent<LoadingSceneStstem>().LoadScene("MainMenu");
+    }
+
     private void OnEnable()
     {
         Game_State_Manager.Instance.Setstate(GameState.Pause);
