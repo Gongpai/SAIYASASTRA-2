@@ -53,7 +53,6 @@ public class Ai_Attack : MonoBehaviour
         {
             GameObject spawnItem;
             spawnItem = ObjectAttack;
-            spawnItem.GetComponent<Add_item_to_character>().IsSpawn = true;
             spawnItem.transform.rotation = Rot;
             spawnItem.transform.position = transform.position + (spawnItem.transform.up * 1.1f);
             print("Rota : " + Rot);
@@ -62,8 +61,8 @@ public class Ai_Attack : MonoBehaviour
             if (is_spawn)
             {
                 spawn = Instantiate(spawnItem);
-                spawn.GetComponent<Add_item_to_character>().ai_ghost = GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost");
-                spawn.GetComponent<Add_item_to_character>().ghost = gameObject;
+                spawn.GetComponent<Item_Attack_System>().ai_ghost = GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost");
+                spawn.GetComponent<Item_Attack_System>().ghost = gameObject;
                 rigidbody = spawn.GetComponent<Rigidbody>();
                 rigidbody.isKinematic = false;
                 rigidbody.useGravity = true;
@@ -87,7 +86,6 @@ public class Ai_Attack : MonoBehaviour
         {
             GameObject spawnItem;
             spawnItem = ObjectAttack;
-            spawnItem.GetComponent<Add_item_to_character>().IsSpawn = true;
             spawnItem.transform.rotation = Quaternion.Euler(0,0,0);
             if (GetComponent<SpriteRenderer>().flipX)
             {
@@ -102,9 +100,9 @@ public class Ai_Attack : MonoBehaviour
             if (is_spawn)
             {
                 spawn = Instantiate(spawnItem);
-                spawn.GetComponent<Add_item_to_character>().ai_ghost = GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost");
-                spawn.GetComponent<Add_item_to_character>().ghost = gameObject;
-                spawn.GetComponent<Add_item_to_character>().isFlip = flip;
+                spawn.GetComponent<Item_Attack_System>().ai_ghost = GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost");
+                spawn.GetComponent<Item_Attack_System>().ghost = gameObject;
+                spawn.GetComponent<Item_Attack_System>().isFlip = flip;
             }
             else
             {

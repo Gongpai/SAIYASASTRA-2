@@ -37,4 +37,9 @@ public class Game_State_Manager
         currentGameState = gamestate;
         OnGameStateChange?.Invoke(gamestate);
     }
+
+    public static void Reset_Game_State()
+    {
+        _instance = null;
+    }
 }

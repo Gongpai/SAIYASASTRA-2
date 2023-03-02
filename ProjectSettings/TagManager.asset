@@ -12,12 +12,14 @@ TagManager:
   - Character_Essential_UI
   - Craft_Slot
   - Attack_Item
-  - Ghost_Attack
   - Vcam
   - Door_Lawson
   - Ghost_interact
   - Light
   - Camera_Setting
+  - PickUpItem
+  - PickUpNote
+  - Game_Ui
   layers:
   - Default
   - TransparentFX

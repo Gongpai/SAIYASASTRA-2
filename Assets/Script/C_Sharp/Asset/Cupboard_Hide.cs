@@ -59,9 +59,9 @@ public class Cupboard_Hide : MonoBehaviour
     }
 
     //â¤é´à»Ô´»ÃÐµÙ
-    public void TriggerOpenDoor(InputAction.CallbackContext context = default)
+    public void TriggerOpenDoor()
     {
-        if (context.action.triggered && CharacterEnter == true)
+        if (CharacterEnter == true)
         {
             OpenDoor();
         }
@@ -133,7 +133,7 @@ public class Cupboard_Hide : MonoBehaviour
             CharacterEnter = true;
             collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message(InteractMessage);
             pLayer = collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>();
-            print("DDDDDDD");
+            //print("DDDDDDD");
             collider.GetComponent<Player_Movement>().Set_Block_Use_item(true);
         }
            

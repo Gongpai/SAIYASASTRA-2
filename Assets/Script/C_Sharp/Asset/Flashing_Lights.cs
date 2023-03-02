@@ -111,7 +111,7 @@ public class Flashing_Lights : MonoBehaviour
             m_random = 1;
         }
         
-        print(m_Animator + " : " + m_random);
+        //print(m_Animator + " : " + m_random);
         m_Animator.SetInteger("PlayAnimNUM", m_random);
     }
 

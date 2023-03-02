@@ -27,37 +27,41 @@ public class Eqip_Item_System : MonoBehaviour
 
     public void Eqip_Item()
     {
-        if (!GameInstance.inventoryData[IndexInventory].IsEquip)
+        if (itemData.useItemMode != Use_Item_System.Puzzle && itemData.useItemMode != Use_Item_System.Use_Other)
         {
-            itemData.Index = IndexInventory;
-            GameInstance.Player.gameObject.GetComponent<Inventory_System>().Add_Item_Equip(itemData, this.gameObject);
-            GameInstance.inventoryData[IndexInventory] = new Structs_Libraly.Item_Data
-                (
-                    GameInstance.inventoryData[IndexInventory].Item_Index,
-                    GameInstance.inventoryData[IndexInventory].Name, 
-                    GameInstance.inventoryData[IndexInventory].Number, 
-                    GameInstance.inventoryData[IndexInventory].itemSprite, 
-                    true, 
-                    GameInstance.inventoryData[IndexInventory].Index,
-                    GameInstance.inventoryData[IndexInventory].ItemPrefeb,
-                    GameInstance.inventoryData[IndexInventory].useItemMode
-                );
-        }
-        else
-        {
-            GameInstance.Player.gameObject.GetComponent<Inventory_System>().Remove_Equip_Item(GameInstance.inventoryData[IndexInventory].Index);
-            GameInstance.inventoryData[IndexInventory] = new Structs_Libraly.Item_Data
-                (
-                    GameInstance.inventoryData[IndexInventory].Item_Index,
-                    GameInstance.inventoryData[IndexInventory].Name, 
-                    GameInstance.inventoryData[IndexInventory].Number, 
-                    GameInstance.inventoryData[IndexInventory].itemSprite, 
-                    false, 
-                    GameInstance.inventoryData[IndexInventory].Index,
-                    GameInstance.inventoryData[IndexInventory].ItemPrefeb,
-                    GameInstance.inventoryData[IndexInventory].useItemMode
-                );
-           
+
+            if (!GameInstance.inventoryData[IndexInventory].IsEquip)
+            {
+                itemData.Index = IndexInventory;
+                GameInstance.Player.gameObject.GetComponent<Inventory_System>().Add_Item_Equip(itemData, this.gameObject);
+                GameInstance.inventoryData[IndexInventory] = new Structs_Libraly.Item_Data
+                    (
+                        GameInstance.inventoryData[IndexInventory].Item_Index,
+                        GameInstance.inventoryData[IndexInventory].Name,
+                        GameInstance.inventoryData[IndexInventory].Number,
+                        GameInstance.inventoryData[IndexInventory].itemSprite,
+                        true,
+                        GameInstance.inventoryData[IndexInventory].Index,
+                        GameInstance.inventoryData[IndexInventory].ItemPrefeb,
+                        GameInstance.inventoryData[IndexInventory].useItemMode
+                    );
+            }
+            else
+            {
+                GameInstance.Player.gameObject.GetComponent<Inventory_System>().Remove_Equip_Item(GameInstance.inventoryData[IndexInventory].Index);
+                GameInstance.inventoryData[IndexInventory] = new Structs_Libraly.Item_Data
+                    (
+                        GameInstance.inventoryData[IndexInventory].Item_Index,
+                        GameInstance.inventoryData[IndexInventory].Name,
+                        GameInstance.inventoryData[IndexInventory].Number,
+                        GameInstance.inventoryData[IndexInventory].itemSprite,
+                        false,
+                        GameInstance.inventoryData[IndexInventory].Index,
+                        GameInstance.inventoryData[IndexInventory].ItemPrefeb,
+                        GameInstance.inventoryData[IndexInventory].useItemMode
+                    );
+
+            }
         }
         
         print("ISSSSS ---- : " + GameInstance.inventoryData[IndexInventory].Index + " Name : " + itemData.Name);

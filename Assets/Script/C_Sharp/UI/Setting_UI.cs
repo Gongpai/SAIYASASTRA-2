@@ -42,8 +42,20 @@ public class Setting_UI : MonoBehaviour
                 Fullscreen_Button.interactable = false;
             }
         }
-        if (Input.touchSupported)
-            Update_Setting_Toggle(true);
+
+        if(Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if (Screen.fullScreenMode == FullScreenMode.FullScreenWindow)
+            {
+                textFullscreen.text = "เปิด";
+                Fullscreen.isOn = true;
+            }
+            else
+            {
+                textFullscreen.text = "ปิด";
+                Fullscreen.isOn = false;
+            }
+        }
 
         Update_Setting_Slider();
     }
@@ -52,38 +64,6 @@ public class Setting_UI : MonoBehaviour
     void Update()
     {
         
-    }
-    public void Update_Setting_Toggle(bool Is_Start = false)
-    {
-        if (!Is_Start)
-        {
-            if (Screen.fullScreenMode == FullScreenMode.FullScreenWindow)
-            {
-                Screen.fullScreenMode = FullScreenMode.Windowed;
-                textFullscreen.text = "ปิด";
-                Fullscreen.isOn = false;
-            }
-            else
-            {
-
-                Screen.SetResolution(Screen.resolutions[Screen.resolutions.Length - 1].width, Screen.resolutions[Screen.resolutions.Length - 1].height, FullScreenMode.FullScreenWindow);
-                textFullscreen.text = "เปิด";
-                Fullscreen.isOn = true;
-            }
-        }
-
-        if(Input.touchSupported && Application.platform != RuntimePlatform.Android)
-        {
-            Auto_JoyStick_Enable.isOn = Game_Setting.Is_Auto_JoyStick_Enable;
-            if (Game_Setting.Is_Auto_JoyStick_Enable)
-            {
-                textAuto_JoyStick.text = "เปิด";
-            }
-            else
-            {
-                textAuto_JoyStick.text = "ปิด";
-            }
-        }
     }
 
     public void Update_Setting_Slider()
@@ -97,7 +77,7 @@ public class Setting_UI : MonoBehaviour
     public void Set_Music()
     {
         float value = Music.value;
-        print(value);
+        //print(value);
         MusicMixer.SetFloat("MusicVol", value);
         textMusic.text = (int)(((value + 80) / 80) * 100) +"%";
     }
@@ -105,7 +85,7 @@ public class Setting_UI : MonoBehaviour
     public void Set_SFX()
     {
         float value = SFX.value;
-        print(value);
+        //print(value);
         SFXMixer.SetFloat("SFXVol", value);
         textSFX.text = (int)(((value + 80) / 80) * 100) + "%";
     }
@@ -113,12 +93,36 @@ public class Setting_UI : MonoBehaviour
     public void Set_Fullscreen()
     {
         Screen.fullScreen = !Screen.fullScreen;
-        Update_Setting_Toggle();
+        if (Screen.fullScreenMode == FullScreenMode.FullScreenWindow)
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+            textFullscreen.text = "ปิด";
+            Fullscreen.isOn = false;
+        }
+        else
+        {
+
+            Screen.SetResolution(Screen.resolutions[Screen.resolutions.Length - 1].width, Screen.resolutions[Screen.resolutions.Length - 1].height, FullScreenMode.FullScreenWindow);
+            textFullscreen.text = "เปิด";
+            Fullscreen.isOn = true;
+        }
+
     }
 
     public void Set_Auto_JoyStick_Enable()
     {
         Game_Setting.Is_Auto_JoyStick_Enable = !Game_Setting.Is_Auto_JoyStick_Enable;
-        Update_Setting_Toggle();
+        if (Input.touchSupported && Application.platform != RuntimePlatform.Android)
+        {
+            Auto_JoyStick_Enable.isOn = Game_Setting.Is_Auto_JoyStick_Enable;
+            if (Game_Setting.Is_Auto_JoyStick_Enable)
+            {
+                textAuto_JoyStick.text = "เปิด";
+            }
+            else
+            {
+                textAuto_JoyStick.text = "ปิด";
+            }
+        }
     }
 }

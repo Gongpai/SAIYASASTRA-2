@@ -1523,7 +1523,6 @@ GameObject:
   - component: {fileID: 1374508333650634236}
   - component: {fileID: 2176022474861407830}
   - component: {fileID: 1243590886309928481}
-  - component: {fileID: 3970164132590473655}
   m_Layer: 0
   m_Name: Character_Detact
   m_TagString: Character_Hide
@@ -1584,72 +1583,6 @@ MonoBehaviour:
   HideMessage: "[E] \u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E39"
   animator: {fileID: 0}
   CharacterInside: 0
---- !u!114 &3970164132590473655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7773492003859676254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: ef93a054df6043e47a49d96fecfe5f9b, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: df19b72a-9554-46ee-a587-67576f83e396
-    m_ActionName: Player/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bc195208-f839-4a5e-b70e-d30f8f6f0945
-    m_ActionName: Player/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 776be7ef-1bfc-42fc-8696-731b304e10f6
-    m_ActionName: Player/Run[/Keyboard/leftShift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ad65ac80-f599-4dc1-a716-f4ba1e3c3898
-    m_ActionName: Dialog/Dialog_Control_Back[/Keyboard/leftArrow,/Keyboard/a,/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4fcfcb97-21a2-46ea-964c-751922f4f153
-    m_ActionName: Dialog/Dialog_Control_Next[/Keyboard/rightArrow,/Keyboard/d,/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1243590886309928481}
-        m_TargetAssemblyTypeName: Cupboard_Hide, Assembly-CSharp
-        m_MethodName: TriggerOpenDoor
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 0e359183-f4c4-4503-b74b-7463acb5a2c4
-    m_ActionName: Interact/Use1[/Keyboard/e]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Interact
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &8012452171688646174
 GameObject:
   m_ObjectHideFlags: 0

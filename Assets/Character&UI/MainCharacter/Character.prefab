@@ -717,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7869046268560551418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1994,7 +1994,7 @@ GameObject:
   - component: {fileID: 3311071579174006115}
   m_Layer: 0
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: Game_Ui
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2134,7 +2134,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_text
-      value: Interact
+      value: "\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19 \u0E40\u0E1B\u0E34\u0E14\u0E15\u0E39\u0E49"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c0974229c6c0d4d4099362ae7c75bf22, type: 2}
+    - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6411051396674713612, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_Name
@@ -2455,7 +2471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_text
-      value: Inventory
+      value: "\u0E40\u0E1B\u0E34\u0E14\u0E0A\u0E48\u0E2D\u0E07 \u0E40\u0E01\u0E47\u0E1A\u0E02\u0E2D\u0E07"
       objectReference: {fileID: 0}
     - target: {fileID: 6411051396674713612, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_Name
@@ -2704,7 +2720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_text
-      value: Run
+      value: "\u0E27\u0E34\u0E48\u0E07"
       objectReference: {fileID: 0}
     - target: {fileID: 6411051396674713612, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_Name
@@ -3772,7 +3788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_text
-      value: Jump
+      value: "\u0E01\u0E23\u0E30\u0E42\u0E14\u0E14"
       objectReference: {fileID: 0}
     - target: {fileID: 6411051396674713612, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_Name
@@ -3910,7 +3926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_text
-      value: Menu
+      value: "\u0E40\u0E21\u0E19\u0E39"
       objectReference: {fileID: 0}
     - target: {fileID: 6411051396674713612, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_Name
@@ -10079,7 +10095,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_text
-      value: Shoot
+      value: "\u0E1B\u0E32\u0E19\u0E49\u0E33\u0E17\u0E19\u0E15\u0E4C \u0E40\u0E1B\u0E34\u0E14\u0E44\u0E1F\u0E09\u0E32\u0E22"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
+      propertyPath: m_fontSize
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 6411051396674713612, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_Name

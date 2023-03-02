@@ -72,15 +72,15 @@ public class Item_System : MonoBehaviour
         {
             GameObject spawnItem;
             spawnItem = Item;
-            spawnItem.GetComponent<Add_item_to_character>().IsSpawn = true;
             spawnItem.transform.rotation = rotation;
             spawnItem.transform.position = transform.position + (spawnItem.transform.up * 1.2f);
             print("Rota : " + rotation);
 
             GameObject spawn = Instantiate(spawnItem);
-            spawn.GetComponent<Add_item_to_character>().ghost = gameObject;
+            spawn.GetComponent<Item_Attack_System>().ghost = gameObject;
             TTT = spawn;
             rigidbody = spawn.GetComponent<Rigidbody>();
+            rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
             rigidbody.AddForce(spawn.transform.up * 7, ForceMode.Impulse);
         }

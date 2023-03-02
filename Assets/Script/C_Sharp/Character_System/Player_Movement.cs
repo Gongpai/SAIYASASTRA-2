@@ -163,22 +163,22 @@ public class Player_Movement : FuntionLibraly
         {
             case ConvertibleMode.SlateTabletMode:
                 Touch_screen_UI.SetActive(true);
-                Debug.LogWarning("SlateTabletMode");
+                //Debug.LogWarning("SlateTabletMode");
                 break;
             case ConvertibleMode.LaptopDockedMode:
-                Debug.LogWarning("LaptopDockedMode");
+                //Debug.LogWarning("LaptopDockedMode");
                 switch (Application.platform)
                 {
                     case RuntimePlatform.WindowsPlayer:
-                        print("Windowssssssssssssssssss");
+                        //print("Windowssssssssssssssssss");
                         Touch_screen_UI.SetActive(false);
                         break;
                     case RuntimePlatform.WindowsEditor:
-                        print("Windowssssssssssssssssss");
+                        //print("Windowssssssssssssssssss");
                         Touch_screen_UI.SetActive(true);
                         break;
                     case RuntimePlatform.Android:
-                        print("Androiddddddddddddddddddddd");
+                        //print("Androiddddddddddddddddddddd");
                         Touch_screen_UI.SetActive(true);
                         break;
                 }
@@ -191,12 +191,12 @@ public class Player_Movement : FuntionLibraly
         if (isPause)
         {
             GamePause_Component(gameObject, true);
-            Add_item_to_character.OnPauseGame?.Invoke();
+            Item_Attack_System.OnPauseGame?.Invoke();
         }
         else
         {
             GamePause_Component(gameObject, false);
-            Add_item_to_character.UnPauseGame?.Invoke();
+            Item_Attack_System.UnPauseGame?.Invoke();
         }
     }
 
@@ -252,6 +252,21 @@ public class Player_Movement : FuntionLibraly
                 Ob_interact = Object_interact.Lawson_Door;
                 Object_Intaeract = other.gameObject;
                 break;
+            case "PickUpItem":
+                Ob_interact = Object_interact.PickUp_Item;
+                Object_Intaeract = other.gameObject;
+                break;
+            case "PickUpNote":
+                Ob_interact = Object_interact.PickUp_Note;
+                Object_Intaeract = other.gameObject;
+                break;
+            case "Untagged":
+                if(other.GetComponent<Show_Puzzle>() != null)
+                {
+                    Ob_interact = Object_interact.Puzzle;
+                    Object_Intaeract = other.gameObject;
+                }
+                break;
             default:
                 break;
         }
@@ -268,6 +283,21 @@ public class Player_Movement : FuntionLibraly
             case "Door_Lawson":
                 Ob_interact = Object_interact.Lawson_Door;
                 Object_Intaeract = null;
+                break;
+            case "PickUpItem":
+                Ob_interact = Object_interact.PickUp_Item;
+                Object_Intaeract = null;
+                break;
+            case "PickUpNote":
+                Ob_interact = Object_interact.PickUp_Note;
+                Object_Intaeract = null;
+                break;
+            case "Untagged":
+                if (other.GetComponent<Show_Puzzle>() != null)
+                {
+                    Ob_interact = Object_interact.Puzzle;
+                    Object_Intaeract = other.gameObject;
+                }
                 break;
             default:
                 break;
@@ -407,10 +437,19 @@ public class Player_Movement : FuntionLibraly
             switch (Ob_interact)
             {
                 case Object_interact.Cupboard_Hide:
-                    Cupboard_Hide.Open_Door_Hide?.Invoke();
+                    Object_Intaeract.GetComponent<Cupboard_Hide>().TriggerOpenDoor();
                     break;
                 case Object_interact.Lawson_Door:
                     Object_Intaeract.transform.parent.GetComponent<Door_Lawson_System>().OpenOrClose();
+                    break;
+                case Object_interact.PickUp_Item:
+                    Object_Intaeract.GetComponent<Pick_up_Item_System>().PickUp_Item();
+                    break;
+                case Object_interact.PickUp_Note:
+                    Object_Intaeract.GetComponent<PickUp_Note_System>().PickUp_Note();
+                    break;
+                case Object_interact.Puzzle:
+                    Object_Intaeract.GetComponent<Show_Puzzle>().OpenPuzzle_Ui();
                     break;
                 default:
                     break;
@@ -541,9 +580,19 @@ public class Player_Movement : FuntionLibraly
                 switch (Ob_interact)
                 {
                     case Object_interact.Cupboard_Hide:
+                        Object_Intaeract.GetComponent<Cupboard_Hide>().TriggerOpenDoor();
                         break;
                     case Object_interact.Lawson_Door:
                         Object_Intaeract.transform.parent.GetComponent<Door_Lawson_System>().OpenOrClose();
+                        break;
+                    case Object_interact.PickUp_Item:
+                        Object_Intaeract.GetComponent<Pick_up_Item_System>().PickUp_Item();
+                        break;
+                    case Object_interact.PickUp_Note:
+                        Object_Intaeract.GetComponent<PickUp_Note_System>().PickUp_Note();
+                        break;
+                    case Object_interact.Puzzle:
+                        Object_Intaeract.GetComponent<Show_Puzzle>().OpenPuzzle_Ui();
                         break;
                     default:
                         break;

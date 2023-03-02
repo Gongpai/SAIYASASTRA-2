@@ -94,21 +94,87 @@ public class Inventory_System : MonoBehaviour
         }
     }
 
-    public void ResetIndex(int index, int re_index)
+    public void ResetIndex_Item_Element()
     {
-        GameInstance.ShowItemElementData[index] = new Structs_Libraly.Item_Data
-        (
-            GameInstance.ShowItemElementData[index].Item_Index,
-            GameInstance.ShowItemElementData[index].Name,
-            GameInstance.ShowItemElementData[index].Number,
-            GameInstance.ShowItemElementData[index].itemSprite,
-            GameInstance.ShowItemElementData[index].IsEquip,
-            re_index,
-            GameInstance.ShowItemElementData[index].ItemPrefeb,
-            GameInstance.ShowItemElementData[index].useItemMode
-        );
+        int i_el = 0;
 
-        Equip_Element_list[index].GetComponent<Equip_Item_List_System>().IndexEquip = re_index;
+        foreach (Item_Data item_Data_element in GameInstance.ShowItemElementData.ToList())
+        {
+            int i_inv = 0;
+            foreach (Item_Data item_Data_inventory in GameInstance.inventoryData)
+            {
+                if (item_Data_element.Item_Index == item_Data_inventory.Item_Index)
+                {
+                    print("Item Reset : " + item_Data_element.Name);
+                    Equip_Element_list[i_el].GetComponent<Equip_Item_List_System>().IndexEquip = i_inv;
+
+                    GameInstance.ShowItemElementData[i_el] = Make_Structs.makeItemData
+                    (
+                        GameInstance.ShowItemElementData[i_el].Item_Index,
+                        GameInstance.ShowItemElementData[i_el].Name,
+                        GameInstance.ShowItemElementData[i_el].Number,
+                        GameInstance.ShowItemElementData[i_el].itemSprite,
+                        GameInstance.ShowItemElementData[i_el].IsEquip,
+                        i_inv,
+                        GameInstance.ShowItemElementData[i_el].ItemPrefeb,
+                        GameInstance.ShowItemElementData[i_el].useItemMode
+                    );
+
+                    Equip_Element_list[i_el].GetComponent<Equip_Item_List_System>().itemData = GameInstance.ShowItemElementData[i_el];
+                }
+
+                i_inv++;
+            }
+
+            i_el++;
+        }
+
+        /**
+        int i = 0;
+        bool is_found = false;
+        IsAim = false;
+
+        foreach (var Elementlist in Equip_Element_list)
+        {
+            print("Item Reset : " + Elementlist.name);
+            Destroy(Elementlist);
+        }
+;
+        Equip_Element_list.Clear();
+
+        GameInstance.ShowItemElementData.Clear();
+
+        if (Equip_Element_list.Count > 0)
+            Equip_Element_list[0].GetComponent<Animator>().SetBool("Is_Play?", true);
+
+        foreach (Item_Data item_Data in GameInstance.inventoryData)
+        {
+            /**
+            foreach (Item_Data item_Data_el in GameInstance.ShowItemElementData)
+            {
+                if(item_Data.Item_Index == item_Data_el.Item_Index)
+                    is_found = true;
+            }
+            if (is_found)
+            {
+
+            }
+            else
+            {
+            }
+            
+            if (item_Data.IsEquip)
+            {
+                print(item_Data + " : " + item_Data.Name);
+
+                GameInstance.Player.gameObject.GetComponent<Inventory_System>().Add_Item_Equip(item_Data, null, false); //∂È“‰Õ‡∑¡∫—§¡“·°Èµ√ßπ’È
+            }
+
+            is_found = false;
+            i++;
+        }
+        Set_Item_Element();
+            **/
     }
 
     //√–∫∫‡´µ‰Õ‡∑¡
@@ -205,7 +271,7 @@ public class Inventory_System : MonoBehaviour
         }
     }
 
-    public void Add_Item_Equip(Structs_Libraly.Item_Data Item = default, GameObject Owner = null)
+    public void Add_Item_Equip(Structs_Libraly.Item_Data Item = default, GameObject Owner = null, bool is_set = true)
     {
         if (GameInstance.ShowItemElementData.Count < 4)
         {
@@ -213,8 +279,9 @@ public class Inventory_System : MonoBehaviour
 
             if (Owner != null)
                 Equip_System.Add(Owner);
-
-            Set_Item_Element();
+            
+            if(is_set)
+                Set_Item_Element();
 
             SelectNum = 0;
             Old_Select = 0;
@@ -223,12 +290,12 @@ public class Inventory_System : MonoBehaviour
 
     public void Add_Item_Element(Structs_Libraly.Item_Data Item_data)
     {
-        print("Adddddddddddddd------------------------------");
+        print(Item_data.Name + "Sand to char ------------- [" + Item_data.Number + "] ---------------");
         int i = 0;
         bool IsFoundItem = false;
         foreach (Structs_Libraly.Item_Data itemData in GameInstance.inventoryData)
         {
-            if (itemData.Name == Item_data.Name)
+            if (itemData.Name == Item_data.Name && itemData.useItemMode != Use_Item_System.Puzzle)
             {
                 IsFoundItem = true;
                 //print("Founddddd---------------------------------------");
@@ -236,8 +303,11 @@ public class Inventory_System : MonoBehaviour
             }
             else
             {
-                IsFoundItem = false;
-                i++;
+                if (!IsFoundItem)
+                {
+                    IsFoundItem = false;
+                    i++;
+                }
             }
 
         }
@@ -255,6 +325,7 @@ public class Inventory_System : MonoBehaviour
                     GameInstance.inventoryData[i].ItemPrefeb,
                     GameInstance.inventoryData[i].useItemMode
                 );
+            print(GameInstance.inventoryData[i].Name + " Number in char ------------- [" + GameInstance.inventoryData[i].Number + "] ---------------");
         }
         else
         {

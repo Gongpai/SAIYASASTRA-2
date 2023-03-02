@@ -136,7 +136,7 @@ public class Ai_Movement : FuntionLibraly
 
     private void HP_System(Collider other)
     {
-        if (other.GetComponent<Add_item_to_character>() != null && other.GetComponent<Add_item_to_character>().IsSpawn)
+        if (other.GetComponent<Item_Attack_System>() != null)
         {
             float Damage = other.GetComponent<Variables>().declarations.Get<float>("Damage");
             print("Hp------- : " + Damage);

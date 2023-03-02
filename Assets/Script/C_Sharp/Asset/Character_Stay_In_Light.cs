@@ -21,7 +21,7 @@ public class Character_Stay_In_Light : MonoBehaviour
         if (other.gameObject.tag == "Ghost")
         {
             Ghost = null;
-            print("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            //print("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
         }
 
     }

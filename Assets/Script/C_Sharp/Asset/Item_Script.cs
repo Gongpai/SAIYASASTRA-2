@@ -8,12 +8,12 @@ public class Item_Script : MonoBehaviour
     public void Destroy_Item()
     {
         //Playanim
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(gameObject.GetComponent<Add_item_to_character>().IsSpawn && !other.isTrigger && other.tag == "Untagged")
+        if(gameObject.GetComponent<Item_Attack_System>() !=  null && !other.isTrigger && other.tag == "Untagged")
             Destroy_Item();
     }
 }

@@ -51,7 +51,8 @@ public enum Use_Item_System
     Use_Self,
     Use_Other,
     Shoot_Projectile,
-    Use_Light
+    Use_Light,
+    Puzzle
 }
 
 //เลือกหน้าเมนู
@@ -65,7 +66,10 @@ public enum Essential_Menu
 public enum Object_interact
 {
     Cupboard_Hide,
-    Lawson_Door
+    Lawson_Door,
+    PickUp_Item,
+    PickUp_Note,
+    Puzzle
 }
 
 public enum SystemMetric

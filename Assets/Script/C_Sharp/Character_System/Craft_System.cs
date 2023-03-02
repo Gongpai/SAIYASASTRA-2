@@ -111,31 +111,34 @@ public class Craft_System : MonoBehaviour
 
         foreach (Structs_Libraly.Item_Data item in GameInstance.inventoryData)
         {
-            GameObject item_Inventory = Craft_Element;
-            GameObject item_Inventory_list;
+            if (item.useItemMode != Use_Item_System.Puzzle)
+            {
+                GameObject item_Inventory = Craft_Element;
+                GameObject item_Inventory_list;
 
-            item_Inventory.GetComponent<Craft_List>().itemData = new Structs_Libraly.Item_Data
-                (
-                    item.Item_Index,
-                    item.Name,
-                    item.Number,
-                    item.itemSprite,
-                    item.IsEquip,
-                    i,
-                    item.ItemPrefeb,
-                    item.useItemMode
-                );
+                item_Inventory.GetComponent<Craft_List>().itemData = new Structs_Libraly.Item_Data
+                    (
+                        item.Item_Index,
+                        item.Name,
+                        item.Number,
+                        item.itemSprite,
+                        item.IsEquip,
+                        i,
+                        item.ItemPrefeb,
+                        item.useItemMode
+                    );
 
-            item_Inventory.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().SetText(item.Name);
-            item_Inventory.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>()
-                .SetText(item.Number.ToString());
-            item_Inventory.transform.GetChild(1).GetChild(2).GetComponent<Image>().sprite = item.itemSprite;
+                item_Inventory.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().SetText(item.Name);
+                item_Inventory.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>()
+                    .SetText(item.Number.ToString());
+                item_Inventory.transform.GetChild(1).GetChild(2).GetComponent<Image>().sprite = item.itemSprite;
 
-            item_Inventory_list = Instantiate(item_Inventory, List_Grid_Item.transform);
+                item_Inventory_list = Instantiate(item_Inventory, List_Grid_Item.transform);
 
-            inventory_Element_list.Add(item_Inventory_list);
+                inventory_Element_list.Add(item_Inventory_list);
 
-            i++;
+                i++;
+            }
         }
     }
 

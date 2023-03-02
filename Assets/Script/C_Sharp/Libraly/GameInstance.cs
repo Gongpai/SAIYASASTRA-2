@@ -51,7 +51,7 @@ public class GameInstance : MonoBehaviour
 
         screenpoint.z = Camera.main.nearClipPlane + 12;
         ScreenCenter = mainCamera.ScreenToWorldPoint(screenpoint);
-        print((ScreenCenter) + " : " + (Screen.height / 2));
+        //print((ScreenCenter) + " : " + (Screen.height / 2));
 
         if (!Iszero)
         {

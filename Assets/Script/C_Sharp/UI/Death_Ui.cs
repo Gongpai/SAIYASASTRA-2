@@ -27,6 +27,8 @@ public class Death_Ui : MonoBehaviour
     public void Back_To_MainMenu()
     {
         LoadingScreenWidget.GetComponent<LoadingSceneStstem>().LoadScene("MainMenu");
+        Game_State_Manager.Reset_Game_State();
+        Is_ReGame = true;
     }
 
     private void OnEnable()
