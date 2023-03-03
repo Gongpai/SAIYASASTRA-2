@@ -23,6 +23,11 @@ public class Navigate_Menu : MonoBehaviour
     {
         gameObject.SetActive(!SetActive);
         Menu.SetActive(SetActive);
+        if (Menu.name == "UI")
+        {
+            Debug.Log("UI : ", Menu);
+            Menu.transform.parent.GetComponent<Death_Ui>().PlayAnim(true);
+        }
     }
 
     public void Set_Back_To_Menu(GameObject menu)

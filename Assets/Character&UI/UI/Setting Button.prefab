@@ -197,6 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3026124417238202965}
   - component: {fileID: 7875853642109638438}
+  - component: {fileID: 5785102791884463867}
   m_Layer: 0
   m_Name: Setting Button
   m_TagString: Untagged
@@ -251,6 +252,18 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!225 &5785102791884463867
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684301524359924622}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &876846371344231206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3258b96723774c9419e897b64b218b0a, type: 2}
   m_sharedMaterial: {fileID: -1342789362866444344, guid: 3258b96723774c9419e897b64b218b0a, type: 2}

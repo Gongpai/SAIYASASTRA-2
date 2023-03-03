@@ -8,10 +8,12 @@ public class MainMenu_Ui : MonoBehaviour
     [SerializeField] private GameObject Bg;
 
     bool Is_ReGame;
+    [SerializeField]private Animator animator;
+    private Animator animator_bg;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,13 +23,32 @@ public class MainMenu_Ui : MonoBehaviour
     }
     private void OnEnable()
     {
-        if(Bg != null)
-            Bg.SetActive(true);
+        animator_bg = Bg.GetComponent<Animator>();
+        Bg.SetActive(true);
+        animator_bg.SetBool("IsIn", true);
+        animator_bg.SetBool("IsOut", false);
+        PlayAnim(true);
     }
     private void OnDisable()
     {
         if (Is_ReGame)
+        {
             GameInstance.Reset_Gameinstance();
+        }
+    }
+
+    public void PlayAnim(bool IsPlayIn)
+    {
+        if (IsPlayIn)
+        {
+            animator.SetBool("IsIn", true);
+            animator.SetBool("IsOut", false);
+        }
+        else
+        {
+            animator.SetBool("IsIn", false);
+            animator.SetBool("IsOut", true);
+        }
     }
 
     public void Play()
@@ -37,7 +58,9 @@ public class MainMenu_Ui : MonoBehaviour
 
     public void Resume()
     {
-        Bg.SetActive(false);
+        animator_bg.SetBool("IsIn", false);
+        animator_bg.SetBool("IsOut", true);
+        PlayAnim(false);
         Game_State_Manager.Instance.Setstate(GameState.Play);
     }
 

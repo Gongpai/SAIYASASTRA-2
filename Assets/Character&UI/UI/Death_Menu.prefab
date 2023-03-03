@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreenWidget: {fileID: 0}
+  animator_bg: {fileID: 0}
 --- !u!223 &2756987478476752325
 Canvas:
   m_ObjectHideFlags: 0

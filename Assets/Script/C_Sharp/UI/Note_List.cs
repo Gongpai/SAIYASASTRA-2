@@ -18,6 +18,7 @@ public class Note_List : MonoBehaviour
         text_note.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_text, "Dialog/NoteText", noteData.Text);
     }
 
+
     public void Show_Note()
     {
         GameInstance.Player.GetComponent<Note_System>().Set_Note_Show_All(index);

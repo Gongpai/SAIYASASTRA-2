@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8654057187036504456}
   - component: {fileID: 4540348887813381434}
   - component: {fileID: 8683215475078158041}
+  - component: {fileID: 4822818846399072505}
   - component: {fileID: 3486775686514043922}
   - component: {fileID: 2756987478476752325}
   - component: {fileID: 6824144823483462769}
@@ -72,6 +73,7 @@ MonoBehaviour:
   textSFX: {fileID: 5373116203236655449}
   MusicMixer: {fileID: 24100000, guid: f9ee2643104439d41974bf13b5fcf4ae, type: 2}
   SFXMixer: {fileID: 24100000, guid: ae53801a19ca2fd4bb92ea0fb0a8a8ed, type: 2}
+  animator: {fileID: 4822818846399072505}
 --- !u!114 &8683215475078158041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +88,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonPage: []
   Menu: {fileID: 0}
+--- !u!95 &4822818846399072505
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025946402008271862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2fdc684e87d269743aa03991fded13b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!82 &3486775686514043922
 AudioSource:
   m_ObjectHideFlags: 0
@@ -254,6 +276,7 @@ GameObject:
   - component: {fileID: 1366171686543909522}
   - component: {fileID: 4253969442759729201}
   - component: {fileID: 5740859364561910713}
+  - component: {fileID: 6612589715459801366}
   m_Layer: 0
   m_Name: SettingMenu
   m_TagString: Untagged
@@ -278,7 +301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 375}
+  m_AnchoredPosition: {x: 100, y: 375}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4253969442759729201
@@ -378,6 +401,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &6612589715459801366
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5088067744743000418}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1447709397442802316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +420,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8654057187036504456}
     m_Modifications:
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 684301524359924622, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_Name
       value: SFX Setting Button
@@ -495,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3026124417238202965, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3026124417238202965, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -653,6 +712,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8654057187036504456}
     m_Modifications:
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 684301524359924622, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_Name
       value: Auto JK Enable Setting Button
@@ -723,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3026124417238202965, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3026124417238202965, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -952,22 +1035,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7376985502501331150, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7376985502501331150, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7376985502501331150, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 7376985502501331150, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7614718503253509551, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_Name
       value: Button Exit
@@ -986,6 +1053,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8654057187036504456}
     m_Modifications:
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 684301524359924622, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_Name
       value: Fullscreen Setting Button
@@ -1056,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3026124417238202965, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3026124417238202965, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1197,6 +1288,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8654057187036504456}
     m_Modifications:
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667860058223309148, guid: b316e74f3a602d14797f422267fced22, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 684301524359924622, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_Name
       value: Music Setting Button
@@ -1307,7 +1422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3026124417238202965, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3026124417238202965, guid: b316e74f3a602d14797f422267fced22, type: 3}
       propertyPath: m_AnchoredPosition.y

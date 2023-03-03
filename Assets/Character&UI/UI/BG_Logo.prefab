@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1002263921524613109}
+  - component: {fileID: 1552007755688313280}
   - component: {fileID: 3886518730305428189}
   - component: {fileID: 8211349435450340271}
   - component: {fileID: 3180344867996608440}
+  - component: {fileID: 6076745636734023641}
   m_Layer: 5
   m_Name: BG_Logo
   m_TagString: Untagged
@@ -41,6 +43,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1552007755688313280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742984977663497191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fff7b9fd6d129740b188cc6e5005031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &3886518730305428189
 Canvas:
   m_ObjectHideFlags: 0
@@ -102,6 +116,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &6076745636734023641
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742984977663497191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4f5d26bebb7645429a8ed9251f10cf1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5188891625431021105
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,6 +148,7 @@ GameObject:
   - component: {fileID: 820998211268564731}
   - component: {fileID: 4518700244956463983}
   - component: {fileID: 1794617790661841067}
+  - component: {fileID: 6597346315164175218}
   m_Layer: 0
   m_Name: 'Logo '
   m_TagString: Untagged
@@ -193,6 +228,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
+--- !u!225 &6597346315164175218
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188891625431021105}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5404468720920861235
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +251,7 @@ GameObject:
   - component: {fileID: 7703246267264027444}
   - component: {fileID: 6397645047055234931}
   - component: {fileID: 5405357798622160613}
+  - component: {fileID: 3966532204500215842}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -269,3 +317,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &3966532204500215842
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404468720920861235}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

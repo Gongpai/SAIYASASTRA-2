@@ -136,7 +136,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.3.0
+  bundleVersion: 0.3.1
   preloadedAssets:
   - {fileID: -309449746400023384, guid: c3b7a506aefe90044aeba347b1f63ce8, type: 2}
   metroInputSource: 0
@@ -158,7 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Kong.SAIYASASTRA_2_Beta
+    Android: com.DefaultCompany.SAIYASASTRA2
     Standalone: com.DefaultCompany.2DProject
   buildNumber:
     Standalone: 0
@@ -246,7 +246,7 @@ PlayerSettings:
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 1
   useCustomLauncherGradleManifest: 0
-  useCustomBaseGradleTemplate: 0
+  useCustomBaseGradleTemplate: 1
   useCustomGradlePropertiesTemplate: 0
   useCustomProguardFile: 0
   AndroidTargetArchitectures: 1

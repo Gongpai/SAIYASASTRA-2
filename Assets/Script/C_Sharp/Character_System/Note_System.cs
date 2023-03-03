@@ -15,20 +15,37 @@ public class Note_System : MonoBehaviour
     [SerializeField] private GameObject Exit;
 
     private GameObject gameInstance;
-    
+
     private List<GameObject> Note_Element_list = new List<GameObject>();
+    public Animator animator;
 
     private int note_Page = 0;
     // Start is called before the first frame update
     void Start()
     {
         gameInstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
+        animator = Note_List.transform.parent.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+
+    public void PlayAnim(bool IsPlayIn)
+    {
+        if (IsPlayIn)
+        {
+            animator.SetBool("IsIn", true);
+            animator.SetBool("IsOut", false);
+        }
+        else
+        {
+            animator.SetBool("IsIn", false);
+            animator.SetBool("IsOut", true);
+        }
     }
 
     public void Set_Note_Element()
@@ -62,6 +79,7 @@ public class Note_System : MonoBehaviour
     public void Set_Note_Show_All(int page = 0)
     {
         ShowAllPage.SetActive(true);
+        ShowAllPage.transform.GetChild(4).GetComponent<Button_Event>().DontPlayIn();
         Note_List.SetActive(false);
         Exit.SetActive(false);
         Title.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_title, "Dialog/NoteText", GameInstance.noteData[page].Title);

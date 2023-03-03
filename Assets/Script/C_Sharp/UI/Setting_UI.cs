@@ -19,7 +19,7 @@ public class Setting_UI : MonoBehaviour
     [SerializeField] TextMeshProUGUI textSFX;
     [SerializeField] AudioMixer MusicMixer;
     [SerializeField] AudioMixer SFXMixer;
-
+    [SerializeField]private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +64,25 @@ public class Setting_UI : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        PlayAnim(true);
+    }
+
+    public void PlayAnim(bool IsPlayIn)
+    {
+        if (IsPlayIn)
+        {
+            animator.SetBool("IsIn", true);
+            animator.SetBool("IsOut", false);
+        }
+        else
+        {
+            animator.SetBool("IsIn", false);
+            animator.SetBool("IsOut", true);
+        }
     }
 
     public void Update_Setting_Slider()

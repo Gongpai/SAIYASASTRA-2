@@ -18,10 +18,12 @@ public class Craft_System : MonoBehaviour
 
     private List<string> Code = new List<string>();
 
+    public Animator animator;
     private string Item_Code;
     // Start is called before the first frame update
     void Start()
     {
+        animator = Craft.transform.parent.transform.parent.GetComponent<Animator>();
         for (int i = 0; i < 9;)
         {
             Code.Add("0");
@@ -33,6 +35,20 @@ public class Craft_System : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PlayAnim(bool IsPlayIn)
+    {
+        if (IsPlayIn)
+        {
+            animator.SetBool("IsIn", true);
+            animator.SetBool("IsOut", false);
+        }
+        else
+        {
+            animator.SetBool("IsIn", false);
+            animator.SetBool("IsOut", true);
+        }
     }
 
     public void On_Craft_Disable()
@@ -196,7 +212,7 @@ public class Craft_System : MonoBehaviour
             textcode += text;
         }
 
-        Craft_Debug.text = textcode;
+        Craft_Debug.text = "Item Code : " + textcode;
         Item_Code = textcode;
     }
 

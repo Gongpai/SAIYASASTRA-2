@@ -33,6 +33,7 @@ public class Inventory_System : MonoBehaviour
     private List<GameObject> inventory_Element_list = new List<GameObject>();
     private List<GameObject> Equip_Element_list = new List<GameObject>();
     private List<GameObject> Equip_System = new List<GameObject>();
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class Inventory_System : MonoBehaviour
             Debug.LogWarning("No player");
         }
 
+        animator = Inventory.transform.parent.transform.parent.GetComponent<Animator>();
         gameInstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
 
         /**
@@ -73,6 +75,20 @@ public class Inventory_System : MonoBehaviour
     void OnDestroy()
     {
         Game_State_Manager.Instance.OnGameStateChange -= OnGamestateChanged;
+    }
+
+    public void PlayAnim(bool IsPlayIn)
+    {
+        if (IsPlayIn)
+        {
+            animator.SetBool("IsIn", true);
+            animator.SetBool("IsOut", false);
+        }
+        else
+        {
+            animator.SetBool("IsIn", false);
+            animator.SetBool("IsOut", true);
+        }
     }
 
     private void OnGamestateChanged(GameState gameState)
