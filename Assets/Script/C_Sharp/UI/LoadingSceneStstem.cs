@@ -12,18 +12,43 @@ public class LoadingSceneStstem : MonoBehaviour
     [SerializeField] private Image LoadingBarfill;
 
     private float progressValue;
-    
+    string Scene_ID;
+    private Animator animator;
+    AsyncOperation operation;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public void LoadScene(string SceneID)
     {
-        StartCoroutine(LoadSceneAsync(SceneID));
+        LoadingScreen.SetActive(true);
+        Scene_ID = SceneID;
+        animator.SetBool("IsIn", true);
+        animator.SetBool("IsOut", false);
+    }
+
+    public void EndLoadScene()
+    {
+        operation.allowSceneActivation = true;
+    }
+
+    private void OpenScene()
+    {
+        animator.SetBool("IsIn", false);
+        animator.SetBool("IsOut", true);
+    }
+
+    public void StartLoading()
+    {
+        StartCoroutine(LoadSceneAsync(Scene_ID));
     }
 
     IEnumerator LoadSceneAsync(string SceneID)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneID);
+        operation = SceneManager.LoadSceneAsync(SceneID);
         operation.allowSceneActivation = false;
-
-        LoadingScreen.SetActive(true);
 
         print("PRRR : " + operation);
 
@@ -34,7 +59,9 @@ public class LoadingSceneStstem : MonoBehaviour
             LoadingBarfill.GetComponent<Image>().fillAmount = progressValue;
             print("Loading : " + operation.progress + " ----------------------------------------------");
             yield return null;
-            operation.allowSceneActivation = true;
+            if((operation.progress / 0.9f) >= 1)
+                OpenScene();
+            //operation.allowSceneActivation = true;
         }
     }
 }

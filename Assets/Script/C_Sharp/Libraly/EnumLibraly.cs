@@ -69,7 +69,8 @@ public enum Object_interact
     Lawson_Door,
     PickUp_Item,
     PickUp_Note,
-    Puzzle
+    Puzzle,
+    Room_Door
 }
 
 public enum SystemMetric

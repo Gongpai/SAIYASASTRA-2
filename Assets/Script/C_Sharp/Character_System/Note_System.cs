@@ -23,7 +23,15 @@ public class Note_System : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameInstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
+        try
+        {
+            gameInstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
+        }
+        catch
+        {
+            print("Not found GameInstance");
+        }
+
         animator = Note_List.transform.parent.GetComponent<Animator>();
     }
 

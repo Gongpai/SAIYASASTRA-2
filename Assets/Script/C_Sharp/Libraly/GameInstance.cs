@@ -6,9 +6,8 @@ using UnityEngine;
 public class GameInstance : MonoBehaviour
 {
     public static bool CharacterHide = false;
-
     public static GameObject Ghost;
-
+    public static Vector3 SpawnLocation = new Vector3(0, 1, 0);
     public static GameObject Player;
     public static List<Structs_Libraly.Item_Data> inventoryData = new List<Structs_Libraly.Item_Data>();
     public static List<Structs_Libraly.Item_Data> ShowItemElementData = new List<Structs_Libraly.Item_Data>();
@@ -16,9 +15,13 @@ public class GameInstance : MonoBehaviour
     public static float LeftDistanceCam;
     public static float rightDistanceCam;
 
-    public void Start()
+    void OnEnable()
     {
         Player = GameObject.FindWithTag("Player");
+    }
+
+    public void Start()
+    {
         LeftDistanceCam = FindLocationScreenZeroAndCenter(true);
         rightDistanceCam = FindLocationScreenZeroAndCenter(false);
     }
@@ -31,7 +34,7 @@ public class GameInstance : MonoBehaviour
         inventoryData = new List<Structs_Libraly.Item_Data>();
         ShowItemElementData = new List<Structs_Libraly.Item_Data>();
         noteData = new List<Structs_Libraly.Note_Data>();
-}
+    }
 
     public float FindLocationScreenZeroAndCenter(bool Iszero)
     {

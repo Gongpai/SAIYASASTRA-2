@@ -9,7 +9,10 @@ public class MainMenu_Ui : MonoBehaviour
 
     bool Is_ReGame;
     [SerializeField]private Animator animator;
-    private Animator animator_bg;
+    [SerializeField]private Animator animator_bg;
+
+    bool Is_Backtomainmenu = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +26,11 @@ public class MainMenu_Ui : MonoBehaviour
     }
     private void OnEnable()
     {
-        animator_bg = Bg.GetComponent<Animator>();
         Bg.SetActive(true);
         animator_bg.SetBool("IsIn", true);
         animator_bg.SetBool("IsOut", false);
         PlayAnim(true);
+
     }
     private void OnDisable()
     {
@@ -41,6 +44,7 @@ public class MainMenu_Ui : MonoBehaviour
     {
         if (IsPlayIn)
         {
+            print("PlayyyyyyyyyyyyyAnimmmmmmm");
             animator.SetBool("IsIn", true);
             animator.SetBool("IsOut", false);
         }
@@ -66,6 +70,7 @@ public class MainMenu_Ui : MonoBehaviour
 
     public void Back_To_MainMenu()
     {
+        Is_Backtomainmenu = true;
         LoadingScreenWidget.GetComponent<LoadingSceneStstem>().LoadScene("MainMenu");
         Game_State_Manager.Reset_Game_State();
         Is_ReGame = true;
@@ -74,5 +79,14 @@ public class MainMenu_Ui : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    private void OnDestroy()
+    {
+        if (Is_Backtomainmenu)
+        {
+            Make_DontDestroyOnLoad.Destroy_GameInstance();
+        }
+
     }
 }

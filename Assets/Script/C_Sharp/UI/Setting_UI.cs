@@ -29,7 +29,7 @@ public class Setting_UI : MonoBehaviour
             Auto_JoyStick_Enable.isOn = false;
             Game_Setting.Is_Auto_JoyStick_Enable = false;
             Auto_JoyStick_Button.interactable = false;
-            if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
+            if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WebGLPlayer)
             {
                 textAuto_JoyStick.text = "อุปกรณ์ไม่รองรับ";
             }
@@ -43,7 +43,7 @@ public class Setting_UI : MonoBehaviour
             }
         }
 
-        if(Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
+        if(Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WebGLPlayer)
         {
             if (Screen.fullScreenMode == FullScreenMode.FullScreenWindow)
             {

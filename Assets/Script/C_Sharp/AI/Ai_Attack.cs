@@ -57,7 +57,7 @@ public class Ai_Attack : MonoBehaviour
             spawnItem.transform.position = transform.position + (spawnItem.transform.up * 1.1f);
             print("Rota : " + Rot);
 
-            GameObject spawn = new GameObject();
+            GameObject spawn;
             if (is_spawn)
             {
                 spawn = Instantiate(spawnItem);
@@ -96,7 +96,7 @@ public class Ai_Attack : MonoBehaviour
                 spawnItem.transform.position = transform.position + (spawnItem.transform.right * 1.1f);
             }
 
-            GameObject spawn = new GameObject();
+            GameObject spawn;
             if (is_spawn)
             {
                 spawn = Instantiate(spawnItem);

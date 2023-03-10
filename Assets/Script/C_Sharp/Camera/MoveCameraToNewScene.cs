@@ -13,6 +13,8 @@ public class MoveCameraToNewScene : MonoBehaviour
     private Camera mainCamera;
     [SerializeField] private Collider pointNextCamera;
 
+    [SerializeField] private bool IsBlock = false;
+    [SerializeField] private bool MoveBeginPlay = false;
     [SerializeField] private bool is_Walk_in = false;
     [SerializeField] private float SetColliderPosition = 0.0f;
     [SerializeField] private GameObject MovePoint;
@@ -68,52 +70,66 @@ public class MoveCameraToNewScene : MonoBehaviour
                 MoveSmoothCamera();
             }
         }
+
+        if (MoveBeginPlay)
+        {
+            IsMoveto_Door = true;
+            SetMoveStartEnd(GameInstance.Player.transform.position, transform.parent.GetChild(0).position, transform.parent.GetChild(0));
+            MoveBeginPlay = false;
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (!IsBlock)
         {
-            IsCharacterEnter = true;
-            if (is_Walk_in)
+            if (other.tag == "Player")
             {
-                
-                Walk_In(true);
-                print("INNNNNNNNNN11111");
-            }
-            else
-            {
-                if (Distance(transform.parent.transform.position) < 0.5f)
+                IsCharacterEnter = true;
+                if (is_Walk_in)
                 {
-                    Walk_Out(true, true);
-                }
-            }
 
-            other.GetComponent<Player_Movement>().Set_Block_Use_item(true);
+                    Walk_In(true);
+                    print("INNNNNNNNNN11111");
+                }
+                else
+                {
+                    if (Distance(transform.parent.transform.position) < 0.5f)
+                    {
+                        Walk_Out(true, true);
+                    }
+                }
+
+                other.GetComponent<Player_Movement>().Set_Block_Use_item(true);
+            }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (!IsBlock)
         {
-            IsCharacterEnter = false;
-            if (is_Walk_in)
+            if (other.tag == "Player")
             {
-                
-                Walk_In(false);
-                print("INNNNNNNNNN222222");
-            }
-            else
-            {
-                if (Distance(transform.parent.transform.position) < 0)
+                IsCharacterEnter = false;
+                if (is_Walk_in)
                 {
-                    Walk_Out(false, true);
-                }
-            }
 
-            other.GetComponent<Player_Movement>().Set_Block_Use_item(false);
-            transform.parent.GetComponent<Door_Lawson_System>().OpenOrClose(false, true, true);
+                    Walk_In(false);
+                    print("INNNNNNNNNN222222");
+                }
+                else
+                {
+                    if (Distance(transform.parent.transform.position) < 0)
+                    {
+                        Walk_Out(false, true);
+                    }
+                }
+
+                other.GetComponent<Player_Movement>().Set_Block_Use_item(false);
+                transform.parent.GetComponent<Door_Lawson_System>().OpenOrClose(false, true, true);
+                GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Hide_Message();
+            }
         }
     }
 
@@ -164,7 +180,7 @@ public class MoveCameraToNewScene : MonoBehaviour
             if (Is_In)
             {
                 GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>()
-                    .Show_Message("Open");
+                    .Show_Message("[E] เปิดประตู");
             }
             else
             {

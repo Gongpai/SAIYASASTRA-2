@@ -23,6 +23,14 @@ public class Item_Attack_System : FuntionLibraly
         UnPauseGame += Set_UnPauseGame;
     }
 
+    private void Update()
+    {
+        if(transform.position.y <= -70)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Set_PauseGame()
     {
         try
@@ -72,6 +80,5 @@ public class Item_Attack_System : FuntionLibraly
             Debug.LogWarning("HPP_ADDDD : " + other.tag + "Is : " + (other.gameObject == ghost) + "VVVV : " + GetComponent<Rigidbody>().velocity.y);
             other.GetComponent<Player_Movement>().HP_System(collider, 1);
         }
-
     }
 }

@@ -1,5 +1,4 @@
-org.gradle.jvmargs=-Xmx1536m -Duser.country=US -Duser.language=en
+org.gradle.jvmargs=-Xmx**JVM_HEAP_SIZE**M
 org.gradle.parallel=true
-android.enableR8=**MINIFY_WITH_R_EIGHT**
 unityStreamingAssets=**STREAMING_ASSETS**
 **ADDITIONAL_PROPERTIES**

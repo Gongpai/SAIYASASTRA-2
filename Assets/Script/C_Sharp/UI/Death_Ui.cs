@@ -10,6 +10,7 @@ public class Death_Ui : MonoBehaviour
 
     Animator animator;
     bool Is_ReGame;
+    bool Is_Backtomainmenu = false;
 
     private void Start()
     {
@@ -18,8 +19,10 @@ public class Death_Ui : MonoBehaviour
 
     public void Re_Game()
     {
+        Is_Backtomainmenu = true;
         Game_State_Manager.Instance.Setstate(GameState.Play);
         LoadingScreenWidget.GetComponent<LoadingSceneStstem>().LoadScene("Game_Level");
+        Game_State_Manager.Reset_Game_State();
         Is_ReGame = true;
     }
 
@@ -45,6 +48,7 @@ public class Death_Ui : MonoBehaviour
 
     public void Back_To_MainMenu()
     {
+        Is_Backtomainmenu = true;
         LoadingScreenWidget.GetComponent<LoadingSceneStstem>().LoadScene("MainMenu");
         Game_State_Manager.Reset_Game_State();
         Is_ReGame = true;
@@ -75,5 +79,14 @@ public class Death_Ui : MonoBehaviour
     {
         if(Is_ReGame)
             GameInstance.Reset_Gameinstance();
+    }
+
+    private void OnDestroy()
+    {
+        if (Is_Backtomainmenu)
+        {
+            Make_DontDestroyOnLoad.Destroy_GameInstance();
+        }
+            
     }
 }

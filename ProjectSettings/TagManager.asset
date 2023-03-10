@@ -20,6 +20,7 @@ TagManager:
   - PickUpItem
   - PickUpNote
   - Game_Ui
+  - EnterRoom
   layers:
   - Default
   - TransparentFX
@@ -59,6 +60,18 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 327585731
+    locked: 0
+  - name: Building
+    uniqueID: 779564805
+    locked: 0
+  - name: Tree
+    uniqueID: 418724113
+    locked: 0
+  - name: Fence
+    uniqueID: 3505418847
+    locked: 0
+  - name: Floor
+    uniqueID: 3440066049
     locked: 0
   - name: Player
     uniqueID: 1271088339

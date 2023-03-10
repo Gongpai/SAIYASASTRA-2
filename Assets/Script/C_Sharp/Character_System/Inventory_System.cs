@@ -49,7 +49,15 @@ public class Inventory_System : MonoBehaviour
         }
 
         animator = Inventory.transform.parent.transform.parent.GetComponent<Animator>();
-        gameInstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
+
+        try
+        {
+            gameInstance = GameObject.FindGameObjectWithTag("GameInstance").gameObject;
+        }
+        catch
+        {
+            print("Not found GameInstance");
+        }
 
         /**
         Add_Item_Element(gameInstance.gameObject.GetComponent<Item_List_Data>().itemDatas[0]);

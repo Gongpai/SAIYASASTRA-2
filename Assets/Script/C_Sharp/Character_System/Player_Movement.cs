@@ -10,6 +10,8 @@ using Image = UnityEngine.UI.Image;
 public class Player_Movement : FuntionLibraly
 {
     [Header("Setting")]
+    [SerializeField] private bool Is_Spawn_In_Room = false;
+
     [SerializeField] private float WalkSpeed = 1;
 
     [SerializeField] private float RunSpeed = 3;
@@ -41,6 +43,8 @@ public class Player_Movement : FuntionLibraly
     [SerializeField] public GameObject Death_Ui;
 
     [SerializeField] public GameObject Touch_screen_UI;
+
+    [SerializeField] public GameObject Switch_Scene;
 
     [SerializeField] private Image HP_ProgressBar;
 
@@ -181,6 +185,9 @@ public class Player_Movement : FuntionLibraly
                         //print("Androiddddddddddddddddddddd");
                         Touch_screen_UI.SetActive(true);
                         break;
+                    case RuntimePlatform.WebGLPlayer:
+                        Touch_screen_UI.SetActive(false);
+                        break;
                 }
                 break;
         }
@@ -203,6 +210,11 @@ public class Player_Movement : FuntionLibraly
     private void OnGamestateChanged(GameState gameState)
     {
         enabled = gameState == GameState.Play;
+    }
+
+    public void OnSwitchScene()
+    {
+        Switch_Scene.SetActive(true);
     }
 
     void OnCharacterDeath()
@@ -266,6 +278,11 @@ public class Player_Movement : FuntionLibraly
                     Ob_interact = Object_interact.Puzzle;
                     Object_Intaeract = other.gameObject;
                 }
+                if(other.GetComponent<Open_Room_New_Scene>() != null)
+                {
+                    Ob_interact = Object_interact.Room_Door;
+                    Object_Intaeract = other.gameObject;
+                }
                 break;
             default:
                 break;
@@ -296,6 +313,11 @@ public class Player_Movement : FuntionLibraly
                 if (other.GetComponent<Show_Puzzle>() != null)
                 {
                     Ob_interact = Object_interact.Puzzle;
+                    Object_Intaeract = other.gameObject;
+                }
+                if (other.GetComponent<Open_Room_New_Scene>() != null)
+                {
+                    Ob_interact = Object_interact.Room_Door;
                     Object_Intaeract = other.gameObject;
                 }
                 break;
@@ -451,6 +473,9 @@ public class Player_Movement : FuntionLibraly
                 case Object_interact.Puzzle:
                     Object_Intaeract.GetComponent<Show_Puzzle>().OpenPuzzle_Ui();
                     break;
+                case Object_interact.Room_Door:
+                    Object_Intaeract.GetComponent<Open_Room_New_Scene>().Enter_Door();
+                    break;
                 default:
                     break;
             }
@@ -587,6 +612,7 @@ public class Player_Movement : FuntionLibraly
                         break;
                     case Object_interact.Lawson_Door:
                         Object_Intaeract.transform.parent.GetComponent<Door_Lawson_System>().OpenOrClose();
+                        Object_Intaeract.transform.parent.GetComponent<Door_Lawson_System>().Cant_Open_Door();
                         break;
                     case Object_interact.PickUp_Item:
                         Object_Intaeract.GetComponent<Pick_up_Item_System>().PickUp_Item();
@@ -596,6 +622,9 @@ public class Player_Movement : FuntionLibraly
                         break;
                     case Object_interact.Puzzle:
                         Object_Intaeract.GetComponent<Show_Puzzle>().OpenPuzzle_Ui();
+                        break;
+                    case Object_interact.Room_Door:
+                        Object_Intaeract.GetComponent<Open_Room_New_Scene>().Enter_Door();
                         break;
                     default:
                         break;

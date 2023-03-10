@@ -192,6 +192,7 @@ MonoBehaviour:
   LoadingScreenWidget: {fileID: 0}
   Bg: {fileID: 0}
   animator: {fileID: 1530824110883930676}
+  animator_bg: {fileID: 0}
 --- !u!223 &2756987478476752325
 Canvas:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4961144348047403117}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

@@ -315,6 +315,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1685403740437627788, guid: 7d85bba144ffe7a44ad2221a846be56f, type: 3}
+      propertyPath: Bg
+      value: 
+      objectReference: {fileID: 1536384208}
+    - target: {fileID: 1685403740437627788, guid: 7d85bba144ffe7a44ad2221a846be56f, type: 3}
+      propertyPath: animator_bg
+      value: 
+      objectReference: {fileID: 1536384209}
+    - target: {fileID: 1685403740437627788, guid: 7d85bba144ffe7a44ad2221a846be56f, type: 3}
       propertyPath: LoadingScreenWidget
       value: 
       objectReference: {fileID: 1724734220}
@@ -620,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -637,11 +645,11 @@ PrefabInstance:
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 724113753}
+      objectReference: {fileID: 724242154}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 724242154}
+      objectReference: {fileID: 621652889}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
@@ -660,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayAnim
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -672,7 +680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: MainMenu_Ui, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -684,11 +692,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1436919208775515400, guid: a2495aa873e355947a8de85821d8bd41, type: 3}
       propertyPath: OnAnimStart.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
@@ -1145,6 +1153,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1536384208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 742984977663497191, guid: 9b5b2344e699bc1429364bc4792c2acd, type: 3}
+  m_PrefabInstance: {fileID: 523838895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1536384209 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6076745636734023641, guid: 9b5b2344e699bc1429364bc4792c2acd, type: 3}
+  m_PrefabInstance: {fileID: 523838895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724734219
 PrefabInstance:
   m_ObjectHideFlags: 0
