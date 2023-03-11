@@ -7,6 +7,7 @@
 - Button [ N ] : Open Note
 - Button [ C ] : Open Craft
 - Button [ E ] : Use Item, Open Door
+- Button [F] : Turn On/Off Flash light
 - Mouse Right : Aim
 - Mouse Left : Shoot / Use Item
 --------------------------------------------
