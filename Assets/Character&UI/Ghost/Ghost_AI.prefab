@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 6195558242577577098}
   - component: {fileID: 1384491867758489772}
   - component: {fileID: 1384491867758489779}
+  - component: {fileID: 6615586565661545888}
   - component: {fileID: 1384491867758489764}
   - component: {fileID: 1384491867758489771}
   - component: {fileID: 1384491867758489765}
@@ -504,6 +505,7 @@ MonoBehaviour:
   MaxHP: 100
   HP_Ghost: 100
   Damage: 50
+  AttackSpeed: 1
 --- !u!114 &1202391228642771976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +585,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1271088339
-  m_SortingLayer: 2
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 1531679200, guid: 29908fe161ad6a64fb29020ca18d0062, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -616,6 +618,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!136 &6615586565661545888
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384491867758489778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0
+  m_Height: 0
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &1384491867758489764
 CapsuleCollider:
   m_ObjectHideFlags: 0

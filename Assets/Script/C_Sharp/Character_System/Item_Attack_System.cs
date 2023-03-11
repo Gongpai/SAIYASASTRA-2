@@ -54,7 +54,7 @@ public class Item_Attack_System : FuntionLibraly
                 case AiGhost.Hungry_ghost:
                     ghost.GetComponent<Ai_Attack>().Shoot_projectile(gameObject, false, velocity);
                     break;
-                case AiGhost.Home_ghost:
+                case AiGhost.Soi_Ju_ghost:
                     ghost.GetComponent<Ai_Attack>().Shoot_horizontal(isFlip,gameObject, false);
                     break;
                 default:

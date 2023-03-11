@@ -394,6 +394,13 @@ public class Inventory_System : MonoBehaviour
         
     }
 
+    //รีเซ็ต index
+    public void Reset_Select_Index(int i = 0, int Old_i = 0)
+    {
+        SelectNum = i;
+        Old_Select = Old_i;
+    }
+
     //ระบบเลือกไอเทม
     public void Select_Number_List(int Number, bool select_for_touch = false, int select_number = 0)
     {

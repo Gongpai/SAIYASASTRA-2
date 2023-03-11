@@ -51,7 +51,7 @@ public class Player_Movement : FuntionLibraly
     [Header("NotSet")]
     float moveSpeed = 0;
     public PlayerInput playerInput;
-    private InputAction JumpAction, RunAction, InventoryAction, NoteAction, CraftAction, aimAction, useitemAction, shootAction, PauseMenuAction;
+    private InputAction JumpAction, RunAction, InventoryAction, NoteAction, CraftAction, aimAction, useitemAction, shootAction, PauseMenuAction, Turn_On_LightAction;
     private InputManager inputManager;
 
     private Object_interact Ob_interact = Object_interact.Cupboard_Hide;
@@ -118,6 +118,7 @@ public class Player_Movement : FuntionLibraly
         useitemAction = playerInput.actions["Use_Item"];
         shootAction = playerInput.actions["Shoot"];
         PauseMenuAction = playerInput.actions["PauseMenu"];
+        Turn_On_LightAction = playerInput.actions["Turn_On_Light"];
         Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
     }
 
@@ -138,6 +139,7 @@ public class Player_Movement : FuntionLibraly
         useitemAction.Enable();
         shootAction.Enable();
         PauseMenuAction.Enable();
+        Turn_On_LightAction.Enable();
         OnGamePause(false);
         Set_Platform();
     }
@@ -152,6 +154,8 @@ public class Player_Movement : FuntionLibraly
         aimAction.Disable();
         useitemAction.Disable();
         shootAction.Disable();
+        PauseMenuAction.Disable();
+        Turn_On_LightAction.Disable();
         OnGamePause(true);
         Touch_screen_UI.SetActive(false);
     }
@@ -596,8 +600,13 @@ public class Player_Movement : FuntionLibraly
             if (!Touch_screen_UI.active)
             {
                 gameObject.GetComponent<Inventory_System>().Shoot_Item();
-                gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
             }
+        }
+
+        //ªÿË¡‡ª‘¥‰ø©“¬
+        if (Turn_On_LightAction.WasPressedThisFrame() == true)
+        {
+            gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
         }
 
         //‡ª‘¥ª√–µŸÈ·≈–Õ◊ËπÊ

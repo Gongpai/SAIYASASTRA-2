@@ -55,7 +55,7 @@ public class Open_Room_New_Scene : MonoBehaviour
 
     public void SetNewScene()
     {
-        LoadingScreenWidget.GetComponent<LoadingSceneStstem>().LoadScene("Level_1");
+        LoadingScreenWidget.GetComponent<LoadingSceneStstem>().LoadScene(Scene);
     }
 
     private void OnTriggerEnter(Collider other)

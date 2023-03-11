@@ -1,6 +1,6 @@
-/**
-using UnityEngine.AI;
 
+using UnityEngine.AI;
+/**
 namespace UnityEditor.AI
 {
     [CanEditMultipleObjects]

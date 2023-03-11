@@ -19,15 +19,31 @@ public class Ai_Attack : MonoBehaviour
     {
         switch (selectAiGhost)
         {
+            //สัมภเวสี / ผีตายโหง
             case AiGhost.Hungry_ghost:
                 Shoot_projectile();
                 break;
+            //เจ้าที่
             case AiGhost.Home_ghost:
-                Shoot_horizontal(GetComponent<SpriteRenderer>().flipX);
+                PlayAnimCombat(true);
+                //Shoot_horizontal(GetComponent<SpriteRenderer>().flipX);
                 break;
+            //ผียาม + พนักงาน 
+            case AiGhost.Guard_ghost:
+                PlayAnimCombat(true);
+                break;
+            //กุมารทอง
+            case AiGhost.Kid_ghost:
+                break;
+            //ผีหญิงหุ่นรองเสื้อ
             case AiGhost.Mannequin_ghost:
                 PlayAnimCombat(true);
                 break;
+            //กระสือ
+            case AiGhost.Soi_Ju_ghost:
+                Shoot_horizontal(GetComponent<SpriteRenderer>().flipX);
+                break;
+
             default:
                 break;
         }

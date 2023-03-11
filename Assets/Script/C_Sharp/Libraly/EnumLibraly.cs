@@ -37,7 +37,7 @@ public enum AiFindingMode
 //ชนิดผีต่างๆ
 public enum AiGhost
 {
-    Hungry_ghost, //สัมภเวสี
+    Hungry_ghost, //สัมภเวสี / ผีตายโหง 
     Home_ghost, //เจ้าที่
     Guard_ghost, //ผียาม + พนักงาน 
     Kid_ghost, //กุมารทอง

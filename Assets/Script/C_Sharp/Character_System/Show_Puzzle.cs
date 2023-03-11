@@ -49,7 +49,7 @@ public class Show_Puzzle : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.tag == "Player" && Can_Open_Puzzle)
+        if (collider.tag == "Player")
         {
             CharacterEnter = false;
             collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Hide_Message();

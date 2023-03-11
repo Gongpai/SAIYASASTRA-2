@@ -27,7 +27,8 @@ public class Ai_Movement : FuntionLibraly
     [SerializeField] public float Damage = 50;
 
     //TIME
-    private float timeattack = 1;
+    [Range(0.1f, 5.0f)] public float AttackSpeed = 0;
+    private float timeattack;
     private float oldtimeattack;
 
     void Awake()
@@ -75,7 +76,7 @@ public class Ai_Movement : FuntionLibraly
         GameInstance.Ghost = gameObject;
         HP_Ghost = MaxHP;
         FuntionLibraly.ProgressBar_Fill(ProgressBar, HP_Ghost, MaxHP);
-        oldtimeattack = DateTime.Now.Second;
+        timeattack = 0;
     }
 
     // Update is called once per frame
@@ -83,8 +84,9 @@ public class Ai_Movement : FuntionLibraly
     {
         if (IsAttackCharacter && !IsGhostStun)
         {
-            timeattack = DateTime.Now.Second;
-            if ((timeattack - oldtimeattack) == 1)
+            timeattack += Time.deltaTime * AttackSpeed;
+
+            if (timeattack >= 1)
             {
                 print(timeattack + " : Old " + oldtimeattack);
 
@@ -94,7 +96,7 @@ public class Ai_Movement : FuntionLibraly
                         GetComponent<Ai_Attack>().Attack(AiGhost.Hungry_ghost);
                         break;
                     case AiGhost.Home_ghost:
-                        GetComponent<Ai_Attack>().Attack(AiGhost.Home_ghost);
+                        //GetComponent<Ai_Attack>().Attack(AiGhost.Home_ghost);
                         break;
                     case AiGhost.Guard_ghost:
                         break;
@@ -104,15 +106,16 @@ public class Ai_Movement : FuntionLibraly
                     case AiGhost.Mannequin_ghost:
                         break;
                     case AiGhost.Soi_Ju_ghost:
+                        GetComponent<Ai_Attack>().Attack(AiGhost.Soi_Ju_ghost);
                         break;
                 }
-            }
 
-            oldtimeattack = DateTime.Now.Second;
+                timeattack = 0;
+            }
         }
         else
         {
-            oldtimeattack = DateTime.Now.Second;
+            timeattack = 0;
         }
 
         Ai_movement();
@@ -130,7 +133,8 @@ public class Ai_Movement : FuntionLibraly
     {
         if (other.isTrigger && other.tag == "Attack_Item")
         {
-            HP_System(other);
+            if(other.GetComponent<Item_Attack_System>().ghost != gameObject)
+                HP_System(other);
         }
     }
 
@@ -232,6 +236,7 @@ public class Ai_Movement : FuntionLibraly
             case AiGhost.Mannequin_ghost:
                 break;
             case AiGhost.Soi_Ju_ghost:
+                CanAttackCHaracter();
                 break;
         }
     }

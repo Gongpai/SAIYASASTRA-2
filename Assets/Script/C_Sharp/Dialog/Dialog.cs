@@ -16,7 +16,7 @@ public class Dialog : MonoBehaviour
     [SerializeField] private float TimeUiFadeOut = 0.5f;
     [SerializeField] private float typingSpeed = 0.04f;
 
-    private int DialogPage = 1;
+    public int DialogPage = 1;
     private string dialog;
     Coroutine dialogCoroutine = null;
     private bool withEffect = false;

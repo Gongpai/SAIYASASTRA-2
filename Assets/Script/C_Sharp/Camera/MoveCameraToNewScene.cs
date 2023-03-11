@@ -309,7 +309,7 @@ public class MoveCameraToNewScene : MonoBehaviour
         if (IsMovetoCharacter)
         {
             SetMoveStartEnd(new Vector3(), GameInstance.Player.transform.position, GameInstance.Player.transform, true, true);
-            print(MovePoint.transform.position.x + " : " + GameInstance.Player.transform.position.x);
+            //print(MovePoint.transform.position.x + " : " + GameInstance.Player.transform.position.x);
             speed = speed + (Time.deltaTime * 8);
 
             timeupCam += Time.deltaTime;

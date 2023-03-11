@@ -12,8 +12,8 @@ namespace Unity.VisualScripting.Generated.PropertyProviders
 {
 	
 	
-	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::UnityEngine.Quaternion))]
-	public class PropertyProvider_UnityEngine_Quaternion : Unity.VisualScripting.SerializedPropertyProvider<UnityEngine.Quaternion>
+	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::ButtonEvent))]
+	public class PropertyProvider_ButtonEvent : Unity.VisualScripting.SerializedPropertyProvider<ButtonEvent>
 	{
 	}
 }

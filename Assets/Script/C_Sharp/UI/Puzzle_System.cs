@@ -74,6 +74,7 @@ public class Puzzle_System : MonoBehaviour
             i++;
         }
 
+        GameInstance.Player.GetComponent<Inventory_System>().Reset_Select_Index();
 
         /**
         GameInstance.inventoryData.RemoveAll(i  GameInstance.inventoryData[0].useItemMode == Use_Item_System.Puzzle);
