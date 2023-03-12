@@ -52,7 +52,7 @@ public class Pick_up_Item_System : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerStay(Collider collider)
     {
         if (collider.tag == "Player")
         {

@@ -10,6 +10,7 @@ public class MainMenu_Ui : MonoBehaviour
     bool Is_ReGame;
     [SerializeField]private Animator animator;
     [SerializeField]private Animator animator_bg;
+    [SerializeField] bool CanSetActive = true;
 
     bool Is_Backtomainmenu = false;
 
@@ -26,11 +27,13 @@ public class MainMenu_Ui : MonoBehaviour
     }
     private void OnEnable()
     {
-        Bg.SetActive(true);
-        animator_bg.SetBool("IsIn", true);
-        animator_bg.SetBool("IsOut", false);
-        PlayAnim(true);
-
+        if (CanSetActive)
+        {
+            Bg.SetActive(true);
+            animator_bg.SetBool("IsIn", true);
+            animator_bg.SetBool("IsOut", false);
+            PlayAnim(true);
+        }
     }
     private void OnDisable()
     {

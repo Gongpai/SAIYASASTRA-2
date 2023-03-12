@@ -256,7 +256,7 @@ public class Player_Movement : FuntionLibraly
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         switch (other.tag)
         {

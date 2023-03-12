@@ -9,8 +9,11 @@ public class Open_Room_New_Scene : MonoBehaviour
     [SerializeField] string ShowText = "[E] เข้าไป";
     [SerializeField] GameObject ObjectSpawnlocation;
     [SerializeField] GameObject LoadingScreenWidget;
+    [SerializeField] bool CanDestoryGameInstance = false;
+
     bool IsCharacterEnter = false;
     Switch_Scene switch_Scene;
+    bool Is_Backtomainmenu = false;
 
     private void Update()
     {
@@ -36,6 +39,12 @@ public class Open_Room_New_Scene : MonoBehaviour
                 GameInstance.Player.GetComponent<Player_Movement>().OnSwitchScene();
                 switch_Scene.Switch += SetNewScene;
                 switch_Scene.OnSwitchScene();
+
+                if (CanDestoryGameInstance)
+                {
+                    Is_Backtomainmenu = true;
+                    Game_State_Manager.Reset_Game_State();
+                }
             }
             else
             {
@@ -74,5 +83,15 @@ public class Open_Room_New_Scene : MonoBehaviour
             GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Hide_Message();
             IsCharacterEnter = false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (Is_Backtomainmenu)
+        {
+            GameInstance.Reset_Gameinstance();
+            Make_DontDestroyOnLoad.Destroy_GameInstance();
+        }
+
     }
 }

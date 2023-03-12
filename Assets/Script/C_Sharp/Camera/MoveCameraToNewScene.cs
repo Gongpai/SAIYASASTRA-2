@@ -99,8 +99,27 @@ public class MoveCameraToNewScene : MonoBehaviour
                         Walk_Out(true, true);
                     }
                 }
+            }
+        }
+    }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (!IsBlock)
+        {
+            if (other.tag == "Player")
+            {
+                IsCharacterEnter = true;
                 other.GetComponent<Player_Movement>().Set_Block_Use_item(true);
+
+                if (transform.parent.GetComponent<Animator>().GetBool("IsDoorOpen?"))
+                {
+                    GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("[E] »Ô´»ÃÐµÙ");
+                }
+                else
+                {
+                    GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("[E] à»Ô´»ÃÐµÙ");
+                }
             }
         }
     }
@@ -173,19 +192,6 @@ public class MoveCameraToNewScene : MonoBehaviour
                     print("Outttttt----------------------------");
                     SetMoveStartEnd(new Vector3(), GameInstance.Player.transform.position, GameInstance.Player.transform, true, true);
                 }
-            }
-        }
-        else
-        {
-            if (Is_In)
-            {
-                GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>()
-                    .Show_Message("[E] à»Ô´»ÃÐµÙ");
-            }
-            else
-            {
-                GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>()
-                    .Hide_Message();
             }
         }
     }
