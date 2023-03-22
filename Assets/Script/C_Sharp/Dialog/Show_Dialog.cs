@@ -17,6 +17,8 @@ public class Show_Dialog : MonoBehaviour
     [Header("Spawn Ai")]
     [SerializeField] bool Can_Spawn_Ai_Ghost = false;
     [Serializable] public class ButtonEvent : UnityEvent { };
+    bool IsSpawn = true;
+    public ButtonEvent OnBeginDialog;
     public ButtonEvent OnSpawnAi;
     // Start is called before the first frame update
     void Start()
@@ -28,16 +30,29 @@ public class Show_Dialog : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            if (Can_Spawn_Ai_Ghost)
-            {
-                OnSpawnAi.Invoke();
-            }
-                
+            GameObject DialogSpawn;
             DialogWidget.GetComponent<Dialog>().SceneNum = SceneNum;
-            Instantiate(DialogWidget);
+            DialogSpawn = Instantiate(DialogWidget);
+            DialogSpawn.GetComponent<Dialog>().OnStart.AddListener(OnBegin);
+            DialogSpawn.GetComponent<Dialog>().OnEnd.AddListener(SpawnAi);
             Game_State_Manager.Instance.Setstate(GameState.Pause);
-            Destroy(this.gameObject);
         }
+    }
+    public void OnBegin()
+    {
+        OnBeginDialog.Invoke();
+    }
+
+
+    public void SpawnAi()
+    {
+        print("CanSpawn");
+        if (Can_Spawn_Ai_Ghost && IsSpawn)
+        {
+            OnSpawnAi.Invoke();
+            IsSpawn = false;
+        }
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame

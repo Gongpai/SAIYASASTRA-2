@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1488884380}
-  m_IndirectSpecularColor: {r: 0.55916, g: 0.80883837, b: 0.98748887, a: 1}
+  m_IndirectSpecularColor: {r: 0.5590147, g: 0.8095578, b: 0.99108803, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -783,9 +783,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83822d5e2860432459ff6715b0e76b3d, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607697730865641371, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: Damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
@@ -799,6 +807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 122496917}
   - component: {fileID: 122496916}
+  - component: {fileID: 122496918}
   m_Layer: 0
   m_Name: Ghost_Spawn_Point
   m_TagString: Untagged
@@ -819,6 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawn_Ai_Ghost: {fileID: 4793724431201143229, guid: dfb46454c647ea747a738cac96581e6d, type: 3}
+  audioSource: {fileID: 122496918}
 --- !u!4 &122496917
 Transform:
   m_ObjectHideFlags: 0
@@ -834,6 +844,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &122496918
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122496915}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f9ee2643104439d41974bf13b5fcf4ae, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &151159230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1563,9 +1669,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83822d5e2860432459ff6715b0e76b3d, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607697730865641371, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: Damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
@@ -1639,7 +1753,7 @@ MonoBehaviour:
   - Item_Index: 1
     Name: "\u0E2B\u0E21\u0E49\u0E2D\u0E1C\u0E35"
     Number: 1
-    itemSprite: {fileID: -304343531, guid: 110e45dae09301d4a9ac9baa00b244d1, type: 3}
+    itemSprite: {fileID: 21300000, guid: b7ebf7478b44c81428bb12c732221b10, type: 3}
     IsEquip: 0
     Index: 0
     ItemPrefeb: {fileID: 0}
@@ -1655,7 +1769,7 @@ MonoBehaviour:
   - Item_Index: 3
     Name: "\u0E44\u0E1F\u0E09\u0E32\u0E22"
     Number: 1
-    itemSprite: {fileID: 21300000, guid: 7d24987c2a3249848b9272ceffedf20c, type: 3}
+    itemSprite: {fileID: 21300000, guid: 51ed599f51ab6004f977ae45d07ab08c, type: 3}
     IsEquip: 0
     Index: 0
     ItemPrefeb: {fileID: 8906758629843560870, guid: d17c2f128b4490e4182a75e05690ec23, type: 3}
@@ -4694,9 +4808,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83822d5e2860432459ff6715b0e76b3d, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607697730865641371, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: Damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
@@ -5246,9 +5368,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83822d5e2860432459ff6715b0e76b3d, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607697730865641371, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: Damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
@@ -6443,13 +6573,45 @@ PrefabInstance:
       propertyPath: SceneNum
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: Can_Spawn_Ai_Ghost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 122496916}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Spawn_Ai, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5335846347716978951, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: m_Name
       value: Dialog_Box S1
       objectReference: {fileID: 0}
     - target: {fileID: 5335846347716978951, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6867995216500469698, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: m_RootOrder
@@ -6469,15 +6631,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6867995216500469698, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.564
+      value: 63.17
       objectReference: {fileID: 0}
     - target: {fileID: 6867995216500469698, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.417001
+      value: 1.224
       objectReference: {fileID: 0}
     - target: {fileID: 6867995216500469698, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.7450843
+      value: 0.182
       objectReference: {fileID: 0}
     - target: {fileID: 6867995216500469698, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7190,9 +7352,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83822d5e2860432459ff6715b0e76b3d, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607697730865641371, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: Damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
@@ -9258,6 +9428,10 @@ PrefabInstance:
       value: Level_5
       objectReference: {fileID: 0}
     - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
+      propertyPath: Bypass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
       propertyPath: ShowText
       value: "\u0E44\u0E1B\u0E22\u0E31\u0E07\u0E40\u0E25\u0E40\u0E27\u0E25 5"
       objectReference: {fileID: 0}
@@ -10135,9 +10309,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83822d5e2860432459ff6715b0e76b3d, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607697730865641371, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: Damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}

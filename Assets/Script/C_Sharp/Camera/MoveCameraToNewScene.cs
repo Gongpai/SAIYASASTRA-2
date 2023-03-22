@@ -32,6 +32,7 @@ public class MoveCameraToNewScene : MonoBehaviour
     private bool IsSet_CamCanMove = false;
     public bool IsCharacterEnter = false;
     private bool IsMoveto_Door = false;
+    public bool IsPlayerCantOpenDoor = false;
     private Vector3 start;
     private Vector3 end;
     private Transform endTransform;
@@ -112,13 +113,20 @@ public class MoveCameraToNewScene : MonoBehaviour
                 IsCharacterEnter = true;
                 other.GetComponent<Player_Movement>().Set_Block_Use_item(true);
 
-                if (transform.parent.GetComponent<Animator>().GetBool("IsDoorOpen?"))
+                if (!IsPlayerCantOpenDoor)
                 {
-                    GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("[E] ª‘¥ª√–µŸ");
+                    if (transform.parent.GetComponent<Animator>().GetBool("IsDoorOpen?"))
+                    {
+                        GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("[E] ª‘¥ª√–µŸ");
+                    }
+                    else
+                    {
+                        GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("[E] ‡ª‘¥ª√–µŸ");
+                    }
                 }
                 else
                 {
-                    GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("[E] ‡ª‘¥ª√–µŸ");
+                    GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("ª√–µŸ≈ÁÕ§");
                 }
             }
         }

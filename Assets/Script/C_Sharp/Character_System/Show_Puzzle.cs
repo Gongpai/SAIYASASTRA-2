@@ -6,6 +6,7 @@ public class Show_Puzzle : MonoBehaviour
 {
     [SerializeField] private string PickUpMessage = "[E] เก็บบันทึก";
     [SerializeField] public GameObject puzzle_ui;
+    [SerializeField] GameObject DoorUnlock;
 
     private Structs_Libraly.Note_Data NoteData;
     private ShowMessage pLayer;
@@ -31,6 +32,11 @@ public class Show_Puzzle : MonoBehaviour
         {
             Game_State_Manager.Instance.Setstate(GameState.Pause);
             puzzleSpawn = Instantiate(puzzle_ui, GameObject.FindGameObjectWithTag("Game_Ui").transform);
+            puzzleSpawn.GetComponent<Puzzle_System>().DoorUnlock = DoorUnlock;
+
+            if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+                GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
+
             puzzleSpawn.GetComponent<Puzzle_System>().ShowPuzzle = this;
         }
     }

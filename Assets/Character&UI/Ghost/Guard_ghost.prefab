@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1384491867758489778, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Name
-      value: Combat_ghost
+      value: Guard_ghost
       objectReference: {fileID: 0}
     - target: {fileID: 1948281455893052454, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: be903073893553740a980ce67757242c, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

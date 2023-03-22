@@ -80,18 +80,10 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 2.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
-      propertyPath: m_Radius
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: be903073893553740a980ce67757242c, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -100,6 +92,10 @@ PrefabInstance:
       propertyPath: Damage
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6195558242577577098, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: ObjectAttack
+      value: 
+      objectReference: {fileID: 1793019610661123709, guid: e0a66c3241fa15240bb3d0b6ff21c266, type: 3}
     - target: {fileID: 6615586565661545888, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Enabled
       value: 0

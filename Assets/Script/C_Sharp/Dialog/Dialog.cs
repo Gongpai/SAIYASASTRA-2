@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Dialog : MonoBehaviour
@@ -16,10 +17,14 @@ public class Dialog : MonoBehaviour
     [SerializeField] private float TimeUiFadeOut = 0.5f;
     [SerializeField] private float typingSpeed = 0.04f;
 
+    public UnityEvent OnStart;
+    public UnityEvent OnEnd;
+
     public int DialogPage = 1;
     private string dialog;
     Coroutine dialogCoroutine = null;
     private bool withEffect = false;
+    bool Can_Invoke_End = true;
 
     public void DialogControlNext(InputAction.CallbackContext context)
     {
@@ -86,6 +91,12 @@ public class Dialog : MonoBehaviour
 
         if (DialogPage == Dialog_Manager.NumAllDialog(SceneNum, pathXML, new Structs_Libraly.XML_Data("Dialog", "Scene", "Line", "name", "text")) + 2)
         {
+            if (Can_Invoke_End)
+            {
+                OnEnd.Invoke();
+                Can_Invoke_End = false;
+            }
+
             Game_State_Manager.Instance.Setstate(GameState.Play);
             FuntionLibraly.DestroyWidget(this.gameObject, CanvasObject, TimeUiFadeOut);
         }
@@ -113,7 +124,14 @@ public class Dialog : MonoBehaviour
     void Start()
     {
         GetDialog(SceneNum, 1);
-        
+        try
+        {
+            OnStart.Invoke();
+        }
+        catch
+        {
+
+        }
     }
 
     void Update()

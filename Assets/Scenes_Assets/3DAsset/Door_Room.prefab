@@ -2917,10 +2917,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54b24ac36e6182479f62ed7a771e2ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScene: {fileID: 0}
+  IsOpenScene: 0
   Scene: Game_Level
   ShowText: "\u0E40\u0E02\u0E49\u0E32\u0E44\u0E1B"
-  SpawnLocation: {fileID: 0}
+  ObjectSpawnlocation: {fileID: 0}
+  LoadingScreenWidget: {fileID: 0}
+  CanDestoryGameInstance: 0
+  Bypass: 0
+  Cant_OpenDoor: 0
 --- !u!65 &8583384551759833861
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,8 +6,18 @@ using UnityEngine;
 public class Ai_Attack : MonoBehaviour
 {
     [SerializeField] private GameObject ObjectAttack;
+    [SerializeField] GameObject Ghost_Effects;
+    [SerializeField] List<Transform> XPoint;
+    [SerializeField] List<Transform> YPoint;
 
+    Animator Ghoat_Effects_Animator;
     private Rigidbody testtt;
+
+    void Start()
+    {
+        if(Ghost_Effects != null && Ghost_Effects.GetComponent<Animator>() != null)
+            Ghoat_Effects_Animator = Ghost_Effects.GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -15,6 +25,7 @@ public class Ai_Attack : MonoBehaviour
             //print("Speed : " + Vector3.Magnitude(testtt.velocity));
     }
 
+    [System.Obsolete]
     public void Attack(AiGhost selectAiGhost)
     {
         switch (selectAiGhost)
@@ -25,7 +36,8 @@ public class Ai_Attack : MonoBehaviour
                 break;
             //เจ้าที่
             case AiGhost.Home_ghost:
-                PlayAnimCombat(true);
+                Random_Postition_Attack();
+                print("CanAttackHomeGhost");
                 //Shoot_horizontal(GetComponent<SpriteRenderer>().flipX);
                 break;
             //ผียาม + พนักงาน 
@@ -91,6 +103,32 @@ public class Ai_Attack : MonoBehaviour
                 rigidbody = spawn.GetComponent<Rigidbody>();
                 rigidbody.AddForce(velocity, ForceMode.Impulse);
             }
+        }
+    }
+
+    [System.Obsolete]
+    public void Random_Postition_Attack()
+    {
+        Ghost_Effects.SetActive(true);
+        Ghoat_Effects_Animator.SetBool("IsPlay", true);
+        for (int i = 0; i < 10; i++)
+        {
+            float random_X = Random.Range(XPoint[0].position.x, XPoint[1].position.x);
+            float random_Z = Random.Range(YPoint[0].position.z, YPoint[1].position.z);
+
+            Vector2 randomPos = new Vector2(random_X, random_Z);
+            print("Pose Spawn" + randomPos);
+
+            GameObject spawn;
+            Rigidbody rigidbody;
+
+            spawn = Instantiate(ObjectAttack);
+            spawn.transform.position = new Vector3(randomPos.x, XPoint[0].position.y, randomPos.y);
+            rigidbody = spawn.GetComponent<Rigidbody>();
+            rigidbody.useGravity = true;
+            rigidbody.isKinematic = false;
+            spawn.GetComponent<Item_Attack_System>().ai_ghost = GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost");
+            spawn.GetComponent<Item_Attack_System>().ghost = gameObject;
         }
     }
 

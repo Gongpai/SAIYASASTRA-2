@@ -10,10 +10,18 @@ public class Open_Room_New_Scene : MonoBehaviour
     [SerializeField] GameObject ObjectSpawnlocation;
     [SerializeField] GameObject LoadingScreenWidget;
     [SerializeField] bool CanDestoryGameInstance = false;
+    [SerializeField] bool Bypass = false;
 
+    public bool Cant_OpenDoor = false;
     bool IsCharacterEnter = false;
     Switch_Scene switch_Scene;
     bool Is_Backtomainmenu = false;
+
+    private void Start()
+    {
+        if (IsOpenScene && !Bypass)
+            Cant_OpenDoor = true;
+    }
 
     private void Update()
     {
@@ -36,14 +44,17 @@ public class Open_Room_New_Scene : MonoBehaviour
         {
             if (IsOpenScene)
             {
-                GameInstance.Player.GetComponent<Player_Movement>().OnSwitchScene();
-                switch_Scene.Switch += SetNewScene;
-                switch_Scene.OnSwitchScene();
-
-                if (CanDestoryGameInstance)
+                if (!Cant_OpenDoor)
                 {
-                    Is_Backtomainmenu = true;
-                    Game_State_Manager.Reset_Game_State();
+                    GameInstance.Player.GetComponent<Player_Movement>().OnSwitchScene();
+                    switch_Scene.Switch += SetNewScene;
+                    switch_Scene.OnSwitchScene();
+
+                    if (CanDestoryGameInstance)
+                    {
+                        Is_Backtomainmenu = true;
+                        Game_State_Manager.Reset_Game_State();
+                    }
                 }
             }
             else
@@ -71,7 +82,14 @@ public class Open_Room_New_Scene : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message(ShowText);
+            if (!Cant_OpenDoor)
+            {
+                GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message(ShowText);
+            }
+            else
+            {
+                GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("ª√–µŸ≈ÁÕ§");
+            }
             IsCharacterEnter = true;
         }
     }

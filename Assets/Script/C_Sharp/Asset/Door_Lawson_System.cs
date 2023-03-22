@@ -51,7 +51,7 @@ public class Door_Lawson_System : MonoBehaviour
         {
             if (ExitDoorCollider.GetComponent<MoveCameraToNewScene>().IsCharacterEnter)
             {
-                GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("ª√–µŸ≈ÁÕ§");
+                ExitDoorCollider.GetComponent<MoveCameraToNewScene>().IsPlayerCantOpenDoor = true;
             }
             else
             {

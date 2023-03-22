@@ -7,8 +7,9 @@ public class Puzzle_System : MonoBehaviour
     [SerializeField] List<Puzzle_Drag_Drop_UI> puzzle_element = new List<Puzzle_Drag_Drop_UI>();
     [SerializeField] private int Inventory_iten_index;
 
+    public GameObject DoorUnlock;
     public Show_Puzzle ShowPuzzle;
-    private bool IsPuzzleSucceed = false;
+    public static bool IsPuzzleSucceed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,17 @@ public class Puzzle_System : MonoBehaviour
         {
             Remove_Puzzle_Item();
             ShowPuzzle.Can_Open_Puzzle = false;
+            Flashing_Lights.event_Light_On_Off(Flashing_Lights.Light_Mode.Turn_On);
+            Flashing_Lights.event_Light_On_Off(Flashing_Lights.Light_Mode.Flashing);
+            DoorUnlock.GetComponent<Open_Room_New_Scene>().Cant_OpenDoor = false;
         }
+
+        if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+        {
+            if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.GetComponent<Animator>().GetBool("IsPlay"))
+                GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(true);
+        }
+
         GameInstance.Player.GetComponent<Inventory_System>().ResetIndex_Item_Element();
         Game_State_Manager.Instance.Setstate(GameState.Play);
         Puzzle_Slot_System.puzzle.Clear();

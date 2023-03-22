@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1488884380}
-  m_IndirectSpecularColor: {r: 0.55916, g: 0.80883837, b: 0.98748887, a: 1}
+  m_IndirectSpecularColor: {r: 0.5590147, g: 0.8095578, b: 0.99108803, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   - Item_Index: 1
     Name: "\u0E2B\u0E21\u0E49\u0E2D\u0E1C\u0E35"
     Number: 1
-    itemSprite: {fileID: -304343531, guid: 110e45dae09301d4a9ac9baa00b244d1, type: 3}
+    itemSprite: {fileID: 21300000, guid: b7ebf7478b44c81428bb12c732221b10, type: 3}
     IsEquip: 0
     Index: 0
     ItemPrefeb: {fileID: 0}
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   - Item_Index: 3
     Name: "\u0E44\u0E1F\u0E09\u0E32\u0E22"
     Number: 1
-    itemSprite: {fileID: 21300000, guid: 7d24987c2a3249848b9272ceffedf20c, type: 3}
+    itemSprite: {fileID: 21300000, guid: 51ed599f51ab6004f977ae45d07ab08c, type: 3}
     IsEquip: 0
     Index: 0
     ItemPrefeb: {fileID: 8906758629843560870, guid: d17c2f128b4490e4182a75e05690ec23, type: 3}
@@ -3596,6 +3596,10 @@ PrefabInstance:
       value: End_Level
       objectReference: {fileID: 0}
     - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
+      propertyPath: Bypass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
       propertyPath: ShowText
       value: "\u0E08\u0E1A\u0E40\u0E01\u0E21"
       objectReference: {fileID: 0}
@@ -4831,6 +4835,10 @@ PrefabInstance:
     - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: SceneNum
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: Can_Spawn_Ai_Ghost
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.size
@@ -8706,6 +8714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawn_Ai_Ghost: {fileID: 4793724431201143229, guid: ed73ffd4e4b130849aa1b890a1750e05, type: 3}
+  audioSource: {fileID: 0}
 --- !u!4 &2080694838
 Transform:
   m_ObjectHideFlags: 0

@@ -44,6 +44,8 @@ public class Player_Movement : FuntionLibraly
 
     [SerializeField] public GameObject Touch_screen_UI;
 
+    [SerializeField] public GameObject Ghost_Effect;
+
     [SerializeField] public GameObject Switch_Scene;
 
     [SerializeField] private Image HP_ProgressBar;
@@ -92,6 +94,9 @@ public class Player_Movement : FuntionLibraly
         UpdateHPWidget();
 
         rb = GetComponent<Rigidbody>();
+
+        GetComponent<Inventory_System>().Set_Item_Element();
+        GetComponent<Inventory_System>().Reset_Select_Index();
     }
 
     // Update is called once per frame
@@ -226,6 +231,16 @@ public class Player_Movement : FuntionLibraly
         if(HP <= 0)
         {
             GameObject.FindGameObjectWithTag("Camera_Setting").GetComponent<ZoomSmoothCameraSystem>().IsZoomCamera = true;
+            GameObject[] AllGhost = GameObject.FindGameObjectsWithTag("Ghost");
+            for (int i = 0; i < AllGhost.Length - 1;)
+            {
+                if (AllGhost[i].GetComponent<Ai_Movement>().IsSeeCharacter)
+                {
+                    AllGhost[i].GetComponent<Ai_Movement>().PlaySound(false);
+                }
+                i++;
+            }
+            GameInstance.Ghost.GetComponent<Ai_Movement>().PlaySound(false);
             Death_Ui.SetActive(true);
             Death_Ui.GetComponent<Animator>().SetBool("Is_Death", true);
         }
@@ -489,6 +504,9 @@ public class Player_Movement : FuntionLibraly
     //ปุ่มสัมผัส - กดเปิดช่องเก็บของ
     public void Touch_OpenInventoryUi()
     {
+        if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+            GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
+
         gameObject.GetComponent<Inventory_System>().Set_Inventory_Element();
         gameObject.GetComponent<Inventory_System>().Set_Item_Element();
         Essential_Menu.SetActive(true);
@@ -504,10 +522,14 @@ public class Player_Movement : FuntionLibraly
     }
 
     //ปุ่มสัมผัส - กดหยุดเกม
+    [System.Obsolete]
     public void Touch_OpenPauseMenu()
     {
         if (Check_PauseMenu())
         {
+            if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+                GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
+
             PauseGame_Ui.SetActive(true);
             Game_State_Manager.Instance.Setstate(GameState.Pause);
         }
@@ -520,7 +542,7 @@ public class Player_Movement : FuntionLibraly
         }
         **/
 
-        private bool GroundCheck()
+    private bool GroundCheck()
     {
         if (Physics.BoxCast(transform.position, BoxSize, -transform.up, transform.rotation, MaxDistance, layerMask))
         {
@@ -540,6 +562,9 @@ public class Player_Movement : FuntionLibraly
         {
             if(!PauseGame_Ui.active && !Death_Ui.active)
             {
+                if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+                    GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
+
                 PauseGame_Ui.SetActive(true);
                 Game_State_Manager.Instance.Setstate(GameState.Pause);
             }
@@ -548,6 +573,9 @@ public class Player_Movement : FuntionLibraly
         //เปิดหน้าช่องเก็บของ
         if (InventoryAction.WasPressedThisFrame() == true)
         {
+            if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+                GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
+
             gameObject.GetComponent<Inventory_System>().Set_Inventory_Element();
             gameObject.GetComponent<Inventory_System>().Set_Item_Element();
             Essential_Menu.SetActive(true);
@@ -559,6 +587,9 @@ public class Player_Movement : FuntionLibraly
         //เปิดหน้าบันทึก
         if (NoteAction.WasPressedThisFrame() == true)
         {
+            if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+                GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
+
             gameObject.GetComponent<Note_System>().Set_Note_Element();
             Essential_Menu.SetActive(true);
             Essential_Menu.GetComponent<Navigate_Menu>().OpenPage(2);
@@ -569,6 +600,9 @@ public class Player_Movement : FuntionLibraly
         //เปิดหน้า craft
         if (CraftAction.WasPressedThisFrame() == true)
         {
+            if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+                GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
+
             gameObject.GetComponent<Craft_System>().Set_Craft_Inventory_Element();
             Essential_Menu.SetActive(true);
             Essential_Menu.GetComponent<Navigate_Menu>().OpenPage(1);
@@ -580,7 +614,6 @@ public class Player_Movement : FuntionLibraly
         if (aimAction.WasPressedThisFrame() == true)
         {
             gameObject.GetComponent<Inventory_System>().Aim(!gameObject.GetComponent<Inventory_System>().IsAim);
-            Flashing_Lights.event_Light_On_Off?.Invoke(Flashing_Lights.Light_Mode.Flashing);
         }
 
         //ใช้งานไอเทม
@@ -591,7 +624,6 @@ public class Player_Movement : FuntionLibraly
                 gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
             }
             
-            Flashing_Lights.event_Light_On_Off?.Invoke(Flashing_Lights.Light_Mode.Turn_Off);
         }
 
         //ปุ่มยิง/ปา

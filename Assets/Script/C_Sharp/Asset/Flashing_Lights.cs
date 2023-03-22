@@ -26,6 +26,8 @@ public class Flashing_Lights : MonoBehaviour
 
     public delegate void Turn_light_On_Off(Light_Mode light_Mode);
     public static Turn_light_On_Off event_Light_On_Off;
+    public delegate void PlayAnimLight(bool Is_character, bool IsEnter = false);
+    public static PlayAnimLight playAnimLight;
 
     Animator m_Animator;
     AudioSource m_AudioSource;
@@ -40,11 +42,13 @@ public class Flashing_Lights : MonoBehaviour
     private void OnEnable()
     {
         event_Light_On_Off += Light_On_Off;
+        playAnimLight += PlayAnimation;
     }
 
     private void OnDisable()
     {
         event_Light_On_Off -= Light_On_Off;
+        playAnimLight -= PlayAnimation;
     }
 
     public void Light_On_Off(Light_Mode light_Mode)
@@ -97,7 +101,7 @@ public class Flashing_Lights : MonoBehaviour
         //print("GHOST Trigger chasing");
     }
 
-    public void PlayAnimation(bool Is_Character)
+    public void PlayAnimation(bool Is_Character, bool isPlayWhenCharEnter = false)
     {
         int m_random = 1;
         
@@ -110,9 +114,21 @@ public class Flashing_Lights : MonoBehaviour
         {
             m_random = 1;
         }
-        
+
         //print(m_Animator + " : " + m_random);
-        m_Animator.SetInteger("PlayAnimNUM", m_random);
+        if (!isPlayWhenCharEnter)
+        {
+            m_Animator.SetInteger("PlayAnimNUM", m_random);
+        }
+        else
+        {
+            if (Camera.main.WorldToScreenPoint(transform.position).x >= 0 && Camera.main.WorldToScreenPoint(transform.position).x <= Screen.width && !GameInstance.CharacterHide)
+            {
+                m_Animator.SetInteger("PlayAnimNUM", m_random);
+            }
+
+        }
+        
     }
 
     public void StopAnimation()
@@ -164,7 +180,7 @@ public class Flashing_Lights : MonoBehaviour
                 m_random_light = Random.Range(0, 6);
                 if (m_random_light == 2 || m_random_light == 4)
                 {
-                    PlayAnimation(true);
+                    PlayAnimation(true, false);
                     if (Can_Stop_Flashing)
                         is_Stop_Flashing_Char = true;
                 }

@@ -11,7 +11,7 @@ PrefabInstance:
       propertyPath: _data._json
       value: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Agent","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.AI.NavMeshAgent,
         UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Target","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
-        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Ai_Ghost","value":{"$content":"Hungry_ghost","$type":"AiGhost"},"typeHandle":{"Identification":"AiGhost,
+        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Ai_Ghost","value":{"$content":"Soi_Ju_ghost","$type":"AiGhost"},"typeHandle":{"Identification":"AiGhost,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"ShowMessage","value":{"$content":2,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
         UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"TimeOut_Finding","value":{"$content":30.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"TimeOut_Stun_Max","value":{"$content":3.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
@@ -20,6 +20,22 @@ PrefabInstance:
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"XML_Path","value":{"$content":"Dialog/GhostMessageText","$type":"System.String"},"typeHandle":{"Identification":"System.String,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
       objectReference: {fileID: 0}
+    - target: {fileID: 1384491867758489764, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_Height
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384491867758489764, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_Radius
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384491867758489764, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384491867758489772, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1956764924, guid: a2023ed97ae1bec49a897997662f63a2, type: 3}
     - target: {fileID: 1384491867758489772, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -70,8 +86,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1384491867758489778, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Name
-      value: Shoot_ghost
+      value: Soi_Ju_ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 1384491867758489779, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: eab201b7c1b4f2b4692e7ac263490716, type: 2}
     - target: {fileID: 1948281455893052454, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -81,17 +101,21 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_Height
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Radius
-      value: 0.35
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
+      propertyPath: m_BaseOffset
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 69a51a37b3e334d429c962bd465e3dbf, type: 3}
     - target: {fileID: 2780106232731289677, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

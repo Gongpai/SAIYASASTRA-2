@@ -31,8 +31,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793019610661123709}
-  m_LocalRotation: {x: -0, y: 0, z: -0.59744006, w: 0.80191356}
-  m_LocalPosition: {x: 87.74665, y: 3.161883, z: 0.06236672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 94.29718, y: 3.0593529, z: -0.2020141}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,6 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1cad0334548a14bb20003a35724f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Destory_Effect: {fileID: 3525302970205634056, guid: aca27c28c48d695469f6bbc861e257fd, type: 3}
+  color: {r: 0.13725491, g: 0.32941177, b: 0.76470596, a: 1}
 --- !u!212 &1467799967715643439
 SpriteRenderer:
   m_ObjectHideFlags: 0

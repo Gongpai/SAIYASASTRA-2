@@ -37,6 +37,8 @@ public class Death_Ui : MonoBehaviour
     }
     public void DeathOpen()
     {
+        bg.transform.GetChild(0).GetComponent<CanvasGroup>().alpha = 1;
+        bg.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 1;
         bg.GetComponent<Animator>().SetBool("IsIn", true);
         bg.GetComponent<Animator>().SetBool("IsOut", false);
     }

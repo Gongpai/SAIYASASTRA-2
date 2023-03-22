@@ -68,6 +68,12 @@ public class MainMenu_Ui : MonoBehaviour
         animator_bg.SetBool("IsIn", false);
         animator_bg.SetBool("IsOut", true);
         PlayAnim(false);
+        if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+        {
+            if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.GetComponent<Animator>().GetBool("IsPlay"))
+                GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(true);
+        }
+
         Game_State_Manager.Instance.Setstate(GameState.Play);
     }
 

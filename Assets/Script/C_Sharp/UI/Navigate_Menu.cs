@@ -16,6 +16,12 @@ public class Navigate_Menu : MonoBehaviour
 
     public void SetGamePause()
     {
+        if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+        {
+            if(GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.GetComponent<Animator>().GetBool("IsPlay"))
+                GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(true);
+        }
+            
         Game_State_Manager.Instance.Setstate(GameState.Play);
     }
 

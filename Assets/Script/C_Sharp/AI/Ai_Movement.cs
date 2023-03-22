@@ -25,11 +25,19 @@ public class Ai_Movement : FuntionLibraly
     [SerializeField] private int MaxHP = 100;
     [SerializeField] public float HP_Ghost;
     [SerializeField] public float Damage = 50;
+    [SerializeField] AudioSource audioSource;
+
+    public delegate void Clear_All_Effect();
+    public static Clear_All_Effect Clear_All;
 
     //TIME
     [Range(0.1f, 5.0f)] public float AttackSpeed = 0;
     private float timeattack;
     private float oldtimeattack;
+
+    private bool IsplayAudio = false;
+    private bool PlaylightBeginOnce = false;
+    private bool PlaylightDeathOnce = false;
 
     void Awake()
     {
@@ -80,6 +88,7 @@ public class Ai_Movement : FuntionLibraly
     }
 
     // Update is called once per frame
+    [Obsolete]
     void Update()
     {
         if (IsAttackCharacter && !IsGhostStun)
@@ -96,7 +105,9 @@ public class Ai_Movement : FuntionLibraly
                         GetComponent<Ai_Attack>().Attack(AiGhost.Hungry_ghost);
                         break;
                     case AiGhost.Home_ghost:
-                        //GetComponent<Ai_Attack>().Attack(AiGhost.Home_ghost);
+
+                        GetComponent<Ai_Attack>().Attack(AiGhost.Home_ghost);
+                        PlaySound(true);
                         break;
                     case AiGhost.Guard_ghost:
                         break;
@@ -122,7 +133,11 @@ public class Ai_Movement : FuntionLibraly
         
         distanceVector3[0] = gameObject.transform.position;
 
-        DetectCharacter();
+        if(GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost") != AiGhost.Home_ghost)
+        {
+            DetectCharacter();
+            
+        }
 
         AttackCharacter();
 
@@ -133,8 +148,29 @@ public class Ai_Movement : FuntionLibraly
     {
         if (other.isTrigger && other.tag == "Attack_Item")
         {
+            if(GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost") != AiGhost.Mannequin_ghost)
+            {
+                Flashing_Lights.playAnimLight?.Invoke(true, true);
+            }
+            
             if(other.GetComponent<Item_Attack_System>().ghost != gameObject)
                 HP_System(other);
+        }
+    }
+
+    public void PlaySound(bool IsPLay)
+    {
+        if (IsPLay)
+        {
+            if (!IsplayAudio)
+            {
+                print("PlaySound");
+                audioSource.Play();
+                IsplayAudio = true;
+            }
+        } else
+        {
+            audioSource.Stop();
         }
     }
 
@@ -150,13 +186,20 @@ public class Ai_Movement : FuntionLibraly
                 HP_Ghost -= Damage;
 
                 if(HP_Ghost <= 0)
+                {
                     HP_Ghost = 0;
+                    if (!PlaylightDeathOnce)
+                    {
+                        Flashing_Lights.playAnimLight?.Invoke(false, true);
+                        PlaylightDeathOnce = true;
+                    }
+                }
+                    
             }
             
             FuntionLibraly.ProgressBar_Fill(ProgressBar, HP_Ghost, MaxHP);
             other.GetComponent<Item_Script>().Destroy_Item();
         }
-
     }
 
     void Ai_movement()
@@ -209,16 +252,57 @@ public class Ai_Movement : FuntionLibraly
     {
         if (Camera.main.WorldToScreenPoint(transform.position).x >= 0 && Camera.main.WorldToScreenPoint(transform.position).x <= Screen.width && !GameInstance.CharacterHide)
         {
+            if (!FindSeeAllCharacterGhost())
+            {
+                audioSource.Play();
+            }
+
             IsSeeCharacter = true;
             Player = GameInstance.Player;
+
+            if (GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost") != AiGhost.Mannequin_ghost)
+            {
+                if (!PlaylightBeginOnce)
+                {
+                    Flashing_Lights.playAnimLight?.Invoke(false, true);
+                    PlaySound(true);
+                }
+            }
+            else
+            {
+                Flashing_Lights.event_Light_On_Off?.Invoke(Flashing_Lights.Light_Mode.Turn_Off);
+            }
         }
         else
         {
             IsSeeCharacter = false;
+            if (!FindSeeAllCharacterGhost())
+            {
+                audioSource.Stop();
+            }
         }
     }
+    private bool FindSeeAllCharacterGhost()
+    {
+        GameObject[] AllGhost = GameObject.FindGameObjectsWithTag("Ghost");
+        bool IsSee = false;
+        for(int i = 0; i < AllGhost.Length - 1;)
+        {
+            if (AllGhost[i].GetComponent<Ai_Movement>().IsSeeCharacter)
+            {
+                IsSee = true;
+                i = AllGhost.Length -1;
+            }
+            else
+            {
+                i++;
+            }
+            
+        }
+        return IsSee;
+    }
 
-    void AttackCharacter()
+    public void AttackCharacter()
     {
         switch (GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost"))
         {
@@ -226,7 +310,17 @@ public class Ai_Movement : FuntionLibraly
                 CanAttackCHaracter();
                 break;
             case AiGhost.Home_ghost:
-                CanAttackCHaracter();
+                if (Puzzle_System.IsPuzzleSucceed != default && Puzzle_System.IsPuzzleSucceed)
+                {
+                    IsAttackCharacter = false;
+                    print("Dont Play Sound");
+                    PlaySound(false);
+                    if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
+                    {
+                        GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.GetComponent<Animator>().SetBool("IsPlay", false);
+                        GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
+                    }
+                }
                 break;
             case AiGhost.Guard_ghost:
                 CanAttackCHaracter();
@@ -251,5 +345,12 @@ public class Ai_Movement : FuntionLibraly
         {
             IsAttackCharacter = false;
         }
+    }
+    
+    public void CanAttackGhostHome()
+    {
+        print("Can Attack");
+        IsAttackCharacter = true;
+        IsGhostStun = false;
     }
 }
