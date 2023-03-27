@@ -6,6 +6,7 @@ public class Puzzle_System : MonoBehaviour
 {
     [SerializeField] List<Puzzle_Drag_Drop_UI> puzzle_element = new List<Puzzle_Drag_Drop_UI>();
     [SerializeField] private int Inventory_iten_index;
+    [SerializeField] private int Number_Puzzle = 5;
 
     public GameObject DoorUnlock;
     public Show_Puzzle ShowPuzzle;
@@ -35,7 +36,7 @@ public class Puzzle_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Puzzle_Slot_System.puzzle.Count >= 5)
+        if (Puzzle_Slot_System.puzzle.Count >= Number_Puzzle)
         {
             IsPuzzleSucceed = true;
         }

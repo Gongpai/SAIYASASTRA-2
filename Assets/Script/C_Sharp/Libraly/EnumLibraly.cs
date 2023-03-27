@@ -51,6 +51,7 @@ public enum Use_Item_System
     Use_Self,
     Use_Other,
     Shoot_Projectile,
+    Shoot_horizontal,
     Use_Light,
     Puzzle
 }

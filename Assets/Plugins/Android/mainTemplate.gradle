@@ -37,25 +37,3 @@ android {
 **IL_CPP_BUILD_SETUP**
 **SOURCE_BUILD_SETUP**
 **EXTERNAL_SOURCES**
- buildscript {
- repositories {
- google()
- mavenCentral()
- }
- dependencies {
- // Must be Android Gradle Plugin 3.6.0 or later. For a list of
- // compatible Gradle versions refer to:
- // https://developer.android.com/studio/releases/gradle-plugin
- classpath 'com.android.tools.build:gradle:3.6.0'
- }
- }
- 
- allprojects {
- repositories {
- google()
- mavenCentral()
- flatDir {
- dirs 'libs'
- }
- }
- }

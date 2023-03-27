@@ -31,6 +31,8 @@ public class Flashing_Lights : MonoBehaviour
 
     Animator m_Animator;
     AudioSource m_AudioSource;
+
+    Light_Mode l_mode = Light_Mode.Flashing;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,8 @@ public class Flashing_Lights : MonoBehaviour
 
     public void Light_On_Off(Light_Mode light_Mode)
     {
+        l_mode = light_Mode;
+
         switch (light_Mode)
         {
             case Light_Mode.Flashing:
@@ -103,32 +107,34 @@ public class Flashing_Lights : MonoBehaviour
 
     public void PlayAnimation(bool Is_Character, bool isPlayWhenCharEnter = false)
     {
-        int m_random = 1;
-        
+        if (l_mode != Light_Mode.Turn_Off)
+        {
+            int m_random = 1;
 
-        if (!Is_Character)
-        {
-            m_random = Random.Range(1, FlashingNum);
-        }
-        else
-        {
-            m_random = 1;
-        }
 
-        //print(m_Animator + " : " + m_random);
-        if (!isPlayWhenCharEnter)
-        {
-            m_Animator.SetInteger("PlayAnimNUM", m_random);
-        }
-        else
-        {
-            if (Camera.main.WorldToScreenPoint(transform.position).x >= 0 && Camera.main.WorldToScreenPoint(transform.position).x <= Screen.width && !GameInstance.CharacterHide)
+            if (!Is_Character)
+            {
+                m_random = Random.Range(1, FlashingNum);
+            }
+            else
+            {
+                m_random = 1;
+            }
+
+            //print(m_Animator + " : " + m_random);
+            if (!isPlayWhenCharEnter)
             {
                 m_Animator.SetInteger("PlayAnimNUM", m_random);
             }
+            else
+            {
+                if (Camera.main.WorldToScreenPoint(transform.position).x >= 0 && Camera.main.WorldToScreenPoint(transform.position).x <= Screen.width && !GameInstance.CharacterHide)
+                {
+                    m_Animator.SetInteger("PlayAnimNUM", m_random);
+                }
 
+            }
         }
-        
     }
 
     public void StopAnimation()

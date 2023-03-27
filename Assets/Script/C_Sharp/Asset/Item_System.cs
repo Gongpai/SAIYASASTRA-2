@@ -38,6 +38,9 @@ public class Item_System : MonoBehaviour
                 if(IsAim == true)
                     ShootProjectile(Item, rotation);
                 break;
+            case Use_Item_System.Shoot_horizontal:
+                Shoot_horizontal(Item);
+                break;
             case Use_Item_System.Use_Light:
                 Equip_To_Character(Item);
                 break;
@@ -51,6 +54,8 @@ public class Item_System : MonoBehaviour
         {
             if (EquipSlot.transform.GetChildCount() == 0)
             {
+                ObjectEquip.transform.rotation = Quaternion.Euler(Vector3.zero);
+                ObjectEquip.transform.position = Vector3.zero;
                 ItemEquip = Instantiate(ObjectEquip, EquipSlot.transform);
                 ItemEquip.GetComponent<Variables>().declarations.Set("Prefab_Original", ObjectEquip);
             }
@@ -58,7 +63,13 @@ public class Item_System : MonoBehaviour
             {
                 if (ItemEquip.GetComponent<Variables>().declarations.Get<GameObject>("Prefab_Original") == ObjectEquip)
                 {
-                    Destroy(ItemEquip);
+                    ItemEquip.GetComponent<AudioSource>().clip = ItemEquip.GetComponent<Variables>().declarations.Get<AudioClip>("UnEquip");
+                    ItemEquip.GetComponent<AudioSource>().Play();
+                    foreach(Transform m_transform in ItemEquip.transform.GetComponentInChildren<Transform>())
+                    {
+                        m_transform.gameObject.SetActive(false);
+                    }
+                    Destroy(ItemEquip, 0.1f);
                 }
             }
         }
@@ -84,5 +95,41 @@ public class Item_System : MonoBehaviour
             rigidbody.isKinematic = false;
             rigidbody.AddForce(spawn.transform.up * 7, ForceMode.Impulse);
         }
+    }
+
+    public void Shoot_horizontal(GameObject item)
+    {
+        Rigidbody rigidbody;
+
+        GameObject spawnItem;
+        spawnItem = item;
+        spawnItem.transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (GetComponent<SpriteRenderer>().flipX)
+        {
+            spawnItem.transform.position = transform.position + (spawnItem.transform.right * -1.1f);
+        }
+        else
+        {
+            spawnItem.transform.position = transform.position + (spawnItem.transform.right * 1.1f);
+        }
+
+        GameObject spawn;
+        spawn = Instantiate(spawnItem);
+        spawn.GetComponent<Item_Attack_System>().ghost = gameObject;
+        spawn.GetComponent<SpriteRenderer>().flipX = GetComponent<SpriteRenderer>().flipX;
+
+        rigidbody = spawn.GetComponent<Rigidbody>();
+        rigidbody.useGravity = false;
+        rigidbody.isKinematic = false;
+
+        if (GetComponent<SpriteRenderer>().flipX)
+        {
+            rigidbody.AddForce(transform.right * -5, ForceMode.Impulse);
+        }
+        else
+        {
+            rigidbody.AddForce(transform.right * 5, ForceMode.Impulse);
+        }
+
     }
 }

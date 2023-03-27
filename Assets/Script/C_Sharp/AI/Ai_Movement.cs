@@ -80,6 +80,7 @@ public class Ai_Movement : FuntionLibraly
     // Start is called before the first frame update
     void Start()
     {
+        Puzzle_System.IsPuzzleSucceed = false;
         distanceVector3[0] = gameObject.transform.position;
         GameInstance.Ghost = gameObject;
         HP_Ghost = MaxHP;
@@ -160,6 +161,7 @@ public class Ai_Movement : FuntionLibraly
 
     public void PlaySound(bool IsPLay)
     {
+        print("On Play Sound");
         if (IsPLay)
         {
             if (!IsplayAudio)
@@ -170,6 +172,7 @@ public class Ai_Movement : FuntionLibraly
             }
         } else
         {
+            print("Stop Sound");
             audioSource.Stop();
         }
     }
@@ -252,54 +255,86 @@ public class Ai_Movement : FuntionLibraly
     {
         if (Camera.main.WorldToScreenPoint(transform.position).x >= 0 && Camera.main.WorldToScreenPoint(transform.position).x <= Screen.width && !GameInstance.CharacterHide)
         {
-            if (!FindSeeAllCharacterGhost())
-            {
-                audioSource.Play();
-            }
-
-            IsSeeCharacter = true;
             Player = GameInstance.Player;
 
             if (GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost") != AiGhost.Mannequin_ghost)
             {
+                IsSeeCharacter = true;
                 if (!PlaylightBeginOnce)
                 {
+                    //print("Ghost See");
                     Flashing_Lights.playAnimLight?.Invoke(false, true);
                     PlaySound(true);
                 }
             }
             else
             {
+                if (!FindSeeAllCharacterGhost().Item1)
+                {
+                    //print("Ghost See Mannequin");
+                    PlaySound(true);
+                }
+                IsSeeCharacter = true;
                 Flashing_Lights.event_Light_On_Off?.Invoke(Flashing_Lights.Light_Mode.Turn_Off);
             }
         }
         else
         {
-            IsSeeCharacter = false;
-            if (!FindSeeAllCharacterGhost())
+            if (IsSeeCharacter)
             {
-                audioSource.Stop();
+                if (CountSeeAllCharacterGhost() <= 1)
+                {
+                    foreach(GameObject ghost in GameObject.FindGameObjectsWithTag("Ghost"))
+                    {
+                        if (ghost.GetComponent<AudioSource>().isPlaying)
+                        {
+                            ghost.GetComponent<Ai_Movement>().PlaySound(false);
+                            break;
+                        }
+                    }
+                }
+
+                IsSeeCharacter = false;
             }
+
+            //print("Ghost dont see");
+            IsplayAudio = false;
+            IsSeeCharacter = false;
         }
     }
-    private bool FindSeeAllCharacterGhost()
+    private Tuple<bool, GameObject> FindSeeAllCharacterGhost()
     {
         GameObject[] AllGhost = GameObject.FindGameObjectsWithTag("Ghost");
         bool IsSee = false;
-        for(int i = 0; i < AllGhost.Length - 1;)
+        GameObject Ghost_IsSee = null;
+
+        foreach (GameObject ghost in AllGhost)
         {
-            if (AllGhost[i].GetComponent<Ai_Movement>().IsSeeCharacter)
+            if (ghost.GetComponent<Ai_Movement>().IsSeeCharacter)
             {
                 IsSee = true;
-                i = AllGhost.Length -1;
+                Ghost_IsSee = ghost;
+                break;
             }
-            else
+        }
+        
+        return new Tuple<bool, GameObject>(IsSee, Ghost_IsSee);
+    }
+
+    private int CountSeeAllCharacterGhost()
+    {
+        GameObject[] AllGhost = GameObject.FindGameObjectsWithTag("Ghost");
+        int i = 0;
+
+        foreach (GameObject ghost in AllGhost)
+        {
+            if (ghost.GetComponent<Ai_Movement>().IsSeeCharacter)
             {
                 i++;
             }
-            
         }
-        return IsSee;
+
+        return i;
     }
 
     public void AttackCharacter()

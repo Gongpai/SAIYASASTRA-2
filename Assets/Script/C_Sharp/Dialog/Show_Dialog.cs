@@ -55,6 +55,11 @@ public class Show_Dialog : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    public void TurnOffAllLight()
+    {
+        Flashing_Lights.event_Light_On_Off(Flashing_Lights.Light_Mode.Turn_Off);
+    }
+
     // Update is called once per frame
     void Update()
     {

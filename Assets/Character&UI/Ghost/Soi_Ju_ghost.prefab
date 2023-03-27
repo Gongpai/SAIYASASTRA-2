@@ -120,9 +120,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5498024938689086005, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_Set_Offset
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5607697730865641371, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: Damage
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189490750237538457, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: m_Set_Offset
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6615586565661545888, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Enabled

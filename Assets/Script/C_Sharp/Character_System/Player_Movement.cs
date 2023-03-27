@@ -464,6 +464,7 @@ public class Player_Movement : FuntionLibraly
     }
 
     //ปุ่มสัมผัส - กดยิง
+    [System.Obsolete]
     public void Touch_Shoot_Button()
     {
         gameObject.GetComponent<Inventory_System>().Shoot_Item();

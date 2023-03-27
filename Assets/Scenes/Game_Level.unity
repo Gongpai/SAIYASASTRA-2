@@ -1611,7 +1611,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288835936}
-  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
   m_LocalPosition: {x: -2.827758, y: 3.6599998, z: -13.17891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7606,8 +7606,8 @@ MonoBehaviour:
     itemSprite: {fileID: 21300000, guid: 059d329710bf52848a3d34477a80976c, type: 3}
     IsEquip: 0
     Index: 0
-    ItemPrefeb: {fileID: 0}
-    useItemMode: 1
+    ItemPrefeb: {fileID: 1793019610661123709, guid: fc08661ad63d26e438ce2288e9b7bf88, type: 3}
+    useItemMode: 3
   - Item_Index: 3
     Name: "\u0E44\u0E1F\u0E09\u0E32\u0E22"
     Number: 1
@@ -7615,7 +7615,7 @@ MonoBehaviour:
     IsEquip: 0
     Index: 0
     ItemPrefeb: {fileID: 8906758629843560870, guid: d17c2f128b4490e4182a75e05690ec23, type: 3}
-    useItemMode: 3
+    useItemMode: 4
   - Item_Index: 4
     Name: "\u0E0A\u0E34\u0E49\u0E19\u0E2A\u0E48\u0E27\u0E19\u0E23\u0E39\u0E1B"
     Number: 1
@@ -7623,7 +7623,7 @@ MonoBehaviour:
     IsEquip: 0
     Index: 0
     ItemPrefeb: {fileID: 0}
-    useItemMode: 4
+    useItemMode: 5
   - Item_Index: 5
     Name: None
     Number: 0
@@ -9357,7 +9357,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804303229}
-  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
   m_LocalPosition: {x: 0, y: 0, z: -13.17891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

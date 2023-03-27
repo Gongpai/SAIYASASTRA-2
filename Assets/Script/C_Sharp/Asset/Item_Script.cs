@@ -6,6 +6,7 @@ using UnityEngine;
 public class Item_Script : MonoBehaviour
 {
     [SerializeField]public GameObject Destory_Effect;
+    [SerializeField] AudioClip audioClip;
     [SerializeField] Color color;
 
     public void Destroy_Item()
@@ -14,6 +15,7 @@ public class Item_Script : MonoBehaviour
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         rigidbody.isKinematic = true;
         Destory_Effect.transform.position = transform.position;
+        Destory_Effect.GetComponent<Bom_Effect_Animation>().SetSound_Bom(audioClip);
         GameObject Effect = Instantiate(Destory_Effect);
         Effect.GetComponent<SpriteRenderer>().color = color;
         Destroy(gameObject);
@@ -26,6 +28,7 @@ public class Item_Script : MonoBehaviour
             Rigidbody rigidbody = GetComponent<Rigidbody>();
             rigidbody.isKinematic = true;
             Destory_Effect.transform.position = transform.position;
+            Destory_Effect.GetComponent<Bom_Effect_Animation>().SetSound_Bom(audioClip);
             GameObject Effect = Instantiate(Destory_Effect);
             Effect.GetComponent<SpriteRenderer>().color = color;
             Destroy(gameObject);

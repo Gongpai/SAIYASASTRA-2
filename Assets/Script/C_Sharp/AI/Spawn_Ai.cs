@@ -6,15 +6,26 @@ public class Spawn_Ai : MonoBehaviour
 {
     [SerializeField] GameObject Spawn_Ai_Ghost;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] bool IsPlayAudio_SpawnGhost = false;
+
+    GameObject spwnGhost;
+
     public void On_Spawn_Ai()
     {
         Spawn_Ai_Ghost.transform.position = transform.position;
-        Instantiate(Spawn_Ai_Ghost);
+        spwnGhost = Instantiate(Spawn_Ai_Ghost);
         
     }
 
     public void OnPlaySound()
     {
-        audioSource.Play();
+        if (IsPlayAudio_SpawnGhost)
+        {
+            spwnGhost.GetComponent<AudioSource>().Play();
+        }
+        else
+        {
+            audioSource.Play();
+        }
     }
 }

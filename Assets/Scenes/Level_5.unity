@@ -3596,15 +3596,15 @@ PrefabInstance:
       value: End_Level
       objectReference: {fileID: 0}
     - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
-      propertyPath: Bypass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
       propertyPath: ShowText
       value: "\u0E08\u0E1A\u0E40\u0E01\u0E21"
       objectReference: {fileID: 0}
     - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
       propertyPath: IsOpenScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
+      propertyPath: Cant_OpenDoor
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
@@ -3733,7 +3733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &839890510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3993,7 +3993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &886347565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4849,7 +4849,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2080694837}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2080694837}
     - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
@@ -4857,15 +4865,31 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: On_Spawn_Ai
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnPlaySound
       objectReference: {fileID: 0}
     - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Spawn_Ai, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Spawn_Ai, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
       propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488229959060487162, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
+      propertyPath: OnSpawnAi.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5335846347716978951, guid: 9b964e0c1120e79499cb67c9ef3b588c, type: 3}
@@ -5915,6 +5939,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7524314845336640171, guid: e097991a771f3574cb13042f7246af8b, type: 3}
   m_PrefabInstance: {fileID: 183224710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1321434894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8499414627356716696, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
+  m_PrefabInstance: {fileID: 764013400}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1325763048
 PrefabInstance:
@@ -8529,7 +8558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2079571478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8715,6 +8744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawn_Ai_Ghost: {fileID: 4793724431201143229, guid: ed73ffd4e4b130849aa1b890a1750e05, type: 3}
   audioSource: {fileID: 0}
+  IsPlayAudio_SpawnGhost: 0
 --- !u!4 &2080694838
 Transform:
   m_ObjectHideFlags: 0
@@ -8794,7 +8824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2133148400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10193,6 +10223,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 643276460949994749, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043254418784121764, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253430273134830119, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: PuzzleIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3369502030883270737, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: puzzle_ui
+      value: 
+      objectReference: {fileID: 7868358493408569174, guid: 650e8fae0ad9aa6469738b188f420856, type: 3}
+    - target: {fileID: 3369502030883270737, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: DoorUnlock
+      value: 
+      objectReference: {fileID: 1321434894}
     - target: {fileID: 4690904807719540446, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
       propertyPath: SpawnLocation
       value: 
@@ -10209,6 +10259,10 @@ PrefabInstance:
       propertyPath: ObjectSpawnlocation
       value: 
       objectReference: {fileID: 1779167860}
+    - target: {fileID: 5899741655405072044, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: PuzzleIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6493642606639173084, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
       propertyPath: m_RootOrder
       value: 19

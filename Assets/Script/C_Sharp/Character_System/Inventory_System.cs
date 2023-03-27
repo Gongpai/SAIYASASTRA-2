@@ -67,6 +67,7 @@ public class Inventory_System : MonoBehaviour
     }
 
     // Update is called once per frame
+    [Obsolete]
     void Update()
     {
         Select_Item();
@@ -496,49 +497,74 @@ public class Inventory_System : MonoBehaviour
         }
     }
 
+    [Obsolete]
     public void Use_Item_Equip(bool is_remove = false)
     {
         if (GameInstance.ShowItemElementData.Count > 0)
         {
             Structs_Libraly.Item_Data itemData = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData;
 
-            if (itemData.useItemMode != Use_Item_System.Shoot_Projectile)
+            if (itemData.useItemMode != Use_Item_System.Shoot_Projectile && itemData.useItemMode != Use_Item_System.Shoot_horizontal)
                 GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim);
         }
     }
 
+    [Obsolete]
     public void Shoot_Item()
     {
         print(SelectNum);
-        if (GameInstance.ShowItemElementData.Count > 0 && Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData.useItemMode == Use_Item_System.Shoot_Projectile && IsAim)
+        Use_Item_System use_Item_Equip = default;
+
+        if (Equip_Element_list.Count > 0)
         {
-            Structs_Libraly.Item_Data itemData = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData;
-            Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObject.transform.position.z);
-            float force = Vector3.Distance(gameObject.transform.position, mousePos);
-            gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim, lookat);
+            use_Item_Equip = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData.useItemMode;
 
-            if (GameInstance.inventoryData[itemData.Index].Number > 0)
+            if (GameInstance.ShowItemElementData.Count > 0)
             {
-                //print("Count Data : " + Equip_Element_list.Count + " | Index Count" + GameInstance.inventoryData.Count + " | Last Index : " + GameInstance.inventoryData.LastIndexOf(GameInstance.inventoryData.Last()));
+                Structs_Libraly.Item_Data itemData = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData;
+                //Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObject.transform.position.z);
+                //float force = Vector3.Distance(gameObject.transform.position, mousePos);
 
-                GameInstance.inventoryData[itemData.Index] = Make_Structs.makeItemData
-                    (
-                        GameInstance.inventoryData[itemData.Index].Item_Index,
-                        GameInstance.inventoryData[itemData.Index].Name,
-                        GameInstance.inventoryData[itemData.Index].Number - 1,
-                        GameInstance.inventoryData[itemData.Index].itemSprite,
-                        GameInstance.inventoryData[itemData.Index].IsEquip,
-                        GameInstance.inventoryData[itemData.Index].Index,
-                        GameInstance.inventoryData[itemData.Index].ItemPrefeb,
-                        GameInstance.inventoryData[itemData.Index].useItemMode
-                    );
-
-                GameInstance.ShowItemElementData[SelectNum] = GameInstance.inventoryData[itemData.Index];
+                switch (use_Item_Equip)
+                {
+                    case Use_Item_System.Shoot_Projectile:
+                        if (IsAim)
+                        {
+                            gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim, lookat);
+                            Remove_Number_Item(itemData);
+                        }
+                        break;
+                    case Use_Item_System.Shoot_horizontal:
+                        gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim, lookat);
+                        Remove_Number_Item(itemData);
+                        break;
+                }
             }
-
-            RemoveItemFromInventory(itemData);
-
         }
+    }
+
+    private void Remove_Number_Item(Item_Data itemData)
+    {
+        if (GameInstance.inventoryData[itemData.Index].Number > 0)
+        {
+            //print("Count Data : " + Equip_Element_list.Count + " | Index Count" + GameInstance.inventoryData.Count + " | Last Index : " + GameInstance.inventoryData.LastIndexOf(GameInstance.inventoryData.Last()));
+
+            GameInstance.inventoryData[itemData.Index] = Make_Structs.makeItemData
+                (
+                    GameInstance.inventoryData[itemData.Index].Item_Index,
+                    GameInstance.inventoryData[itemData.Index].Name,
+                    GameInstance.inventoryData[itemData.Index].Number - 1,
+                    GameInstance.inventoryData[itemData.Index].itemSprite,
+                    GameInstance.inventoryData[itemData.Index].IsEquip,
+                    GameInstance.inventoryData[itemData.Index].Index,
+                    GameInstance.inventoryData[itemData.Index].ItemPrefeb,
+                    GameInstance.inventoryData[itemData.Index].useItemMode
+                );
+
+            GameInstance.ShowItemElementData[SelectNum] = GameInstance.inventoryData[itemData.Index];
+        }
+
+        RemoveItemFromInventory(itemData);
     }
 
     public void RemoveItemFromInventory(Structs_Libraly.Item_Data itemData)

@@ -11,6 +11,7 @@ public class Open_Room_New_Scene : MonoBehaviour
     [SerializeField] GameObject LoadingScreenWidget;
     [SerializeField] bool CanDestoryGameInstance = false;
     [SerializeField] bool Bypass = false;
+    [SerializeField] bool Can_Open_Door_When_Ghost_Dead = false;
 
     public bool Cant_OpenDoor = false;
     bool IsCharacterEnter = false;
@@ -35,6 +36,18 @@ public class Open_Room_New_Scene : MonoBehaviour
         catch
         {
             print("Error Not Component");
+        }
+
+        if (Can_Open_Door_When_Ghost_Dead && GameInstance.Ghost != null)
+        {
+            if(GameInstance.Ghost.GetComponent<Ai_Movement>().HP_Ghost <= 0)
+            {
+                Cant_OpenDoor = false;
+            }
+            else
+            {
+                Cant_OpenDoor = true;
+            }
         }
     }
 

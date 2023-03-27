@@ -856,6 +856,8 @@ MonoBehaviour:
   - {fileID: 1954277706071760206}
   - {fileID: 6310744649727049530}
   Inventory_iten_index: 4
+  Number_Puzzle: 5
+  DoorUnlock: {fileID: 0}
   ShowPuzzle: {fileID: 0}
 --- !u!223 &4688100324937360848
 Canvas:

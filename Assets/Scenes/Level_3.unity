@@ -1304,7 +1304,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288835936}
-  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
   m_LocalPosition: {x: 0, y: 4, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2639,6 +2639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawn_Ai_Ghost: {fileID: 4793724431201143229, guid: dfb46454c647ea747a738cac96581e6d, type: 3}
   audioSource: {fileID: 0}
+  IsPlayAudio_SpawnGhost: 0
 --- !u!4 &573829290
 Transform:
   m_ObjectHideFlags: 0
@@ -3698,7 +3699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &839890510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3958,7 +3959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &886347565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5574,6 +5575,10 @@ PrefabInstance:
       propertyPath: LoadingScreenWidget
       value: 
       objectReference: {fileID: 2128991596}
+    - target: {fileID: 3837836643586796804, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
+      propertyPath: Can_Open_Door_When_Ghost_Dead
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b41b27eae2f80a498312dbb1dabd259, type: 3}
 --- !u!1 &1247794481 stripped
@@ -7702,7 +7707,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804303229}
-  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
   m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8572,7 +8577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2079571478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8791,7 +8796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2133148400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10190,10 +10195,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 643276460949994749, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043254418784121764, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3369502030883270737, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
       propertyPath: DoorUnlock
       value: 
       objectReference: {fileID: 1247794481}
+    - target: {fileID: 3627515260902638988, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4690904807719540446, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
       propertyPath: SpawnLocation
       value: 
@@ -10210,6 +10227,14 @@ PrefabInstance:
       propertyPath: ObjectSpawnlocation
       value: 
       objectReference: {fileID: 1779167860}
+    - target: {fileID: 5661327881538873607, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412846682673180498, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6493642606639173084, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -10257,6 +10282,14 @@ PrefabInstance:
     - target: {fileID: 6848359479393589186, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
       propertyPath: m_Name
       value: Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 7554590927286948385, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826055259405420915, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
