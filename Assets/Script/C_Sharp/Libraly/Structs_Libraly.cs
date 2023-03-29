@@ -34,11 +34,13 @@ public class Structs_Libraly : MonoBehaviour
     {
         public XML_Data Title;
         public XML_Data Text;
+        public Sprite sprite_note;
 
-        public Note_Data(XML_Data title, XML_Data text)
+        public Note_Data(XML_Data title, XML_Data text, Sprite images)
         {
             this.Title = title;
             this.Text = text;
+            this.sprite_note = images;
         }
     }
 

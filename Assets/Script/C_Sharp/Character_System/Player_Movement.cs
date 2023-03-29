@@ -110,6 +110,11 @@ public class Player_Movement : FuntionLibraly
         UpdateHPWidget();
     }
 
+    void FixedUpdate()
+    {
+        Set_Platform();
+    }
+
     void Awake()
     {
         Pos = transform.position;
@@ -125,6 +130,7 @@ public class Player_Movement : FuntionLibraly
         PauseMenuAction = playerInput.actions["PauseMenu"];
         Turn_On_LightAction = playerInput.actions["Turn_On_Light"];
         Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
+        Set_Platform();
     }
 
     void OnDestroy()
@@ -146,7 +152,6 @@ public class Player_Movement : FuntionLibraly
         PauseMenuAction.Enable();
         Turn_On_LightAction.Enable();
         OnGamePause(false);
-        Set_Platform();
     }
 
     void OnDisable()

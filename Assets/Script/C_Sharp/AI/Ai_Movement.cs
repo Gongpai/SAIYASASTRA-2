@@ -193,9 +193,12 @@ public class Ai_Movement : FuntionLibraly
                     HP_Ghost = 0;
                     if (!PlaylightDeathOnce)
                     {
+                        Flashing_Lights.event_Light_On_Off(Flashing_Lights.Light_Mode.Turn_On);
                         Flashing_Lights.playAnimLight?.Invoke(false, true);
                         PlaylightDeathOnce = true;
                     }
+
+                    GetComponent<Animator>().SetBool("IsDead", true);
                 }
                     
             }

@@ -12,6 +12,7 @@ public class Note_System : MonoBehaviour
     [SerializeField] private GameObject ShowAllPage;
     [SerializeField] private TextMeshProUGUI Title;
     [SerializeField] private TextMeshProUGUI Text;
+    [SerializeField] private Image Note_Image;
     [SerializeField] private GameObject Exit;
 
     private GameObject gameInstance;
@@ -87,11 +88,27 @@ public class Note_System : MonoBehaviour
     public void Set_Note_Show_All(int page = 0)
     {
         ShowAllPage.SetActive(true);
-        ShowAllPage.transform.GetChild(4).GetComponent<Button_Event>().DontPlayIn();
+        ShowAllPage.transform.GetChild(5).GetComponent<Button_Event>().DontPlayIn();
         Note_List.SetActive(false);
         Exit.SetActive(false);
-        Title.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_title, "Dialog/NoteText", GameInstance.noteData[page].Title);
-        Text.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_text, "Dialog/NoteText", GameInstance.noteData[page].Text);
+
+        if (GameInstance.noteData[page].sprite_note == null)
+        {
+            ShowAllPage.transform.GetChild(2).gameObject.SetActive(true);
+            ShowAllPage.transform.GetChild(3).gameObject.SetActive(true);
+            Note_Image.color = new Color(255, 255, 255, 0);
+            Title.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_title, "Dialog/NoteText", GameInstance.noteData[page].Title);
+            Text.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_text, "Dialog/NoteText", GameInstance.noteData[page].Text);
+        }
+        else
+        {
+            ShowAllPage.transform.GetChild(2).gameObject.SetActive(false);
+            ShowAllPage.transform.GetChild(3).gameObject.SetActive(false);
+            Title.text = "";
+            Text.text = "";
+            Note_Image.color = new Color(255, 255, 255, 255);
+            Note_Image.sprite = GameInstance.noteData[page].sprite_note;
+        }
         note_Page = page;
     }
 
@@ -107,8 +124,10 @@ public class Note_System : MonoBehaviour
             note_Page = GameInstance.noteData.Count - 1;
         }
 
-        Title.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_title, "Dialog/NoteText", GameInstance.noteData[note_Page].Title);
-        Text.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_text, "Dialog/NoteText", GameInstance.noteData[note_Page].Text);
+        Set_Note_Show_All(note_Page);
+        //Title.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_title, "Dialog/NoteText", GameInstance.noteData[note_Page].Title);
+        //Text.text = Dialog_Manager.Dialog_Text(default, default, SelectDialog.note_text, "Dialog/NoteText", GameInstance.noteData[note_Page].Text);
+
     }
 
     public void Add_Note_Element(Structs_Libraly.Note_Data noteData)

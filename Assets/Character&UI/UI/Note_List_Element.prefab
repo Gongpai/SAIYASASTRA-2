@@ -625,6 +625,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 3590902461459095192}
   text_note: {fileID: 5306292987993969221}
+  Bg_image: {fileID: 8074957922743998531}
+  Fg_image: {fileID: 2541622142428442901}
   noteData:
     Title:
       Element_First: 
@@ -638,6 +640,7 @@ MonoBehaviour:
       Element_Third: 
       Sup_Element_First: 
       Sup_Element_Second: 
+    sprite_note: {fileID: 0}
   index: 1
 --- !u!95 &2361794046123494800
 Animator:
@@ -659,6 +662,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!156049354 &3733469262010895296
 Grid:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1488884380}
-  m_IndirectSpecularColor: {r: 0.5590147, g: 0.8095578, b: 0.99108803, a: 1}
+  m_IndirectSpecularColor: {r: 0.55916, g: 0.80883837, b: 0.98748887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1448,6 +1448,7 @@ MonoBehaviour:
       Element_Third: Note_text1
       Sup_Element_First: 
       Sup_Element_Second: text
+    sprite_note: {fileID: 0}
   - Title:
       Element_First: Note
       Element_Second: Scene1
@@ -1460,6 +1461,7 @@ MonoBehaviour:
       Element_Third: Note_text2
       Sup_Element_First: 
       Sup_Element_Second: text
+    sprite_note: {fileID: 0}
   - Title:
       Element_First: Note
       Element_Second: Scene1
@@ -1472,6 +1474,7 @@ MonoBehaviour:
       Element_Third: Note_text3
       Sup_Element_First: 
       Sup_Element_Second: text
+    sprite_note: {fileID: 0}
   - Title:
       Element_First: Note
       Element_Second: Scene1
@@ -1484,6 +1487,7 @@ MonoBehaviour:
       Element_Third: Note_text4
       Sup_Element_First: 
       Sup_Element_Second: text
+    sprite_note: {fileID: 0}
   - Title:
       Element_First: Note
       Element_Second: Scene1
@@ -1496,6 +1500,20 @@ MonoBehaviour:
       Element_Third: Note_text5
       Sup_Element_First: 
       Sup_Element_Second: text
+    sprite_note: {fileID: 0}
+  - Title:
+      Element_First: Note
+      Element_Second: Scene1
+      Element_Third: Note_text5
+      Sup_Element_First: title
+      Sup_Element_Second: 
+    Text:
+      Element_First: Note
+      Element_Second: Scene1
+      Element_Third: Note_text5
+      Sup_Element_First: 
+      Sup_Element_Second: text
+    sprite_note: {fileID: 21300000, guid: b763e69ad68c9944ea69c1953142abd2, type: 3}
 --- !u!1001 &385688611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10259,6 +10277,10 @@ PrefabInstance:
       propertyPath: ObjectSpawnlocation
       value: 
       objectReference: {fileID: 1779167860}
+    - target: {fileID: 4986655722467340309, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
+      propertyPath: NoteIndex
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5899741655405072044, guid: 8cb54640b87a85542a9ee933e9586bda, type: 3}
       propertyPath: PuzzleIndex
       value: 3

@@ -22,6 +22,11 @@ android {
         }
         versionCode **VERSIONCODE**
         versionName '**VERSIONNAME**'
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+      }
     }
 
     aaptOptions {
