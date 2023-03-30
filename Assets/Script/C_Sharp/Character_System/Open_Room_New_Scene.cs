@@ -35,7 +35,7 @@ public class Open_Room_New_Scene : MonoBehaviour
         }
         catch
         {
-            print("Error Not Component");
+            //print("Error Not Component");
         }
 
         if (Can_Open_Door_When_Ghost_Dead && GameInstance.Ghost != null)

@@ -129,6 +129,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6195558242577577098, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: ObjectAttack
+      value: 
+      objectReference: {fileID: 1793019610661123709, guid: 8b5b120d39ad0ad47b2e65bac7012ca4, type: 3}
+    - target: {fileID: 6195558242577577098, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: Ghost_Effects
       value: 
       objectReference: {fileID: 0}

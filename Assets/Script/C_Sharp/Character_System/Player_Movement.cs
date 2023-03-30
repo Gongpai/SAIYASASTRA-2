@@ -50,6 +50,8 @@ public class Player_Movement : FuntionLibraly
 
     [SerializeField] private Image HP_ProgressBar;
 
+    [SerializeField] private AudioSource SoundBG;
+
     [Header("NotSet")]
     float moveSpeed = 0;
     public PlayerInput playerInput;
@@ -79,6 +81,8 @@ public class Player_Movement : FuntionLibraly
     // Start is called before the first frame update
     void Start()
     {
+        SoundBG.Play();
+
         if (inputManager == null)
         {
             inputManager = InputManager.instance;
@@ -140,6 +144,11 @@ public class Player_Movement : FuntionLibraly
 
     void OnEnable()
     {
+        if (PauseGame_Ui.active || Death_Ui.active)
+        {
+            SoundBG.Play();
+            StopSoundGhost(false);
+        }
         Set_Platform();
         JumpAction.Enable();
         RunAction.Enable();
@@ -246,6 +255,8 @@ public class Player_Movement : FuntionLibraly
                 i++;
             }
             GameInstance.Ghost.GetComponent<Ai_Movement>().PlaySound(false);
+            SoundBG.Pause();
+            StopSoundGhost(true);
             Death_Ui.SetActive(true);
             Death_Ui.GetComponent<Animator>().SetBool("Is_Death", true);
         }
@@ -536,6 +547,8 @@ public class Player_Movement : FuntionLibraly
             if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
                 GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
 
+            StopSoundGhost(true);
+            SoundBG.Pause();
             PauseGame_Ui.SetActive(true);
             Game_State_Manager.Instance.Setstate(GameState.Pause);
         }
@@ -547,6 +560,54 @@ public class Player_Movement : FuntionLibraly
             Gizmos.DrawCube(transform.position - transform.up * MaxDistance, BoxSize);
         }
         **/
+
+    private void StopSoundGhost(bool IsPause)
+    {
+        AudioSource audioSourceGhost = GetAllSoundGhost();
+
+        if (audioSourceGhost != null)
+        {
+            if (IsPause)
+            {
+                audioSourceGhost.volume = 0;
+            }
+            else
+            {
+                audioSourceGhost.volume = 1;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Not Found Sound Ghost");
+        }
+    }
+
+    private AudioSource GetAllSoundGhost()
+    {
+        GameObject[] ghostSound = GameObject.FindGameObjectsWithTag("Ghost");
+        AudioSource audioSource = null;
+
+        foreach (GameObject ghost in ghostSound)
+        {
+            
+            if (ghost.GetComponent<AudioSource>().isPlaying)
+            {
+                if (ghost.GetComponent<Ai_Movement>().IsSeeCharacter || ghost.GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost") == AiGhost.Home_ghost)
+                {
+                    audioSource = ghost.GetComponent<AudioSource>();
+                }
+                else
+                {
+                    Debug.LogWarning("Ghost Not See");
+                }
+
+                Debug.LogWarning("Found Sound Ghost Is Playing");
+                break;
+            }
+        }
+
+        return audioSource;
+    }
 
     private bool GroundCheck()
     {
@@ -566,11 +627,14 @@ public class Player_Movement : FuntionLibraly
         //เปิดหน้า PauseMenu
         if(PauseMenuAction.WasPerformedThisFrame())
         {
-            if(!PauseGame_Ui.active && !Death_Ui.active)
+            
+            if (!PauseGame_Ui.active && !Death_Ui.active)
             {
                 if (GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect != null)
                     GameInstance.Player.GetComponent<Player_Movement>().Ghost_Effect.SetActive(false);
 
+                StopSoundGhost(true);
+                SoundBG.Pause();
                 PauseGame_Ui.SetActive(true);
                 Game_State_Manager.Instance.Setstate(GameState.Pause);
             }

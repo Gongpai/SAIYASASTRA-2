@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -263,6 +275,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ButtonBG_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 57
+        width: 189
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab206617e821f5e4aa96541e400895b1
+      internalID: 802576682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonBG_8
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 57
+        width: 189
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869d0f2a740b6b94cb01f719008ba50b
+      internalID: 931648627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonBG_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 189
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd90eea33b55a1e4f8aa969835e3274e
+      internalID: 2117859706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonBG_10
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 42
+        width: 189
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12159fff818c8b49bb021de6988df5f
+      internalID: -1827403901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline:
     - - {x: -189, y: -42}
       - {x: 189, y: -42}
@@ -316,13 +412,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ButtonBG_2: -886973838
-      ButtonBG_6: 1054013898
-      ButtonBG_5: -385272447
       ButtonBG_0: -1103706733
+      ButtonBG_1: 762333281
+      ButtonBG_10: -1827403901
+      ButtonBG_2: -886973838
       ButtonBG_3: 891526173
       ButtonBG_4: 977811762
-      ButtonBG_1: 762333281
+      ButtonBG_5: -385272447
+      ButtonBG_6: 1054013898
+      ButtonBG_7: 802576682
+      ButtonBG_8: 931648627
+      ButtonBG_9: 2117859706
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

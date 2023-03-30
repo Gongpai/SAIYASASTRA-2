@@ -123,6 +123,21 @@ public class Ai_Attack : MonoBehaviour
             Rigidbody rigidbody;
 
             spawn = Instantiate(ObjectAttack);
+
+            if (i == 0)
+            {
+                spawn.GetComponent<AudioSource>().Play();
+            }
+
+            if(i == 1)
+            {
+                spawn.GetComponent<Item_Script>().IsCanPlaySound = true;
+            }
+            else
+            {
+                spawn.GetComponent<Item_Script>().IsCanPlaySound = false;
+            }
+
             spawn.transform.position = new Vector3(randomPos.x, XPoint[0].position.y, randomPos.y);
             rigidbody = spawn.GetComponent<Rigidbody>();
             rigidbody.useGravity = true;
