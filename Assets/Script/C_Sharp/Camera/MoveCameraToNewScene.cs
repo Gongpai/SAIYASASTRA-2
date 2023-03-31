@@ -18,6 +18,8 @@ public class MoveCameraToNewScene : MonoBehaviour
     [SerializeField] private bool is_Walk_in = false;
     [SerializeField] private float SetColliderPosition = 0.0f;
     [SerializeField] private GameObject MovePoint;
+    [SerializeField] private GameObject CameraPointL;
+    [SerializeField] private GameObject CameraPointR;
     private Vector3 ScreenCenter;
     private Vector3 ScreenLeft;
     private bool IsWalkLeft;
@@ -44,9 +46,7 @@ public class MoveCameraToNewScene : MonoBehaviour
 
         if (!is_Walk_in)
         {
-            transform.parent.transform.GetChild(0).position = new Vector3(
-                transform.parent.transform.GetChild(0).position.x + SetColliderPosition,
-                transform.parent.transform.GetChild(0).position.y, transform.parent.transform.GetChild(0).position.z);
+            CameraPointR.transform.position = new Vector3(CameraPointR.transform.position.x + SetColliderPosition,CameraPointR.transform.position.y, CameraPointR.transform.position.z);
         }
     }
 
@@ -75,7 +75,7 @@ public class MoveCameraToNewScene : MonoBehaviour
         if (MoveBeginPlay)
         {
             IsMoveto_Door = true;
-            SetMoveStartEnd(GameInstance.Player.transform.position, transform.parent.GetChild(0).position, transform.parent.GetChild(0));
+            SetMoveStartEnd(GameInstance.Player.transform.position, CameraPointR.transform.position, CameraPointR.transform);
             MoveBeginPlay = false;
         }
     }
@@ -165,11 +165,11 @@ public class MoveCameraToNewScene : MonoBehaviour
         if ((GameInstance.Player.transform.position.x - (transform.parent.position.x - GameInstance.LeftDistanceCam)) >= -2 && !IsSet_CamCanMove)
         {
             IsSet_CamCanMove = true;
-            Transform cameraPointL = transform.parent.transform.GetChild(1).transform;
+            Transform cameraPointL = CameraPointL.transform;
             ScreenLeft = new Vector3(transform.parent.position.x - GameInstance.LeftDistanceCam, transform.parent.position.y, transform.parent.position.z);
             cameraPointL.position = new Vector3(ScreenLeft.x - 0.05f, transform.position.y, ScreenLeft.z);
 
-            Transform cameraPointR = transform.parent.transform.GetChild(0).transform;
+            Transform cameraPointR = CameraPointR.transform;
             ScreenCenter = new Vector3(transform.parent.position.x + GameInstance.rightDistanceCam, transform.parent.position.y, transform.parent.position.z);
             print("-------------1315-----------------");
             cameraPointR.position = new Vector3(ScreenCenter.x + 0.05f, transform.position.y, ScreenCenter.z);
@@ -187,13 +187,13 @@ public class MoveCameraToNewScene : MonoBehaviour
         if (IsWalkin)
         {
             
-            if (Distance(transform.parent.transform.GetChild(1).position) < 0)
+            if (Distance(CameraPointL.transform.position) < 0)
             {
                 if (Is_In)
                 {
                     print("Innnnnn----------------------------");
+                    SetMoveStartEnd(GameInstance.Player.transform.position, CameraPointL.transform.position, CameraPointL.transform);
                     IsMoveto_Door = true;
-                    SetMoveStartEnd(GameInstance.Player.transform.position, transform.parent.GetChild(1).position, transform.parent.GetChild(1));
                 }
                 else
                 {
@@ -210,20 +210,19 @@ public class MoveCameraToNewScene : MonoBehaviour
         {
             if (IsWalkOut)
             {
-                SetMoveStartEnd(transform.parent.GetChild(1).position, transform.parent.GetChild(0).position,
-                    transform.parent.GetChild(0));
+                SetMoveStartEnd(CameraPointL.transform.position, CameraPointR.transform.position, CameraPointR.transform);
 
             }
             else
             {
                 GameObject Vcam = GameObject.FindGameObjectWithTag("Vcam");
                 CinemachineTargetGroup.Target target = default;
-                target.target = transform.parent.GetChild(0);
+                target.target = CameraPointR.transform;
                 target.weight = 1;
                 Vcam.GetComponent<CinemachineTargetGroup>().m_Targets[0] = target;
                 print("121212131313-------------");
+                SetMoveStartEnd(GameInstance.Player.transform.position, CameraPointR.transform.position, CameraPointR.transform);
                 IsMoveto_Door = true;
-                SetMoveStartEnd(GameInstance.Player.transform.position, transform.parent.GetChild(0).position, transform.parent.GetChild(0));
             }
             
         }
@@ -231,15 +230,15 @@ public class MoveCameraToNewScene : MonoBehaviour
         {
             if (IsWalkOut)
             {
-                if (Distance(transform.parent.transform.GetChild(0).position) < 0)
+                if (Distance(CameraPointR.transform.position) < 0)
                 {
                     print("BackTOPPPPPPPPPPPPPP----------------");
-                    SetMoveStartEnd(transform.parent.GetChild(0).position, transform.parent.GetChild(1).position, transform.parent.GetChild(1));
+                    SetMoveStartEnd(CameraPointR.transform.position, CameraPointL.transform.position, CameraPointL.transform);
                 }
             }
             else
             {
-                if (Distance(transform.parent.transform.GetChild(0).position) >= 0)
+                if (Distance(CameraPointR.transform.position) >= 0)
                 {
                     print("NextTOPPPPPPPPPPPPPP----------------");
                     SetMoveStartEnd(new Vector3(), GameInstance.Player.transform.position, GameInstance.Player.transform, true, true);

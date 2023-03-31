@@ -11,6 +11,9 @@ public class Button_Animation_Control : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private GameObject Page;
     [SerializeField] private Essential_Menu PageSelect;
+    [SerializeField] List<Sprite> Button_Image = new List<Sprite>();
+    [SerializeField] Image ButBg1;
+    [SerializeField] Image ButBg2;
 
     private bool IsButActive;
     private Animator _animator;
@@ -32,11 +35,15 @@ public class Button_Animation_Control : MonoBehaviour
 
     public void On_Select()
     {
+        ButBg1.sprite = Button_Image[0];
+        ButBg2.sprite = Button_Image[1];
         IsButActive = true;
     }
 
     public void De_Select()
     {
+        ButBg1.sprite = Button_Image[2];
+        ButBg2.sprite = Button_Image[3];
         IsButActive = false;
         _animator.SetBool("Is_Play?", false);
     }
@@ -48,8 +55,8 @@ public class Button_Animation_Control : MonoBehaviour
 
     public void PlayAnimation_Out()
     {
-        if(!IsButActive)
-            _animator.SetBool("Is_Play?", false);
+        if (!IsButActive)
+            _animator.SetBool("Is_Play?", false);    
     }
 
     public void ButtonClick()

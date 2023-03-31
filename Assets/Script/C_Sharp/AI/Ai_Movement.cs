@@ -161,7 +161,6 @@ public class Ai_Movement : FuntionLibraly
 
     public void PlaySound(bool IsPLay)
     {
-        print("On Play Sound");
         if (IsPLay)
         {
             if (!IsplayAudio)

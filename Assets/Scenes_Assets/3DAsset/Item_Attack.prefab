@@ -32,8 +32,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793019610661123709}
-  m_LocalRotation: {x: -0, y: 0, z: -0.600137, w: 0.79989725}
-  m_LocalPosition: {x: 130.36273, y: 3.1541317, z: -0.37656096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 94.40261, y: 3.0593529, z: -0.41374463}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,6 +87,7 @@ MonoBehaviour:
   Destory_Effect: {fileID: 3525302970205634056, guid: aca27c28c48d695469f6bbc861e257fd, type: 3}
   audioClip: {fileID: 8300000, guid: 5c6021328ea46c446b187918b0dc63b4, type: 3}
   color: {r: 0.13725491, g: 0.32941177, b: 0.76470596, a: 1}
+  IsCanPlaySound: 1
 --- !u!212 &1467799967715643439
 SpriteRenderer:
   m_ObjectHideFlags: 0

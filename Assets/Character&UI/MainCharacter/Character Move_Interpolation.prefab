@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookATransform: {fileID: 1832307902380989630}
   offSet: {x: 0, y: 0, z: 0}
+  m_Set_Offset: 0
 --- !u!225 &4052909584336869741
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -256,6 +257,7 @@ GameObject:
   - component: {fileID: 1832307902380989624}
   - component: {fileID: 1832307902380989622}
   - component: {fileID: 3334897711343287185}
+  - component: {fileID: 1122772448957978619}
   m_Layer: 7
   m_Name: Character Move_Interpolation
   m_TagString: Player
@@ -302,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EndPoint: {x: 0, y: 0, z: 0}
   Speed: 1
+  animator: {fileID: 1832307902380989600}
 --- !u!212 &1832307902380989631
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -374,6 +377,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!136 &1832307902380989623
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -430,6 +434,102 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.15, z: 0}
+--- !u!82 &1122772448957978619
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832307902380989601}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f9ee2643104439d41974bf13b5fcf4ae, type: 2}
+  m_audioClip: {fileID: 8300000, guid: ce72c52b13010d840b31264f81dac66a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1832307902980895178
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookATransform: {fileID: 1832307902380989630}
   offSet: {x: 0, y: 0, z: 0}
+  m_Set_Offset: 0
 --- !u!225 &4852476092760380209
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -981,6 +1082,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3707297573602000002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,6 +1461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookATransform: {fileID: 1832307902380989630}
   offSet: {x: 0, y: 0, z: 0}
+  m_Set_Offset: 0
 --- !u!1 &7225520338875852110
 GameObject:
   m_ObjectHideFlags: 0

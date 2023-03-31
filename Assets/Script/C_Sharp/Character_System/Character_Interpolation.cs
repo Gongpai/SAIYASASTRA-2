@@ -6,20 +6,22 @@ public class Character_Interpolation : MonoBehaviour
 {
     [SerializeField] Vector3 EndPoint;
     [SerializeField] float Speed = 1;
+    [SerializeField] Animator animator;
 
     Vector3 StartPoint;
     float time = 0;
     // Start is called before the first frame update
     void Start()
     {
-        GameInstance.Player = gameObject;
         StartPoint = transform.position;
+        animator.SetFloat("Speed", 2.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(time < 1)
+        GameInstance.Player = gameObject;
+        if (time < 1)
         {
             time += Time.deltaTime * Speed;
             transform.position = Vector3.Lerp(StartPoint, EndPoint, time);

@@ -9,6 +9,8 @@ public class Item_Script : MonoBehaviour
     [SerializeField] AudioClip audioClip;
     [SerializeField] Color color;
 
+    [DoNotSerialize] public bool IsCanPlaySound = true;
+
     public void Destroy_Item()
     {
         //Playanim
@@ -31,6 +33,12 @@ public class Item_Script : MonoBehaviour
             Destory_Effect.GetComponent<Bom_Effect_Animation>().SetSound_Bom(audioClip);
             GameObject Effect = Instantiate(Destory_Effect);
             Effect.GetComponent<SpriteRenderer>().color = color;
+
+            if(!IsCanPlaySound)
+            {
+                Effect.GetComponent<AudioSource>().enabled = false;
+            }
+
             Destroy(gameObject);
         }
     }

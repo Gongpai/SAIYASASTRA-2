@@ -1524,14 +1524,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8887158938963049821, guid: ca5331f1cf035d645b68691fe06c20a1, type: 3}
-      propertyPath: ItemIndex
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887158938963049821, guid: ca5331f1cf035d645b68691fe06c20a1, type: 3}
-      propertyPath: PickUpMessage
-      value: "[E] \u0E40\u0E01\u0E47\u0E1A\u0E22\u0E31\u0E19\u0E15\u0E4C"
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca5331f1cf035d645b68691fe06c20a1, type: 3}
 --- !u!4 &3739175614176379981 stripped
@@ -3651,14 +3643,6 @@ PrefabInstance:
     - target: {fileID: 7067327736056875041, guid: ca5331f1cf035d645b68691fe06c20a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887158938963049821, guid: ca5331f1cf035d645b68691fe06c20a1, type: 3}
-      propertyPath: ItemIndex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887158938963049821, guid: ca5331f1cf035d645b68691fe06c20a1, type: 3}
-      propertyPath: PickUpMessage
-      value: "[E] \u0E40\u0E01\u0E47\u0E1A\u0E2B\u0E21\u0E49\u0E2D\u0E40\u0E01\u0E47\u0E1A\u0E27\u0E34\u0E0D\u0E0D\u0E32\u0E13"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca5331f1cf035d645b68691fe06c20a1, type: 3}
