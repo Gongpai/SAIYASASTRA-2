@@ -128,7 +128,7 @@ public class Cupboard_Hide : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         { 
             collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message(InteractMessage);
             pLayer = collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>();
@@ -138,7 +138,7 @@ public class Cupboard_Hide : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
             CharacterEnter = true;
             //print("DDDDDDD");
@@ -151,7 +151,7 @@ public class Cupboard_Hide : MonoBehaviour
 
     void OnTriggerExit(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
             animator.SetBool("IsDoorOpen?", false);
             animator.SetBool("IsDoorClose?", true);

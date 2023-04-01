@@ -33,7 +33,7 @@ public class PickUp_Note_System : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
             CharacterEnter = true;
             collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message(PickUpMessage);
@@ -45,7 +45,7 @@ public class PickUp_Note_System : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
             CharacterEnter = false;
             collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Hide_Message();

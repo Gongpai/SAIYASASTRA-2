@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2115949464563945826}
   - component: {fileID: 4800599625562764657}
   - component: {fileID: 5316180190749023724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1287384021985181617}
   - component: {fileID: 2779047722942942902}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Colli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 8126921574062894064}
   - component: {fileID: 7310575698345829639}
   - component: {fileID: 7384829315085217206}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 5403959949629808688}
   - component: {fileID: 319555241926286536}
   - component: {fileID: 1596315155876588601}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 2877211387768584698}
   - component: {fileID: 6851786227810096982}
   - component: {fileID: 6572320701656353512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPointR
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 8603828327682609482}
   - component: {fileID: 8451183549490045930}
   - component: {fileID: 3953740160443657066}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 4302194984699411012}
   - component: {fileID: 2842934007802491336}
   - component: {fileID: 9106782791037547680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 7400630526347000214}
   - component: {fileID: 4418956340529734017}
   - component: {fileID: 9057113621044269809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door_Lawson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 6998916090300076605}
   - component: {fileID: 5300246035877642462}
   - component: {fileID: 7370490315053813994}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9059785919353754520}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -819,7 +819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2297946250959165451}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 192524882794358186}
   - component: {fileID: 2555138722987257515}
   - component: {fileID: 2491744154476136726}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 7612610842209631831}
   - component: {fileID: 2854020839130816332}
   - component: {fileID: 4321821724878795611}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,7 +1052,7 @@ GameObject:
   - component: {fileID: 2783193480381158773}
   - component: {fileID: 5722680823011084071}
   - component: {fileID: 3125393572675763718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1149,7 @@ GameObject:
   - component: {fileID: 817455124158206752}
   - component: {fileID: 6380904583069192418}
   - component: {fileID: 7019575214932466089}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 5341944498061992010}
   - component: {fileID: 1754613896954422171}
   - component: {fileID: 2640360418892808481}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1344,7 +1344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442106848055240451}
   - component: {fileID: 6533391045412074582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Colli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1388,7 +1388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6401511065764097566}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MovePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1421,7 +1421,7 @@ GameObject:
   - component: {fileID: 4594271039692573546}
   - component: {fileID: 6115286194876278209}
   - component: {fileID: 5734995189887856638}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door_Walk_In
   m_TagString: Door_Lawson
   m_Icon: {fileID: 0}
@@ -1490,7 +1490,7 @@ GameObject:
   - component: {fileID: 788427918103233016}
   - component: {fileID: 2024758901159025151}
   - component: {fileID: 3598166678834528963}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 4890029222120550529}
   - component: {fileID: 3832624444699820343}
   - component: {fileID: 8271825958109927746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1684,7 +1684,7 @@ GameObject:
   - component: {fileID: 188086460224157263}
   - component: {fileID: 2695533740608951686}
   - component: {fileID: 3445422937709559487}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door_Walk_Out
   m_TagString: Door_Lawson
   m_Icon: {fileID: 0}
@@ -1752,7 +1752,7 @@ GameObject:
   - component: {fileID: 4544050005726419567}
   - component: {fileID: 8369703759833969217}
   - component: {fileID: 6503629624258829738}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPointL
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: be340a165cb9c8d4cb50f1deeb51d4ea, type: 3}

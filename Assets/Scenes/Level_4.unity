@@ -1656,7 +1656,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288835936}
-  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
   m_LocalPosition: {x: 0, y: 4, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5223,7 +5223,6 @@ Transform:
   - {fileID: 594561601}
   - {fileID: 1050635304}
   - {fileID: 990448090}
-  - {fileID: 1381566430}
   - {fileID: 245318157}
   - {fileID: 1225643779}
   m_Father: {fileID: 1035360169}
@@ -6219,10 +6218,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 854688394}
     m_Modifications:
-    - target: {fileID: 1243590886309928481, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: InteractMessage
-      value: "[E] \u0E40\u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E396"
-      objectReference: {fileID: 0}
     - target: {fileID: 4225454840437848789, guid: c90b2ea003b36004683a011182f2168c, type: 3}
       propertyPath: m_Name
       value: cupboard (5)
@@ -6278,67 +6273,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7067327736056875041, guid: 99cabfed8c7a74e4db5a05f39b91cec4, type: 3}
   m_PrefabInstance: {fileID: 1572070967}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1094983771
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 854688394}
-    m_Modifications:
-    - target: {fileID: 1243590886309928481, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: InteractMessage
-      value: "[E] \u0E40\u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E395"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225454840437848789, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_Name
-      value: cupboard (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 65.336
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.463
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c90b2ea003b36004683a011182f2168c, type: 3}
 --- !u!1001 &1107982641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7108,10 +7042,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 854688394}
     m_Modifications:
-    - target: {fileID: 1243590886309928481, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: InteractMessage
-      value: "[E] \u0E40\u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E393"
-      objectReference: {fileID: 0}
     - target: {fileID: 4225454840437848789, guid: c90b2ea003b36004683a011182f2168c, type: 3}
       propertyPath: m_Name
       value: cupboard (2)
@@ -8010,11 +7940,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1381566430 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4365283324734778086, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-  m_PrefabInstance: {fileID: 1094983771}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1383263880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8022,10 +7947,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 854688394}
     m_Modifications:
-    - target: {fileID: 1243590886309928481, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: InteractMessage
-      value: "[E] \u0E40\u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E394"
-      objectReference: {fileID: 0}
     - target: {fileID: 4225454840437848789, guid: c90b2ea003b36004683a011182f2168c, type: 3}
       propertyPath: m_Name
       value: cupboard (3)
@@ -8832,10 +8753,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 854688394}
     m_Modifications:
-    - target: {fileID: 1243590886309928481, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: InteractMessage
-      value: "[E] \u0E40\u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E392"
-      objectReference: {fileID: 0}
     - target: {fileID: 4225454840437848789, guid: c90b2ea003b36004683a011182f2168c, type: 3}
       propertyPath: m_Name
       value: cupboard (1)
@@ -9131,10 +9048,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 854688394}
     m_Modifications:
-    - target: {fileID: 1243590886309928481, guid: c90b2ea003b36004683a011182f2168c, type: 3}
-      propertyPath: InteractMessage
-      value: "[E] \u0E40\u0E1B\u0E34\u0E14\u0E01\u0E23\u0E30\u0E15\u0E391"
-      objectReference: {fileID: 0}
     - target: {fileID: 4225454840437848789, guid: c90b2ea003b36004683a011182f2168c, type: 3}
       propertyPath: m_Name
       value: cupboard
@@ -10025,7 +9938,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804303229}
-  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
   m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 800031510166329335}
   - component: {fileID: 2634104914520306033}
   - component: {fileID: 7680799454229915170}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 7977377562963709006}
   - component: {fileID: 7852144965935604890}
   - component: {fileID: 4553980359944239958}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 5312052191756300224}
   - component: {fileID: 428371994767669097}
   - component: {fileID: 7675651951446052008}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpMessage: "[E] \u0E41\u0E01\u0E49 Puzzle"
   puzzle_ui: {fileID: 7868358493408569174, guid: 20d6aaebee3ec0446bb7bfbc95b09322, type: 3}
+  DoorUnlock: {fileID: 0}
   Can_Open_Puzzle: 1
 --- !u!135 &7675651951446052008
 SphereCollider:
@@ -339,7 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5081836798230391869}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

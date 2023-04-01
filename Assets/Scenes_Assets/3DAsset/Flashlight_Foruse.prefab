@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8727490699484602068}
   - component: {fileID: 1554472705207083399}
   - component: {fileID: 8196659172393726875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: System
   m_TagString: Light
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 6277457587870625570}
   - component: {fileID: 3505958903436792242}
   - component: {fileID: 6811150150936822525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 5557712288486802689}
   - component: {fileID: 7062866982409599846}
   - component: {fileID: 1077379405656863064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flashlight_Foruse
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5328900061649833057}
   - component: {fileID: 1253423346379343519}
   - component: {fileID: 7741730046253170302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2499132071692640846}
   - component: {fileID: 478519926323661081}
   - component: {fileID: 2708142787271889834}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965175393317832349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door_Room
   m_TagString: EnterRoom
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4776913147557937888}
   - component: {fileID: 5285178112090101559}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Colli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4681030071711714890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 3465160159855273883}
   - component: {fileID: 1867426810420353037}
   - component: {fileID: 4246973541703991701}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2601450268832046773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6140560495042330898}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 1126269959740482096}
   - component: {fileID: 9053565477149387153}
   - component: {fileID: 7861782131626332480}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 7273676735382400926}
   - component: {fileID: 596346690073187541}
   - component: {fileID: 6775254775105441619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 5011098579613520994}
   - component: {fileID: 9065063257958664377}
   - component: {fileID: 1114107262845446191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6913058139342061550}
   - component: {fileID: 8769755760726200429}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Colli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 4325593082086157181}
   - component: {fileID: 6320728550805961132}
   - component: {fileID: 6362923406136203095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 3068157018622908821}
   - component: {fileID: 3837836643586796804}
   - component: {fileID: 8583384551759833861}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +972,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8499414627356716696}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 2}
