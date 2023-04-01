@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 637631391359531776}
   - component: {fileID: 6070201648382520670}
   - component: {fileID: 6000297963009520016}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Iten_InScene
   m_TagString: PickUpItem
   m_Icon: {fileID: 0}
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpMessage: "[E] \u0E40\u0E01\u0E47\u0E1A\u0E19\u0E49\u0E33\u0E21\u0E19\u0E15\u0E4C"
   ItemIndex: 0
+  PuzzleIndex: 0
 --- !u!114 &2005682570844884272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +132,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!222 &6000297963009520016
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -149,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861923461913926699}
   - component: {fileID: 7378799545280072553}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +212,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1370390449
-  m_SortingLayer: 3
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6b439588c5627f94a94b1b66ba133578, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

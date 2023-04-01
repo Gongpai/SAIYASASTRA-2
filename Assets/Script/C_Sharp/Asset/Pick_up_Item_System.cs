@@ -54,7 +54,7 @@ public class Pick_up_Item_System : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
             CharacterEnter = true;
             collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message(PickUpMessage);
@@ -66,7 +66,7 @@ public class Pick_up_Item_System : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
             CharacterEnter = false;
             collider.gameObject.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Hide_Message();
