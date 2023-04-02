@@ -1904,6 +1904,10 @@ PrefabInstance:
       propertyPath: MoveBeginPlay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3445422937709559487, guid: 14bc6466e07311f4190e519e93e0f502, type: 3}
+      propertyPath: SetColliderPosition
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4570813588468413932, guid: 14bc6466e07311f4190e519e93e0f502, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1966,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7400630526347000214, guid: 14bc6466e07311f4190e519e93e0f502, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.827758
+      value: -2.47
       objectReference: {fileID: 0}
     - target: {fileID: 7400630526347000214, guid: 14bc6466e07311f4190e519e93e0f502, type: 3}
       propertyPath: m_LocalPosition.y

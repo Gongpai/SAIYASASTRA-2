@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793019610661123709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106.64499, y: 3.4839935, z: -1.5558257}
+  m_LocalPosition: {x: 122.84024, y: 3.0593529, z: -1.7818578}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54,9 +54,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 7834518358262473712}
+  m_parent_or_child: {fileID: 1793019610661123709}
   ghost: {fileID: 0}
   ai_ghost: 0
   isFlip: 0
+  Scale_Item: 1
 --- !u!114 &2005682570844884272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +90,7 @@ MonoBehaviour:
   Destory_Effect: {fileID: 3525302970205634056, guid: aca27c28c48d695469f6bbc861e257fd, type: 3}
   audioClip: {fileID: 8300000, guid: b812e1a67ea6c654ca3e81941495ea45, type: 3}
   color: {r: 0.6627451, g: 0.9058824, b: 0.8196079, a: 1}
+  IsCanPlaySound: 1
 --- !u!212 &1467799967715643439
 SpriteRenderer:
   m_ObjectHideFlags: 0

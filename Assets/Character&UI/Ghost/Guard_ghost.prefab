@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Radius
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_BaseOffset
@@ -122,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2553240246421987797, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_audioClip
@@ -150,11 +150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6615586565661545888, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Height
-      value: 2.75
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6615586565661545888, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Radius
-      value: 0.9
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}

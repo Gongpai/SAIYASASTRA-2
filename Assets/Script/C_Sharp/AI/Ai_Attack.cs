@@ -53,7 +53,7 @@ public class Ai_Attack : MonoBehaviour
                 break;
             //กระสือ
             case AiGhost.Soi_Ju_ghost:
-                Shoot_horizontal(GetComponent<SpriteRenderer>().flipX);
+                Shoot_horizontal(GetComponent<SpriteRenderer>().flipX, 1.5f);
                 break;
 
             default:
@@ -147,7 +147,7 @@ public class Ai_Attack : MonoBehaviour
         }
     }
 
-    public void Shoot_horizontal(bool flip, GameObject _gameObject = default, bool is_spawn = true)
+    public void Shoot_horizontal(bool flip, float scale = 1.0f, GameObject _gameObject = default, bool is_spawn = true)
     {
         Rigidbody rigidbody;
 
@@ -172,6 +172,7 @@ public class Ai_Attack : MonoBehaviour
                 spawn.GetComponent<Item_Attack_System>().ai_ghost = GetComponent<Variables>().declarations.Get<AiGhost>("Ai_Ghost");
                 spawn.GetComponent<Item_Attack_System>().ghost = gameObject;
                 spawn.GetComponent<Item_Attack_System>().isFlip = flip;
+                spawn.GetComponent<Item_Attack_System>().Scale_Item = scale;
             }
             else
             {

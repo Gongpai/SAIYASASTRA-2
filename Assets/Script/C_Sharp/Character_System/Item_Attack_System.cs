@@ -6,10 +6,12 @@ using UnityEngine;
 public class Item_Attack_System : FuntionLibraly
 {
     [SerializeField] new Collider collider = new Collider();
+    [SerializeField] GameObject m_parent_or_child; 
 
     public GameObject ghost;
     public AiGhost ai_ghost;
     public bool isFlip;
+    public float Scale_Item = 1.0f;
     private Vector3 velocity;
 
     public delegate void PauseGame();
@@ -21,6 +23,9 @@ public class Item_Attack_System : FuntionLibraly
     {
         OnPauseGame += Set_PauseGame;
         UnPauseGame += Set_UnPauseGame;
+
+        m_parent_or_child.GetComponent<SpriteRenderer>().flipX = isFlip;
+        transform.localScale = Vector3.one * Scale_Item;
     }
 
     private void Update()
@@ -35,7 +40,7 @@ public class Item_Attack_System : FuntionLibraly
     {
         try
         {
-            velocity = GetComponent<Rigidbody>().velocity;
+            velocity = m_parent_or_child.GetComponent<Rigidbody>().velocity;
             GamePause_Component(gameObject, true);
         }
         catch
@@ -55,7 +60,7 @@ public class Item_Attack_System : FuntionLibraly
                     ghost.GetComponent<Ai_Attack>().Shoot_projectile(gameObject, false, velocity);
                     break;
                 case AiGhost.Soi_Ju_ghost:
-                    ghost.GetComponent<Ai_Attack>().Shoot_horizontal(isFlip,gameObject, false);
+                    ghost.GetComponent<Ai_Attack>().Shoot_horizontal(isFlip, Scale_Item,gameObject, false);
                     break;
                 default:
                     break;

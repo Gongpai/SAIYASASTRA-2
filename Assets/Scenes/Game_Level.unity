@@ -7881,6 +7881,32 @@ MonoBehaviour:
   - Title:
       Element_First: Note
       Element_Second: Scene1
+      Element_Third: Note_text6
+      Sup_Element_First: title
+      Sup_Element_Second: 
+    Text:
+      Element_First: Note
+      Element_Second: Scene1
+      Element_Third: Note_text6
+      Sup_Element_First: 
+      Sup_Element_Second: text
+    sprite_note: {fileID: 0}
+  - Title:
+      Element_First: Note
+      Element_Second: Scene1
+      Element_Third: Note_text7
+      Sup_Element_First: title
+      Sup_Element_Second: 
+    Text:
+      Element_First: Note
+      Element_Second: Scene1
+      Element_Third: Note_text7
+      Sup_Element_First: 
+      Sup_Element_Second: text
+    sprite_note: {fileID: 0}
+  - Title:
+      Element_First: Note
+      Element_Second: Scene1
       Element_Third: Note_text5
       Sup_Element_First: title
       Sup_Element_Second: 
@@ -12762,6 +12788,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8003617198000711083, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a0c46d1cb6feb346a07606c0e2bd2ae, type: 3}
+    - target: {fileID: 8003617198000711083, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 78b3e217e4526a341830dd81eb050a70, type: 3}
+    - target: {fileID: 8003617198000711083, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 02ebad25d49de864c880b20570da65a4, type: 3}
     - target: {fileID: 8067688403295577540, guid: cc0c01599e6dad1488cfe8b33ef0e3b4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

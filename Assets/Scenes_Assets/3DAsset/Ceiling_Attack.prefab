@@ -53,9 +53,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 7834518358262473712}
+  m_parent_or_child: {fileID: 1793019610661123709}
   ghost: {fileID: 0}
   ai_ghost: 0
   isFlip: 0
+  Scale_Item: 1
 --- !u!114 &2005682570844884272
 MonoBehaviour:
   m_ObjectHideFlags: 0

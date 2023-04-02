@@ -116,7 +116,7 @@ public class Item_System : MonoBehaviour
         GameObject spawn;
         spawn = Instantiate(spawnItem);
         spawn.GetComponent<Item_Attack_System>().ghost = gameObject;
-        spawn.GetComponent<SpriteRenderer>().flipX = GetComponent<SpriteRenderer>().flipX;
+        spawn.GetComponent<Item_Attack_System>().isFlip = GetComponent<SpriteRenderer>().flipX;
 
         rigidbody = spawn.GetComponent<Rigidbody>();
         rigidbody.useGravity = false;

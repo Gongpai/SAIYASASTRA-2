@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Set_Offset
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6195558242577577098, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
+      propertyPath: ObjectAttack
+      value: 
+      objectReference: {fileID: 1793019610661123709, guid: 08a062ff191a5f74d981ccfcff5969f0, type: 3}
     - target: {fileID: 6615586565661545888, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Enabled
       value: 0
