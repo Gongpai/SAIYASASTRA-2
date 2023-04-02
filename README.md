@@ -23,4 +23,7 @@
 
 --------------------------------------------
 **Android Touch Controls**
-![332160892_2079831682221480_6442953162856195043_n](https://user-images.githubusercontent.com/31787868/221397007-d6271166-3962-430b-b3af-617086997ddd.jpg)
+![image](https://user-images.githubusercontent.com/31787868/229347511-19458a20-bbb9-4858-ae42-d36fb240cd73.png)
+![image](https://user-images.githubusercontent.com/31787868/229347514-ea448140-9d0b-4bf5-af00-4098a03577b4.png)
+![image](https://user-images.githubusercontent.com/31787868/229347519-8efcd8a1-9a0b-4639-b3fd-cf1f417c0287.png)
+![image](https://user-images.githubusercontent.com/31787868/229347482-7e13e8ad-d5d5-42bd-936d-c914809d8991.png)
