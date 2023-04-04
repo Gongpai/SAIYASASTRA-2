@@ -29,3 +29,5 @@
 ![image](https://user-images.githubusercontent.com/31787868/229347482-7e13e8ad-d5d5-42bd-936d-c914809d8991.png)
 
 **Open Source Project**
+
+[![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/)
