@@ -12,7 +12,7 @@
 - Mouse Left : Shoot / Use Item
 --------------------------------------------
 **Craft Menu**
-- Drag/Drop Item (Click icon only)
+- Drag/Drop Item (Click on icon)
 - Mouse Right : Remove Item
 
 **Item Code**
