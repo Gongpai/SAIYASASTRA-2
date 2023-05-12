@@ -1,7 +1,7 @@
 # SAIYASASTRA_2
 **Horror Platformer 2.5D**
 
---------------------------
+--------------------------------------------
 **Control**
 - Button [ I ] : Open Inventory 
 - Button [ N ] : Open Note
