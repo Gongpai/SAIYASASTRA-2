@@ -465,16 +465,7 @@ public class Inventory_System : MonoBehaviour
             if (!joystick.isPress || Input.touches.Length > 1)
             {
                 inputPos = Input.GetTouch(Input.touches.Length - 1).position;
-                Aim(true);
             }
-            else
-            {
-                Aim(false);
-            }
-        }
-        else
-        {
-            Aim(false);
         }
         
         if (IsAim)

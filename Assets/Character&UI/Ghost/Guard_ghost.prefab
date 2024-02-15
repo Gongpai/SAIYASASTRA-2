@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067365967242800688, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_text
-      value: 
+      value: nhjgjgj
       objectReference: {fileID: 0}
     - target: {fileID: 2142362222851646164, guid: 1fa5538a402d9644dbe98036d924826a, type: 3}
       propertyPath: m_Speed

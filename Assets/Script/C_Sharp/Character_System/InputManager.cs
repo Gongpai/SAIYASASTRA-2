@@ -5,6 +5,7 @@ using GDD.Timer;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using TouchPhase = UnityEngine.TouchPhase;
 
 /// <summary>
 /// This class handles reading the input given by the player through input devices
@@ -39,6 +40,13 @@ public class InputManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        
+        Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
+    }
+    
+    private void OnGamestateChanged(GameState gameState)
+    {
+        enabled = gameState == GameState.Play;
     }
 
     private void Start()
@@ -56,6 +64,15 @@ public class InputManager : MonoBehaviour
                 tabCount = 0;
             }
         });
+    }
+
+    private void Update()
+    {
+        if ((Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor) && Input.touches.Length > 0)
+        {
+            Touch touch = Input.GetTouch(Input.touches.Length - 1);
+            OnShoot(touch);
+        }
     }
 
     /// <summary>
@@ -116,9 +133,9 @@ public class InputManager : MonoBehaviour
         }
     }
     
-    public void OnShoot(InputAction.CallbackContext context)
+    public void OnShoot(Touch touch)
     {
-        if(!context.canceled)
+        if(!(touch.phase == TouchPhase.Ended))
             return;
         
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
@@ -196,5 +213,10 @@ public class InputManager : MonoBehaviour
     public void Scroll_Select(InputAction.CallbackContext context)
     {
         AxisScroll = Invert_Scroll_Axis * context.ReadValue<float>();
+    }
+    
+    void OnDestroy()
+    {
+        Game_State_Manager.Instance.OnGameStateChange -= OnGamestateChanged;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -45,6 +46,23 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     private Camera cam;
 
     private Vector2 input = Vector2.zero;
+
+    protected void Awake()
+    {
+        Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
+    }
+    
+    private void OnGamestateChanged(GameState gameState)
+    {
+        input = Vector2.zero;
+        handle.anchoredPosition = Vector2.zero;
+        _isPress = false;
+    }
+
+    private void OnDestroy()
+    {
+        Game_State_Manager.Instance.OnGameStateChange -= OnGamestateChanged;
+    }
 
     protected virtual void Start()
     {

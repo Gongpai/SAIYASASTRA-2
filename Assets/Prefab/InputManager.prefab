@@ -181,19 +181,7 @@ MonoBehaviour:
     m_ActionId: 3d9fc28b-320a-425d-a480-5bb4756c3319
     m_ActionName: Player/Turn_On_Light[/Keyboard/f]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 452750904059393858}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: OnShoot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: f7cc1da4-a012-45f3-9536-1fbdcf3c1777
     m_ActionName: Player/TouchShoot[/Device Simulator Touchscreen/primaryTouch/tap]
   m_NeverAutoSwitchControlSchemes: 0
