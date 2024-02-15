@@ -23,6 +23,8 @@ public class Inventory_System : MonoBehaviour
     [SerializeField] private GameObject Note;
     [SerializeField] public GameObject Arrow_Aim;
     [SerializeField] public GameObject Touch_screen_UI;
+    [SerializeField] private Transform AimPoint;
+    [SerializeField] private Vector2 OffsetCentorAim;
 
     private GameObject gameInstance;
     private InputManager inputManager;
@@ -34,7 +36,9 @@ public class Inventory_System : MonoBehaviour
     private List<GameObject> Equip_Element_list = new List<GameObject>();
     private List<GameObject> Equip_System = new List<GameObject>();
     public Animator animator;
-
+    private Joystick joystick;
+    Vector2 inputPos = new Vector2();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +62,8 @@ public class Inventory_System : MonoBehaviour
         {
             print("Not found GameInstance");
         }
+        
+        joystick = Touch_screen_UI.transform.GetChild(0).GetComponent<Joystick>();
 
         /**
         Add_Item_Element(gameInstance.gameObject.GetComponent<Item_List_Data>().itemDatas[0]);
@@ -454,12 +460,32 @@ public class Inventory_System : MonoBehaviour
     [Obsolete]
     private void ArrowAim()
     {
+        if (Input.touches.Length > 0)
+        {
+            if (!joystick.isPress || Input.touches.Length > 1)
+            {
+                inputPos = Input.GetTouch(Input.touches.Length - 1).position;
+                Aim(true);
+            }
+            else
+            {
+                Aim(false);
+            }
+        }
+        else
+        {
+            Aim(false);
+        }
+        
         if (IsAim)
         {
             if (Touch_screen_UI.active)
             {
-                FixedJoystick fixedJoystick = Touch_screen_UI.transform.GetChild(5).GetComponent<FixedJoystick>();
-                Vector2 input = new Vector2(fixedJoystick.Horizontal, fixedJoystick.Vertical);
+                Vector2 screenSize = new Vector2(Screen.width, Screen.height) * 0.5f;
+                Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(AimPoint.position);
+                print($"player pixel X : {playerScreenPoint.x} | Y : {playerScreenPoint.y}");
+                Vector2 input = new Vector2(inputPos.x - (playerScreenPoint.x + OffsetCentorAim.x), inputPos.y - (playerScreenPoint.y + OffsetCentorAim.y));
+                print($"Aim X : {input.x} | Y : {input.y}");
                 input.Normalize();
 
                 if(input != Vector2.zero)

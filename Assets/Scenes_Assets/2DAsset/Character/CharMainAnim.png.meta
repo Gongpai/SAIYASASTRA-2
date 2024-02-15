@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -107,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -799,38 +811,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CharMainAnim_4: 741200889
-      CharMainAnim_19: -106987086
-      CharMainAnim_26: 1722221981
-      CharMainAnim_15: -939233669
-      CharMainAnim_14: 1431713703
-      CharMainAnim_30: 206155810
-      CharMainAnim_25: 712730137
-      CharMainAnim_22: 1578141811
-      CharMainAnim_9: -436235964
-      CharMainAnim_23: 768626751
-      CharMainAnim_21: -342852112
-      CharMainAnim_16: 1061274117
-      CharMainAnim_31: 1238926900
-      CharMainAnim_13: 1107307199
-      CharMainAnim_8: 409491560
-      CharMainAnim_6: -1323889635
-      CharMainAnim_17: -583946902
-      CharMainAnim_10: -1463684375
-      CharMainAnim_20: -1111126259
-      CharMainAnim_27: -771054270
-      CharMainAnim_1: 911737146
-      CharMainAnim_5: -1546671440
-      CharMainAnim_7: 1223652938
       CharMainAnim_0: 1531679200
-      CharMainAnim_18: 776412343
-      CharMainAnim_28: -1884031414
-      CharMainAnim_12: 1610481798
+      CharMainAnim_1: 911737146
+      CharMainAnim_10: -1463684375
       CharMainAnim_11: 606064862
-      CharMainAnim_29: -1179176797
+      CharMainAnim_12: 1610481798
+      CharMainAnim_13: 1107307199
+      CharMainAnim_14: 1431713703
+      CharMainAnim_15: -939233669
+      CharMainAnim_16: 1061274117
+      CharMainAnim_17: -583946902
+      CharMainAnim_18: 776412343
+      CharMainAnim_19: -106987086
       CharMainAnim_2: -1376790927
-      CharMainAnim_3: -1878930214
+      CharMainAnim_20: -1111126259
+      CharMainAnim_21: -342852112
+      CharMainAnim_22: 1578141811
+      CharMainAnim_23: 768626751
       CharMainAnim_24: -1568319358
+      CharMainAnim_25: 712730137
+      CharMainAnim_26: 1722221981
+      CharMainAnim_27: -771054270
+      CharMainAnim_28: -1884031414
+      CharMainAnim_29: -1179176797
+      CharMainAnim_3: -1878930214
+      CharMainAnim_30: 206155810
+      CharMainAnim_31: 1238926900
+      CharMainAnim_4: 741200889
+      CharMainAnim_5: -1546671440
+      CharMainAnim_6: -1323889635
+      CharMainAnim_7: 1223652938
+      CharMainAnim_8: 409491560
+      CharMainAnim_9: -436235964
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

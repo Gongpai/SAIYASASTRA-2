@@ -96,6 +96,7 @@ public class Player_Movement : FuntionLibraly
         moveSpeed = WalkSpeed;
         GameInstance.Player = gameObject;
         UpdateHPWidget();
+        inputManager.OnShootTouch = Touch_Shoot_Button;
 
         rb = GetComponent<Rigidbody>();
 
@@ -394,7 +395,7 @@ public class Player_Movement : FuntionLibraly
         }
         if (Touch_screen_UI.active)
         {
-            FloatingJoystick floatingJoystick = Touch_screen_UI.transform.GetChild(0).GetComponent<FloatingJoystick>();
+            Joystick floatingJoystick = Touch_screen_UI.transform.GetChild(0).GetComponent<Joystick>();
             Vector3 movementVector = new Vector3(floatingJoystick.Horizontal, 0, floatingJoystick.Vertical);
             rb.transform.position = rb.transform.position + (movementVector * Time.deltaTime * moveSpeed);
             if (floatingJoystick.Horizontal < 0)
@@ -681,7 +682,7 @@ public class Player_Movement : FuntionLibraly
         }
 
         //ªÿË¡‡≈Áß¬‘ß
-        if (aimAction.WasPressedThisFrame() == true)
+        if (aimAction.WasPressedThisFrame() && Application.platform != RuntimePlatform.Android)
         {
             gameObject.GetComponent<Inventory_System>().Aim(!gameObject.GetComponent<Inventory_System>().IsAim);
         }
@@ -697,7 +698,7 @@ public class Player_Movement : FuntionLibraly
         }
 
         //ªÿË¡¬‘ß/ª“
-        if (shootAction.WasPressedThisFrame() == true)
+        if (shootAction.WasPressedThisFrame() && Application.platform != RuntimePlatform.Android)
         {
             if (!Touch_screen_UI.active)
             {
@@ -706,7 +707,7 @@ public class Player_Movement : FuntionLibraly
         }
 
         //ªÿË¡‡ª‘¥‰ø©“¬
-        if (Turn_On_LightAction.WasPressedThisFrame() == true)
+        if (Turn_On_LightAction.WasPressedThisFrame()  && Application.platform != RuntimePlatform.Android)
         {
             gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
         }

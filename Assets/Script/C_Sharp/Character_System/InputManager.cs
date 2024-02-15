@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using GDD.Timer;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -8,8 +11,13 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class InputManager : MonoBehaviour
 {
+    [SerializeField] private float doubleTabTime = 0.3f;
     // A global reference for the input manager that outher scripts can access to read the input
     public static InputManager instance;
+
+    public UnityAction OnShootTouch;
+    private AwaitTimer doubleTabTimer;
+    private int tabCount;
 
     /// <summary>
     /// Description:
@@ -31,6 +39,23 @@ public class InputManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void Start()
+    {
+        doubleTabTimer = new AwaitTimer(doubleTabTime, () =>
+        {
+            tabCount = 0;
+        }, time =>
+        {
+            if (tabCount >= 2)
+            {
+                print("Shoot Touchhhh");
+                OnShootTouch?.Invoke();
+                doubleTabTimer.Stop();
+                tabCount = 0;
+            }
+        });
     }
 
     /// <summary>
@@ -88,6 +113,20 @@ public class InputManager : MonoBehaviour
         {
             horizontalLookAxis = inputVector.x;
             verticalLookAxis = inputVector.y;
+        }
+    }
+    
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if(!context.canceled)
+            return;
+        
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if(tabCount == 0)
+                doubleTabTimer.Start();
+
+            tabCount++;
         }
     }
 
