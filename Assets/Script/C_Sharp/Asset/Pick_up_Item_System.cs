@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Pick_up_Item_System : MonoBehaviour
 {
     [Header("For Item Drop")]
-    [SerializeField] private string PickUpMessage;
+    [FormerlySerializedAs("PickUpMessage")][SerializeField] private string m_pickUpMessage;
     [SerializeField] private int ItemIndex = 0;
 
     [Header("For Puzzle")]
@@ -15,6 +16,17 @@ public class Pick_up_Item_System : MonoBehaviour
     private GameObject Gameinstance;
     private ShowMessage pLayer;
     private bool CharacterEnter = false;
+
+    private string PickUpMessage
+    {
+        get
+        {
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+                return $"[E] {m_pickUpMessage}";
+            else
+                return m_pickUpMessage;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

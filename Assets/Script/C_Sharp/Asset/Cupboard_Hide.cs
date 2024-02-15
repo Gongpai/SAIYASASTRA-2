@@ -4,12 +4,13 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class Cupboard_Hide : MonoBehaviour
 {
     [SerializeField] private GameObject Door;
-    [SerializeField] private string InteractMessage;
-    [SerializeField] private string HideMessage;
+    [FormerlySerializedAs("InteractMessage")] [SerializeField] private string m_interactMessage;
+    [FormerlySerializedAs("HideMessage")] [SerializeField] private string m_hideMessage;
 
     public Animator animator;
 
@@ -18,6 +19,28 @@ public class Cupboard_Hide : MonoBehaviour
 
     public delegate void OpenDoor_Hide();
     public static OpenDoor_Hide Open_Door_Hide;
+    
+    private string InteractMessage
+    {
+        get
+        {
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+                return $"[E] {m_interactMessage}";
+            else
+                return m_interactMessage;
+        }
+    }
+
+    private string HideMessage
+    {
+        get
+        {
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+                return $"[E] {m_hideMessage}";
+            else
+                return m_hideMessage;
+        }
+    }
 
     private ShowMessage pLayer;
     // Start is called before the first frame update

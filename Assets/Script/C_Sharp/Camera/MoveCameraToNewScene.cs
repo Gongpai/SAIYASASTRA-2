@@ -11,8 +11,9 @@ using Vector3 = UnityEngine.Vector3;
 public class MoveCameraToNewScene : MonoBehaviour
 {
     private Camera mainCamera;
+    [SerializeField] string m_closeDoorText = "»Ô´»ÃÐµÙ";
+    [SerializeField] string m_openDoorText = "à»Ô´»ÃÐµÙ";
     [SerializeField] private Collider pointNextCamera;
-
     [SerializeField] private bool IsBlock = false;
     [SerializeField] private bool MoveBeginPlay = false;
     [SerializeField] private bool is_Walk_in = false;
@@ -38,6 +39,27 @@ public class MoveCameraToNewScene : MonoBehaviour
     private Vector3 start;
     private Vector3 end;
     private Transform endTransform;
+    
+    private string OpenDoorText
+    {
+        get
+        {
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+                return $"[E] {m_openDoorText}";
+            else
+                return m_openDoorText;
+        }
+    }
+    private string CloseDoorText
+    {
+        get
+        {
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+                return $"[E] {m_closeDoorText}";
+            else
+                return m_closeDoorText;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -117,11 +139,11 @@ public class MoveCameraToNewScene : MonoBehaviour
                 {
                     if (transform.parent.GetComponent<Animator>().GetBool("IsDoorOpen?"))
                     {
-                        GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("[E] »Ô´»ÃÐµÙ");
+                        GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message(CloseDoorText);
                     }
                     else
                     {
-                        GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message("[E] à»Ô´»ÃÐµÙ");
+                        GameInstance.Player.GetComponent<Player_Movement>().showMessage.GetComponent<ShowMessage>().Show_Message(OpenDoorText);
                     }
                 }
                 else

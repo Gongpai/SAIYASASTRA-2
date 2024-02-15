@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94930b87050cc784fae98b78fb4c2f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickUpMessage: "[E] \u0E40\u0E01\u0E47\u0E1A\u0E19\u0E49\u0E33\u0E21\u0E19\u0E15\u0E4C"
+  m_pickUpMessage: "\u0E40\u0E01\u0E47\u0E1A\u0E19\u0E49\u0E33\u0E21\u0E19\u0E15\u0E4C"
   ItemIndex: 0
   PuzzleIndex: 0
 --- !u!114 &2005682570844884272

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Show_Puzzle : MonoBehaviour
 {
-    [SerializeField] private string PickUpMessage = "[E] เก็บบันทึก";
+    [SerializeField] private string  m_pickUpMessage = "เก็บบันทึก";
     [SerializeField] public GameObject puzzle_ui;
     [SerializeField] GameObject DoorUnlock;
 
@@ -14,6 +14,16 @@ public class Show_Puzzle : MonoBehaviour
     public bool Can_Open_Puzzle = true;
     private GameObject Gameinstance;
     GameObject puzzleSpawn;
+    private string PickUpMessage
+    {
+        get
+        {
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+                return $"[E] {m_pickUpMessage}";
+            else
+                return m_pickUpMessage;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

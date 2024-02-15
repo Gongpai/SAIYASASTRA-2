@@ -6,7 +6,7 @@ public class Open_Room_New_Scene : MonoBehaviour
 {
     [SerializeField] bool IsOpenScene = false;
     [SerializeField] string Scene = "Game_Level";
-    [SerializeField] string ShowText = "[E] เข้าไป";
+    [SerializeField] string m_showText = "เข้าไป";
     [SerializeField] GameObject ObjectSpawnlocation;
     [SerializeField] GameObject LoadingScreenWidget;
     [SerializeField] bool CanDestoryGameInstance = false;
@@ -17,6 +17,16 @@ public class Open_Room_New_Scene : MonoBehaviour
     bool IsCharacterEnter = false;
     Switch_Scene switch_Scene;
     bool Is_Backtomainmenu = false;
+    private string ShowText
+    {
+        get
+        {
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+                return $"[E] {m_showText}";
+            else
+                return m_showText;
+        }
+    }
 
     private void Start()
     {

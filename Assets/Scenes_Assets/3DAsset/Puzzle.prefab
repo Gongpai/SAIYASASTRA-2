@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2703057389f984eb2b9f21e2ff11c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickUpMessage: "[E] \u0E41\u0E01\u0E49 Puzzle"
+  m_pickUpMessage: "\u0E41\u0E01\u0E49\u0E1B\u0E23\u0E34\u0E28\u0E19\u0E32"
   puzzle_ui: {fileID: 7868358493408569174, guid: 20d6aaebee3ec0446bb7bfbc95b09322, type: 3}
   DoorUnlock: {fileID: 0}
   Can_Open_Puzzle: 1

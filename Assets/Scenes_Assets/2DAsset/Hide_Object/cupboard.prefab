@@ -1580,8 +1580,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Door: {fileID: 4854583451988068174}
-  InteractMessage: "[E] \u0E40\u0E1B\u0E34\u0E14\u0E15\u0E39\u0E49"
-  HideMessage: "[E] \u0E1B\u0E34\u0E14\u0E15\u0E39\u0E49"
+  m_interactMessage: "\u0E40\u0E1B\u0E34\u0E14\u0E15\u0E39\u0E49"
+  m_hideMessage: "\u0E1B\u0E34\u0E14\u0E15\u0E39\u0E49"
   animator: {fileID: 0}
   CharacterInside: 0
 --- !u!1 &8012452171688646174

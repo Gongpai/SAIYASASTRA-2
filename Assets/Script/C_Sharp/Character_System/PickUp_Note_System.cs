@@ -6,13 +6,24 @@ using static Structs_Libraly;
 
 public class PickUp_Note_System : MonoBehaviour
 {
-    [SerializeField] private string PickUpMessage = "[E] เก็บบันทึก";
+    [SerializeField] private string m_pickUpMessage = "เก็บบันทึก";
     [SerializeField] private int NoteIndex = 0;
 
     private Structs_Libraly.Note_Data NoteData;
     private ShowMessage pLayer;
     private bool CharacterEnter = false;
     private GameObject Gameinstance;
+
+    private string PickUpMessage
+    {
+        get
+        {
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+                return $"[E] {m_pickUpMessage}";
+            else
+                return m_pickUpMessage;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
