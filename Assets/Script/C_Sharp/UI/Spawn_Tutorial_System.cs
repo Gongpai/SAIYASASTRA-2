@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Spawn_Tutorial_System : MonoBehaviour
 {
-    [SerializeField] Sprite Tutorial_PC;
-    [SerializeField] Sprite Tutorial_Mobile;
+    [SerializeField] List<Sprite> Tutorial_PC = new List<Sprite>();
+    [SerializeField] List<Sprite> Tutorial_Mobile = new List<Sprite>();
     [SerializeField] Image Tutorial;
     [SerializeField] bool IsUseColliderEnter = false;
     [SerializeField] GameObject Tutorial_Widget;
@@ -28,6 +28,7 @@ public class Spawn_Tutorial_System : MonoBehaviour
         {
             Prev_But.SetActive(true);
             Next_But.SetActive(true);
+            Platform_Select();
         }
     }
 
@@ -36,6 +37,23 @@ public class Spawn_Tutorial_System : MonoBehaviour
         if (IsUseColliderEnter)
         {
             IsSpawn = true;
+        }
+
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if (Tutorial_Mobile.Count > 1)
+            {
+                Prev_But.SetActive(true);
+                Next_But.SetActive(true);
+            }
+        }
+        else
+        {
+            if (Tutorial_PC.Count > 1)
+            {
+                Prev_But.SetActive(true);
+                Next_But.SetActive(true);
+            }
         }
 
         switch (Application.platform)
@@ -79,59 +97,64 @@ public class Spawn_Tutorial_System : MonoBehaviour
         }
     }
 
-    private void Platform_Select()
+    private void Platform_Select(int i = 0)
     {
         switch (Application.platform)
         {
             case RuntimePlatform.WindowsPlayer:
-                OpenTutorial(Tutorial_PC);
+                OpenTutorial(Tutorial_PC, i);
                 break;
             case RuntimePlatform.WindowsEditor:
                 //OpenTutorial();
 
                 if (Tutorial_Mobile != null)
                 {
-                    OpenTutorial(Tutorial_Mobile);
+                    OpenTutorial(Tutorial_Mobile, i);
                 }
                 break;
             case RuntimePlatform.Android:
                 if (Tutorial_Mobile != null)
                 {
-                    OpenTutorial(Tutorial_Mobile);
+                    OpenTutorial(Tutorial_Mobile, i);
                 }
                 break;
             case RuntimePlatform.WebGLPlayer:
-                OpenTutorial(Tutorial_PC);
+                OpenTutorial(Tutorial_PC, i);
                 break;
         }
     }
 
     public void Tutorial_Select(int i = 1)
     {
-        index += i;
-        if (index > 1)
+        int count;
+
+        if (Application.platform == RuntimePlatform.Android)
+            count = Tutorial_Mobile.Count;
+        else
+            count = Tutorial_PC.Count;
+        
+        if (i > 0 && index <= count)
         {
-            index = 0;
+            index++;
+
+            if (index >= count)
+                index = 0;
         }
-        else if (index < 0)
+        else if (i < 0 && index >= 0)
         {
-            index = 1;
+            index--;
+
+            if (index < 0)
+                index = count - 1;
         }
 
-        if (index == 0)
-        {
-            OpenTutorial(Tutorial_PC);
-        }
-        else
-        {
-            OpenTutorial(Tutorial_Mobile);
-        }
+        Platform_Select(index);
     }
 
-    private void OpenTutorial(Sprite sprite)
+    private void OpenTutorial(List<Sprite> sprite, int index)
     {
         Game_State_Manager.Instance.Setstate(GameState.Pause);
-        Tutorial.sprite = sprite;
+        Tutorial.sprite = sprite[index];
         Tutorial_Widget.SetActive(true);
         animator.SetBool("IsPlayIn", true);
         animator.SetBool("IsPlayOut", false);

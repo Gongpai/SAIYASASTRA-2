@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 375}
+  m_AnchoredPosition: {x: 0, y: 475}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7469010494633909572
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -210,6 +210,8 @@ MonoBehaviour:
   LoadingScreenWidget: {fileID: 0}
   Bg: {fileID: 0}
   animator: {fileID: 6491605572217887977}
+  animator_bg: {fileID: 0}
+  CanSetActive: 1
 --- !u!82 &3486775686514043922
 AudioSource:
   m_ObjectHideFlags: 0
@@ -387,6 +389,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1316659416384280545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394,6 +397,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8654057187036504456}
     m_Modifications:
+    - target: {fileID: 2997978789271960598, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -421,14 +428,6 @@ PrefabInstance:
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_LocalScale.x
@@ -476,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 275
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -493,6 +492,14 @@ PrefabInstance:
     - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_text
       value: "\u0E40\u0E25\u0E48\u0E19\u0E15\u0E48\u0E2D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 7376985502501331150, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -587,6 +594,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8654057187036504456}
     m_Modifications:
+    - target: {fileID: 2997978789271960598, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -614,14 +625,6 @@ PrefabInstance:
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_LocalScale.x
@@ -669,7 +672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -686,6 +689,14 @@ PrefabInstance:
     - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_text
       value: "\u0E2D\u0E2D\u0E01\u0E40\u0E01\u0E21"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4929146816375927359, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: Set_Dont_Anim_Play_Start
@@ -729,6 +740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8654057187036504456}
     m_Modifications:
+    - target: {fileID: 2997978789271960598, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -758,14 +773,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
@@ -811,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -828,6 +835,14 @@ PrefabInstance:
     - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_text
       value: "\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4929146816375927359, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: Set_Dont_Anim_Play_Start
@@ -851,6 +866,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8654057187036504456}
     m_Modifications:
+    - target: {fileID: 2997978789271960598, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -880,14 +899,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
@@ -933,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 125
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 3562826234157451422, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -950,6 +961,14 @@ PrefabInstance:
     - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: m_text
       value: "\u0E01\u0E25\u0E31\u0E1A\u0E44\u0E1B\u0E40\u0E21\u0E19\u0E39\u0E2B\u0E25\u0E31\u0E01"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806948488888266469, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4929146816375927359, guid: 158db7eb2abe48649b4e52fbe578cea4, type: 3}
       propertyPath: Set_Dont_Anim_Play_Start

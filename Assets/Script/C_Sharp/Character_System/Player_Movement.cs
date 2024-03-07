@@ -96,6 +96,7 @@ public class Player_Movement : FuntionLibraly
         moveSpeed = WalkSpeed;
         GameInstance.Player = gameObject;
         UpdateHPWidget();
+        inputManager.OnUseTouch = Touch_Use_Button;
         inputManager.OnShootTouch = Touch_Shoot_Button;
 
         rb = GetComponent<Rigidbody>();
@@ -454,9 +455,9 @@ public class Player_Movement : FuntionLibraly
 
 
     //ปุ่มสัมผัส - กดวิ่ง
-    public void Touch_Run_Button()
+    public void Touch_Run_Button(bool isPress)
     {
-        if (!Is_Run)
+        if (isPress)
         {
             print("Runnnnnnnnnnnnnnnnnnnnnnnn");
             moveSpeed = RunSpeed;
@@ -482,10 +483,17 @@ public class Player_Movement : FuntionLibraly
 
     //ปุ่มสัมผัส - กดยิง
     [System.Obsolete]
-    public void Touch_Shoot_Button()
+    public void Touch_Use_Button()
     {
         gameObject.GetComponent<Inventory_System>().Shoot_Item();
         gameObject.GetComponent<Inventory_System>().Use_Item_Equip();
+    }
+    
+    public void Touch_Shoot_Button(float angle, float duration)
+    {
+        print("Shoot!!!!!!!");
+        gameObject.GetComponent<Inventory_System>().Aim(true);
+        gameObject.GetComponent<Inventory_System>().Shoot_Item(angle);
     }
 
     //ปุ่มสัมผัส - กดตอบสนองของภายในฉาก

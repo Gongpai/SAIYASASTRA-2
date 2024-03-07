@@ -25,7 +25,7 @@ public class ShowMessage : MonoBehaviour
 
     public void Show_Message(string text)
     {
-        print(text + " Test");
+        //print(text + " Test");
         this.GetComponent<Animator>().SetBool("IsShow?", true);
         this.GetComponent<Animator>().SetBool("IsHide?", false);
         Bgtext.SetText(text);

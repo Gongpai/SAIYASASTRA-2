@@ -1478,7 +1478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1858158046407821351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2818895222330586690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4068,7 +4068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3298452646727785528, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3298452646727785528, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4097,10 +4097,6 @@ PrefabInstance:
     - target: {fileID: 3470407243192658367, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_text
       value: "\u0E27\u0E34\u0E48\u0E07"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6314192438419998921, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
-      propertyPath: m_Color.a
-      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 6411051396674713612, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
       propertyPath: m_Name
@@ -4197,6 +4193,56 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6488093370585787526, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
   m_PrefabInstance: {fileID: 4659077049130410865}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5165991497807139907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 511462029994522418, guid: 463aa987545f46e4c8ef3023577f6bc7, type: 3}
+  m_PrefabInstance: {fileID: 4659077049130410865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2354396316195768133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165991497807139907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1832307902380989625}
+          m_TargetAssemblyTypeName: Player_Movement, Assembly-CSharp
+          m_MethodName: Touch_Run_Button
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1832307902380989625}
+          m_TargetAssemblyTypeName: Player_Movement, Assembly-CSharp
+          m_MethodName: Touch_Run_Button
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &5191529301398765568
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class FocusCamera : MonoBehaviour
     private PostProcessVolume _postProcessVolume;
 
     [SerializeField] private GameObject FocusPoint;
+
+    [SerializeField] private float focusOffset = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class FocusCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _postProcessVolume.profile.GetSetting<DepthOfField>().focusDistance.value = Vector3.Distance(FocusPoint.transform.position, gameObject.transform.position) + 1.5f;
+        Vector3 start = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, FocusPoint.transform.position.z);
+        _postProcessVolume.profile.GetSetting<DepthOfField>().focusDistance.value = Vector3.Distance(start, gameObject.transform.position) + focusOffset;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GDD.Timer;
+using GDD.TouchSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -13,12 +14,16 @@ using TouchPhase = UnityEngine.TouchPhase;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private float doubleTabTime = 0.3f;
+    [SerializeField] private float swipeTime = 0.5f;
     // A global reference for the input manager that outher scripts can access to read the input
     public static InputManager instance;
 
-    public UnityAction OnShootTouch;
+    public UnityAction OnUseTouch;
+    public UnityAction<float, float> OnShootTouch;
     private AwaitTimer doubleTabTimer;
     private int tabCount;
+    private SwipeDetector swipeDetector;
+    private TouchValue touchValue;
 
     /// <summary>
     /// Description:
@@ -51,19 +56,20 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
-        doubleTabTimer = new AwaitTimer(doubleTabTime, () =>
-        {
-            tabCount = 0;
-        }, time =>
+        doubleTabTimer = new AwaitTimer(doubleTabTime, () => { tabCount = 0; }, time =>
         {
             if (tabCount >= 2)
             {
                 print("Shoot Touchhhh");
-                OnShootTouch?.Invoke();
+                OnUseTouch?.Invoke();
                 doubleTabTimer.Stop();
                 tabCount = 0;
             }
         });
+
+        swipeDetector = gameObject.AddComponent<SwipeDetector>();
+        swipeDetector.durationSwipe = swipeTime;
+        swipeDetector.swipeEnd.AddListener(OnShoot);
     }
 
     private void Update()
@@ -71,7 +77,7 @@ public class InputManager : MonoBehaviour
         if ((Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor) && Input.touches.Length > 0)
         {
             Touch touch = Input.GetTouch(Input.touches.Length - 1);
-            OnShoot(touch);
+            OnUse(touch);
         }
     }
 
@@ -133,7 +139,7 @@ public class InputManager : MonoBehaviour
         }
     }
     
-    public void OnShoot(Touch touch)
+    public void OnUse(Touch touch)
     {
         if(!(touch.phase == TouchPhase.Ended))
             return;
@@ -144,6 +150,19 @@ public class InputManager : MonoBehaviour
                 doubleTabTimer.Start();
 
             tabCount++;
+        }
+    }
+    
+    public void OnShoot(TouchValue touchValue)
+    {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            print($"Shoot Touchhhh : {touchValue.angle}");
+            print($"Shoot Disssss : {touchValue.distance}");
+            this.touchValue = touchValue;
+            
+            if(touchValue.distance > 100)
+                OnShootTouch?.Invoke(touchValue.angle, touchValue.duration);
         }
     }
 

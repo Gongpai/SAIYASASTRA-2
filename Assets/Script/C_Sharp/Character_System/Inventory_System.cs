@@ -37,7 +37,14 @@ public class Inventory_System : MonoBehaviour
     private List<GameObject> Equip_System = new List<GameObject>();
     public Animator animator;
     private Joystick joystick;
+    private float _angle;
     Vector2 inputPos = new Vector2();
+
+    public float angle
+    {
+        get => _angle;
+        set => _angle = value;
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -472,21 +479,19 @@ public class Inventory_System : MonoBehaviour
         {
             if (Touch_screen_UI.active)
             {
+                /*
                 Vector2 screenSize = new Vector2(Screen.width, Screen.height) * 0.5f;
                 Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(AimPoint.position);
                 print($"player pixel X : {playerScreenPoint.x} | Y : {playerScreenPoint.y}");
                 Vector2 input = new Vector2(inputPos.x - (playerScreenPoint.x + OffsetCentorAim.x), inputPos.y - (playerScreenPoint.y + OffsetCentorAim.y));
                 print($"Aim X : {input.x} | Y : {input.y}");
-                input.Normalize();
+                input.Normalize();*/
 
-                if(input != Vector2.zero)
+                Quaternion ArrowRot = Quaternion.Euler(new Vector3(0, _angle * Mathf.Deg2Rad, 0));
+                if (ArrowRot.w > 0.45f || ArrowRot.w < -0.45f)
                 {
-                    Quaternion ArrowRot = Quaternion.LookRotation(Vector3.forward, input);
-                    if (ArrowRot.w > 0.45f || ArrowRot.w < -0.45f)
-                    {
-                        lookat = ArrowRot;
-                        Arrow_Aim.transform.rotation = lookat;
-                    }
+                    lookat = ArrowRot;
+                    Arrow_Aim.transform.rotation = lookat;
                 }
             }
             else
@@ -529,7 +534,34 @@ public class Inventory_System : MonoBehaviour
     [Obsolete]
     public void Shoot_Item()
     {
-        print(SelectNum);
+        print($"SelectNum : {SelectNum}");
+        Use_Item_System use_Item_Equip = default;
+
+        if (Equip_Element_list.Count > 0)
+        {
+            use_Item_Equip = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData.useItemMode;
+
+            if (GameInstance.ShowItemElementData.Count > 0)
+            {
+                Structs_Libraly.Item_Data itemData = Equip_Element_list[SelectNum].GetComponent<Equip_Item_List_System>().itemData;
+                //Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObject.transform.position.z);
+                //float force = Vector3.Distance(gameObject.transform.position, mousePos);
+
+                switch (use_Item_Equip)
+                {
+                    case Use_Item_System.Shoot_horizontal:
+                        gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim, lookat);
+                        Remove_Number_Item(itemData);
+                        break;
+                }
+            }
+        }
+    }
+
+    public void Shoot_Item(float angle = 0)
+    {
+        print($"SelectNum : {SelectNum}");
+        print($"Angle Shoot : {angle}");
         Use_Item_System use_Item_Equip = default;
 
         if (Equip_Element_list.Count > 0)
@@ -547,13 +579,9 @@ public class Inventory_System : MonoBehaviour
                     case Use_Item_System.Shoot_Projectile:
                         if (IsAim)
                         {
-                            gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim, lookat);
+                            gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim, Quaternion.Euler(new Vector3(0, 0, angle)));
                             Remove_Number_Item(itemData);
                         }
-                        break;
-                    case Use_Item_System.Shoot_horizontal:
-                        gameObject.GetComponent<Item_System>().Use_Item(itemData.useItemMode, itemData.ItemPrefeb, IsAim, lookat);
-                        Remove_Number_Item(itemData);
                         break;
                 }
             }
