@@ -1291,7 +1291,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288835936}
-  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
   m_LocalPosition: {x: 0, y: 4, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8842,6 +8842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FocusPoint: {fileID: 1606737655}
+  focusOffset: 0
 --- !u!224 &1804303238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8849,7 +8850,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804303229}
-  m_LocalRotation: {x: 0.07625056, y: 0.000000017156292, z: -0.0000000013119965, w: 0.99708873}
+  m_LocalRotation: {x: 0.07625056, y: -0.000000017156285, z: 0.000000001311996, w: 0.99708873}
   m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9922,7 +9923,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7b38d187bec83c541b9abeabe8996bd6, type: 3}
     - target: {fileID: 8095590129491471457, guid: 65743703ae6626d44988ddb1dce0cf64, type: 3}
       propertyPath: Tutorial_Mobile.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8095590129491471457, guid: 65743703ae6626d44988ddb1dce0cf64, type: 3}
       propertyPath: Tutorial_Mobile.Array.data[0]

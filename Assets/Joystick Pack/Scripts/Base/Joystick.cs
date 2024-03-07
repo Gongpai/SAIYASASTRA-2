@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GDD.TouchSystem;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +11,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
+
+    public static List<Touch> _touches = new List<Touch>();
+    private Touch _touch;
 
     private bool _isPress;
     public bool isPress
@@ -85,6 +90,14 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     {
         OnDrag(eventData);
         _isPress = true;
+
+        //print($"Add Touch {Input.touches[Input.touches.Length - 1].fingerId}");
+        if (Input.touches.Length > 0 && _touch.Equals(default(Touch)))
+        {
+            _touch = Input.touches[Input.touches.Length - 1];
+            _touches.Add(_touch);
+            print($"Add Touch {_touch.fingerId}");
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -159,6 +172,12 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
         _isPress = false;
+
+        if (Input.touches.Length > 0 && !_touch.Equals(default(Touch)))
+        {
+            _touches.Remove(_touch);
+            _touch = default(Touch);
+        }
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)

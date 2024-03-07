@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace GDD.TouchSystem
 {
@@ -31,18 +32,33 @@ namespace GDD.TouchSystem
             get => m_touchIdentifier;
         }
 
+        private void OnGamestateChanged(GameState gameState)
+        {
+            enabled = gameState == GameState.Play;
+        }
+
+        private void Awake()
+        {
+            Game_State_Manager.Instance.OnGameStateChange += OnGamestateChanged;
+        }
+
         protected virtual void Start()
         {
             if(_Camera == null)
                 _Camera = this.GetComponent<Camera>();
-            _touchPool = new Dictionary<int, TouchIdentifier>();
         }
 
         protected virtual void Update()
         {
-            for (int i = 0; i < Input.touchCount; i++)
+            for (int i = 0; i < Input.touches.Length; i++)
             {
                 Touch t = Input.GetTouch(i);
+                
+                if (CheckTouchOtherSystem(t) || PointerOverUIElement.OnPointerOverUIElement(t))
+                {
+                    continue;
+                }
+
                 switch (t.phase)
                 {
                     case TouchPhase.Began:
@@ -100,14 +116,14 @@ namespace GDD.TouchSystem
         public virtual void OnTouchBegan(Touch touch)
         {
             GetTouchIdentifierWithTouch(touch);
-            TouchValue touchValue = new TouchValue(0, 0, 0);
+            TouchValue touchValue = new TouchValue(0, 0, 0, new Touch());
             m_startAction?.Invoke();
         }
 
         public virtual void OnTouchEnded(Touch touch)
         {
             RemoveTouchIdentifierWithTouch(touch);
-            TouchValue touchValue = new TouchValue(0, 0, 0);
+            TouchValue touchValue = new TouchValue(0, 0, 0, new Touch());
             m_stopAction?.Invoke();
         }
 
@@ -124,6 +140,27 @@ namespace GDD.TouchSystem
         public virtual void OnTouchCancel(Touch touch)
         {
             RemoveTouchIdentifierWithTouch(touch);
+        }
+        
+        public bool CheckTouchOtherSystem(Touch _touch)
+        {
+            bool isTouch = false;
+
+            foreach (var touch in Joystick._touches)
+            {
+                if(touch.fingerId == _touch.fingerId)
+                {
+                    isTouch = true;
+                    break;
+                }
+            }
+
+            return isTouch;
+        }
+        
+        void OnDestroy()
+        {
+            Game_State_Manager.Instance.OnGameStateChange -= OnGamestateChanged;
         }
     }
 }

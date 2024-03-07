@@ -165,7 +165,7 @@ public class InputManager : MonoBehaviour
                 OnShootTouch?.Invoke(touchValue.angle, touchValue.duration);
         }
     }
-
+    
     [Header("Player Fire Input")]
     [Tooltip("Whether or not the fire button was pressed this frame")]
     public bool firePressed;

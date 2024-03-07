@@ -52,7 +52,7 @@ namespace GDD.TouchSystem
                 print($"Angle is : {angle} || {angle * Mathf.Rad2Deg}");
             }
 
-            return new TouchValue(duration, Vector2.Distance(touch.position, touchID.startPosition), angle);
+            return new TouchValue(duration, Vector2.Distance(touch.position, touchID.startPosition), angle, touch);
         }
 
         /*

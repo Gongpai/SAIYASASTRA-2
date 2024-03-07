@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 6178590278065812199}
   - component: {fileID: 7482307915959112291}
   - component: {fileID: 3842570613567036826}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: BG_ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
