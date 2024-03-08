@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 68028019013244573}
   - component: {fileID: 4200517667925857246}
   - component: {fileID: 4647086142876113045}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Touch_screen_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,7 +1186,7 @@ GameObject:
   - component: {fileID: 3446799289882772603}
   - component: {fileID: 4589149689148953366}
   - component: {fileID: 8569646440005233010}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5240,6 +5240,10 @@ PrefabInstance:
     - target: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_Name
       value: Movement_Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043270, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_CullTransparentMesh

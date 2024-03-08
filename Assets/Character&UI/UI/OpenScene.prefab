@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 83175427636848429}
   - component: {fileID: 6507874302586402928}
   - component: {fileID: 6548496092652798976}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: OpenScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +136,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4672649567930479178
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,9 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

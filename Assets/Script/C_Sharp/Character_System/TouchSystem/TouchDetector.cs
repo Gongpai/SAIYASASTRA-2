@@ -53,27 +53,43 @@ namespace GDD.TouchSystem
             for (int i = 0; i < Input.touches.Length; i++)
             {
                 Touch t = Input.GetTouch(i);
-                
-                if (CheckTouchOtherSystem(t) || PointerOverUIElement.OnPointerOverUIElement(t))
-                {
-                    continue;
-                }
 
                 switch (t.phase)
                 {
                     case TouchPhase.Began:
+                        if (CheckTouchOtherSystem(t) || PointerOverUIElement.OnPointerOverUIElement(t))
+                            continue;
+                        
                         OnTouchBegan(t);
                         break;
                     case TouchPhase.Ended:
+                        if (CheckTouchOtherSystem(t) || PointerOverUIElement.OnPointerOverUIElement(t))
+                        {
+                            RemoveTouchIdentifierWithTouch(t);
+                            continue;
+                        }
+
                         OnTouchEnded(t);
                         break;
                     case TouchPhase.Moved:
+                        if (CheckTouchOtherSystem(t) || PointerOverUIElement.OnPointerOverUIElement(t))
+                            continue;
+                        
                         OnTouchMoved(t);
                         break;
                     case TouchPhase.Stationary:
+                        if (CheckTouchOtherSystem(t) || PointerOverUIElement.OnPointerOverUIElement(t))
+                            continue;
+                        
                         OnTouchStay(t);
                         break;
                     case TouchPhase.Canceled:
+                        if (CheckTouchOtherSystem(t) || PointerOverUIElement.OnPointerOverUIElement(t))
+                        {
+                            RemoveTouchIdentifierWithTouch(t);
+                            continue;
+                        }
+                        
                         OnTouchCancel(t);
                         break;
                 }
@@ -129,12 +145,14 @@ namespace GDD.TouchSystem
 
         public virtual void OnTouchMoved(Touch touch)
         {
-            _touchPool[touch.fingerId].deltaPosition = touch.deltaPosition;
+            if(_touchPool.ContainsKey(touch.fingerId))
+                _touchPool[touch.fingerId].deltaPosition = touch.deltaPosition;
         }
 
         public virtual void OnTouchStay(Touch touch)
         {
-            _touchPool[touch.fingerId].deltaPosition = touch.deltaPosition;
+            if(_touchPool.ContainsKey(touch.fingerId))
+                _touchPool[touch.fingerId].deltaPosition = touch.deltaPosition;
         }
 
         public virtual void OnTouchCancel(Touch touch)
